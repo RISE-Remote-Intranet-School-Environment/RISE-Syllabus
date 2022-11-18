@@ -14,7 +14,7 @@ public class documentService {
 
     // CREATE
     public documentModel createDocument(documentModel document) {
-        return decomentRepository.save(document);
+        return decumentRepository.save(document);
     }
 
     // READ
@@ -30,9 +30,12 @@ public class documentService {
     // UPDATE
     public documentModel updateDocument(Long documentId, documentModel documentDetails) {
         documentModel document = documentRepository.findById(documentId).get();
-        document.setFirstName(documentDetails.getFirstName());
-        document.setLastName(documentDetails.getLastName());
-        document.setEmailId(documentDetails.getEmailId());
+        document.setName(documentDetails.getName());
+        document.setAuthor(documentDetails.getAuthor());
+        document.setPublishDate(documentDetails.getPublishDate());
+        document.setPages(documentDetails.getPages());
+        document.setVersion(documentDetails.getVersion());
+        document.setPrice(documentDetails.getPrice());
 
         return documentRepository.save(document);
     }
