@@ -1,0 +1,38 @@
+Home
+-> Course
+	-> SeeCourses(courseID)
+	-> SeeingCourses
+	-> Home
+Home
+-> Course
+	-> AddDocumentToBasket(courseID, documentID)
+	-> AddedDocumentToBasket
+	-> Home
+Home
+-> Course
+	-> AddDocumentToCourse(courseID, document, author, title)
+	-> AddedDocumentToCourse
+	-> Home
+Home
+-> Basket
+	-> SeeBasket() 	user en variable ?
+	-> SeeingBasket
+	-> Home
+Home
+-> Basket
+	-> DeleteElementBasket(courseID, documentID)
+	-> DeletedElement
+	-> Home
+Home
+-> Basket
+	-> OrderBasket(courseID, documentID, userID) 	user ?
+	-> OrderedBasket
+	-> Home
+Home
+
+Validated Names
+*courseID := https://schema.org/Course
+*author := https://schema.org/author
+*title := https://schema.org/title
+*documentID := https://schema.org/Documents.html
+*UserID := https://schema.org/User.html
