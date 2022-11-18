@@ -30,7 +30,6 @@ public class orderService {
         order.setDate(orderDetails.getDate());
         order.setPrice(orderDetails.getPrice());
         order.setState(orderDetails.getState());
-
         return orderRepository.save(order);
     }
 }
