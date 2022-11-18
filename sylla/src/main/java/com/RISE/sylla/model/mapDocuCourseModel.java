@@ -13,36 +13,36 @@ public class mapDocuCourseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idmap")
-    private int idmap;
+    @Column(name="idMapDocuCourse")
+    private int idMapDocuCourse;
 
-    @Column(name="course")
-    private int course;
+    @Column(name="fkCourse_DocCourse")
+    private int fkCourse_DocCourse;
 
-    @Column(name="document")
-    private int document;
+    @Column(name="fkDocument_DocCourse")
+    private int fkDocument_DocCourse;
 
-    public int getIdmap() {
-        return idmap;
+    public int getIdMapDocuCourse() {
+        return idMapDocuCourse;
     }
 
-    public void setIdmap(int idmap) {
-        this.idmap = idmap;
+    public void setIdMapDocuCourse(int idMapDocuCourse) {
+        this.idMapDocuCourse = idMapDocuCourse;
     }
 
-    public int getCourse() {
-        return course;
+    public int getFkCourse_DocCourse() {
+        return fkCourse_DocCourse;
     }
 
-    public void setCourse(int course) {
-        this.course = course;
+    public void setFkCourse_DocCourse(int fkCourse_DocCourse) {
+        this.fkCourse_DocCourse = fkCourse_DocCourse;
     }
 
-    public int getDocument() {
-        return document;
+    public int getFkDocument_DocCourse() {
+        return fkDocument_DocCourse;
     }
 
-    public void setDocument(int document) {
-        this.document = document;
+    public void setFkDocument_DocCourse(int fkDocument_DocCourse) {
+        this.fkDocument_DocCourse = fkDocument_DocCourse;
     }
 }

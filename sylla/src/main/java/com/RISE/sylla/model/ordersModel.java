@@ -15,7 +15,7 @@ public class ordersModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="orderId")
-    private long orderID;
+    private long orderId;
 
     @Column(name="student")
     private int student;
@@ -30,11 +30,11 @@ public class ordersModel {
     private String state;
 
     public long getOrderID() {
-        return orderID;
+        return orderId;
     }
 
-    public void setOrderID(long orderID) {
-        this.orderID = orderID;
+    public void setOrderID(long orderId) {
+        this.orderId = orderId;
     }
 
     public int getStudent() {

@@ -13,36 +13,36 @@ public class mapDocuOrderModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idmap")
-    private int idmap;
+    @Column(name="idMapDocuOrder")
+    private int idMapDocuOrder;
 
-    @Column(name="order")
-    private int order;
+    @Column(name="fkDocument_DocOrder")
+    private int fkDocument_DocOrder;
 
-    @Column(name="document")
-    private int document;
+    @Column(name="fkOrder_DocOrder")
+    private int fkOrder_DocOrder;
 
-    public int getIdmap() {
-        return idmap;
+    public int getIdMapDocuOrder() {
+        return idMapDocuOrder;
     }
 
-    public void setIdmap(int idmap) {
-        this.idmap = idmap;
+    public void setIdMapDocuOrder(int idMapDocuOrder) {
+        this.idMapDocuOrder = idMapDocuOrder;
     }
 
-    public int getDocument() {
-        return document;
+    public int getFkDocument_DocOrder() {
+        return fkDocument_DocOrder;
     }
 
-    public void setDocument(int document) {
-        this.document = document;
+    public void setFkDocument_DocOrder(int fkDocument_DocOrder) {
+        this.fkDocument_DocOrder = fkDocument_DocOrder;
     }
 
-    public int getOrder() {
-        return order;
+    public int getFkOrder_DocOrder() {
+        return fkOrder_DocOrder;
     }
 
-    public void setOrder(int order) {
-        this.order = order;
+    public void setFkOrder_DocOrder(int fkOrder_DocOrder) {
+        this.fkOrder_DocOrder = fkOrder_DocOrder;
     }
 }
