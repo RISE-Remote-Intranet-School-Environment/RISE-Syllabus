@@ -1,4 +1,4 @@
-git mergepackage com.RISE.sylla.controller;
+git stapackage com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,28 +15,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.userModel;
-import com.RISE.sylla.service.userService;
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.service.documentService;
 
 @RestController
 @RequestMapping("/api")
-public class userController {
+public class documentController {
     @Autowired
-    userService userService;
+    documentService documentService;
 
-    @RequestMapping(value="/users", method= RequestMethod.POST)
-    public userModel createUser(@RequestBody userModel user) {
-        return userService.createUser(user);
+    @RequestMapping(value="/documents", method= RequestMethod.POST)
+    public documentModel createDocument(@RequestBody documentModel document) {
+        return documentService.createDocument(document);
     }
 
-    @RequestMapping(value="/users", method=RequestMethod.GET)
-    public List<userModel> readUsers() {
-        return userService.getUser();
+    @RequestMapping(value="/documents", method=RequestMethod.GET)
+    public List<documentModel> readDocuments() {
+        return documentService.getDocument();
     }
 
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.PUT)
-    public userModel readUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
-        return userService.updateUser(id, userDetails);
+    @RequestMapping(value="/documents/{documentId}", method=RequestMethod.PUT)
+    public documentModel readDocuments(@PathVariable(value = "documentId") Long id, @RequestBody documentModel documentDetails) {
+        return documentService.updateDocument(id, documentDetails);
     }
 
     @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
