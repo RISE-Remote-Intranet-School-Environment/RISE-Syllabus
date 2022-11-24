@@ -1,4 +1,4 @@
-package com.RISE.sylla.controller;
+git stapackage com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
