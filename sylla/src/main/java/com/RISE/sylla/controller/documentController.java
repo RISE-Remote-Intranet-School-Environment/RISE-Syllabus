@@ -39,8 +39,8 @@ public class documentController {
         return documentService.updateDocument(id, documentDetails);
     }
 
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
-    public void deleteUser(@PathVariable(value = "userId") Long id) {
+    @RequestMapping(value="/documents/{documentId}", method=RequestMethod.DELETE)
+    public void deleteDocument(@PathVariable(value = "documentId") Long id) {
         documentService.deleteDocument(id);
     }
 
