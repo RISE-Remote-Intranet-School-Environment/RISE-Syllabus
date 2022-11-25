@@ -19,7 +19,7 @@ import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.service.documentService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/document")
 public class documentController {
     @Autowired
     documentService documentService;
@@ -41,7 +41,7 @@ public class documentController {
 
     @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
     public void deleteUser(@PathVariable(value = "userId") Long id) {
-        userService.deleteUser(id);
+        documentService.deleteDocument(id);
     }
 
 }

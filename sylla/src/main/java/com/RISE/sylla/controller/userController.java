@@ -19,7 +19,7 @@ import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class userController {
     @Autowired
     userService userService;

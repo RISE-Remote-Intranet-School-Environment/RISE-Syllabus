@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.service.mapDocuOrderService;
 
-
 @RestController
 @RequestMapping("/mapDocuOrder")
 public class mapDocuOrderController {

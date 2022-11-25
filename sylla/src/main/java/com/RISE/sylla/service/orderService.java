@@ -2,24 +2,24 @@ package com.RISE.sylla.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.RISE.sylla.model.ordersModel;
-import com.RISE.sylla.repository.ordersRepository;
+import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.repository.orderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ordersService {
+public class orderService {
     @Autowired
-    ordersRepository ordersRepository;
+    orderRepository ordersRepository;
 
     // CREATE
-    public ordersModel createOrder(ordersModel order) {
+    public orderModel createOrder(orderModel order) {
         return ordersRepository.save(order);
     }
 
     // READ
-    public List<ordersModel> getOrder() {
+    public List<orderModel> getOrder() {
         return ordersRepository.findAll();
     }
 
@@ -29,8 +29,8 @@ public class ordersService {
     }
 
     // UPDATE
-    public ordersModel updateOrder(Long orderId, ordersModel orderDetails) {
-        ordersModel order = ordersRepository.findById(orderId).get();
+    public orderModel updateOrder(Long orderId, orderModel orderDetails) {
+        orderModel order = ordersRepository.findById(orderId).get();
         order.setStudent(orderDetails.getStudent());
         order.setDate(orderDetails.getDate());
         order.setPrice(orderDetails.getPrice());
