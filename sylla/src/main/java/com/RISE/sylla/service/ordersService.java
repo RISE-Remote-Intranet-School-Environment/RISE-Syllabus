@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.RISE.sylla.model.ordersModel;
 import com.RISE.sylla.repository.ordersRepository;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class ordersService {
     @Autowired
-    com.RISE.sylla.repository.ordersRepository ordersRepository;
+    ordersRepository ordersRepository;
 
     // CREATE
     public ordersModel createOrder(ordersModel order) {
