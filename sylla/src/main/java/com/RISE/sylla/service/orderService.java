@@ -1,5 +1,9 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.mapDocuOrderModel;
+import com.RISE.sylla.repository.documentRepository;
+import com.RISE.sylla.repository.mapDocuOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.RISE.sylla.model.orderModel;
@@ -38,22 +42,22 @@ public class orderService {
         return ordersRepository.save(order);
     }
 
-    public long getPrice(Long orderId) {
-        int totalPrice = 0;
-        ordersModel order = ordersRepository.findById(orderId).get();
-        List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderRepository.findAll();
-        List<documentModel> documentArray = documentRepository.findAll();
-        for (mapDocuOrderModel element : mapDocuOrderArray) {
-            if (element.getFkOrder_DocOrder() == orderId) {
-                int fkDoc = element.getFkDocument_DocOrder();
-                for (documentModel element2 : documentArray) {
-                    if (element2.getDocumentId() == fkDoc) {
-                        totalPrice += element2.getPrice();
-                    }
-                }
+    //public long getPrice(Long orderId) {
+        //int totalPrice = 0;
+        //orderModel order = ordersRepository.findById(orderId).get();
+        //List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMap();
+        //List<documentModel> documentArray = documentRepository.findAll();
+        //for (mapDocuOrderModel element : mapDocuOrderArray) {
+        //    if (element.getFkOrder_DocOrder() == orderId) {
+        //        int fkDoc = element.getFkDocument_DocOrder();
+        //        for (documentModel element2 : documentArray) {
+        //            if (element2.getDocumentId() == fkDoc) {
+        //                totalPrice += element2.getPrice();
+        //            }
+        //        }
 
-            }
-        }
-        return totalPrice;
-    }
+        //    }
+        //}
+        //return totalPrice;
+    //}
 }
