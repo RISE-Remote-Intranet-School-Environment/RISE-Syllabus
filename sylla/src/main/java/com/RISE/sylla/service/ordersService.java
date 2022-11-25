@@ -34,4 +34,23 @@ public class ordersService {
         order.setState(orderDetails.getState());
         return ordersRepository.save(order);
     }
+
+    public long getPrice(Long orderId) {
+        int totalPrice = 0;
+        ordersModel order = ordersRepository.findById(orderId).get();
+        List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderRepository.findAll();
+        List<documentModel> documentArray = documentRepository.findAll();
+        for (mapDocuOrderModel element : mapDocuOrderArray) {
+            if (element.getFkOrder_DocOrder() == orderId) {
+                int fkDoc = element.getFkDocument_DocOrder();
+                for (documentModel element2 : documentArray) {
+                    if (element2.getDocumentId() == fkDoc) {
+                        totalPrice += element2.getPrice();
+                    }
+                }
+
+            }
+        }
+        return totalPrice;
+    }
 }
