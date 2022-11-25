@@ -35,6 +35,11 @@ public class orderController {
         return orderService.createOrder(order);
     }
 
+    @RequestMapping(value="/status/{new}", method= RequestMethod.GET) //TODO
+    public orderModel updateStatus(@PathVariable(value = "new") Long id) {
+        return orderService.updateStatus(id);
+    }
+
     @RequestMapping(value="/orders", method=RequestMethod.GET)
     public List<orderModel> readOrders() {
         return orderService.getOrder();
