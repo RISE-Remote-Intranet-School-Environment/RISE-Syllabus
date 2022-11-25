@@ -55,11 +55,11 @@ public class courseModel {
         this.teacher = teacher;
     }
 
-    public String getUe() {
+    public String getUE() {
         return ue;
     }
 
-    public void setUe(String ue) {
+    public void setUE(String ue) {
         this.ue = ue;
     }
 

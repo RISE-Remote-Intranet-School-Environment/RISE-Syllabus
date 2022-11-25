@@ -1,4 +1,4 @@
-git stapackage com.RISE.sylla.controller;
+package com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.service.documentService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/document")
 public class documentController {
     @Autowired
     documentService documentService;
@@ -39,9 +39,9 @@ public class documentController {
         return documentService.updateDocument(id, documentDetails);
     }
 
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
-    public void deleteUser(@PathVariable(value = "userId") Long id) {
-        userService.deleteUser(id);
+    @RequestMapping(value="/documents/{documentId}", method=RequestMethod.DELETE)
+    public void deleteDocument(@PathVariable(value = "documentId") Long id) {
+        documentService.deleteDocument(id);
     }
 
 }

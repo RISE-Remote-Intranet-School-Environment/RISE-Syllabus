@@ -1,4 +1,4 @@
-git stapackage com.RISE.sylla.controller;
+package com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class userController {
     @Autowired
     userService userService;
