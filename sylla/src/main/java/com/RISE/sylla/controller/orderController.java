@@ -13,11 +13,22 @@ import org.springframework.web.bind.annotation.RestController;
 import com.RISE.sylla.model.orderModel;
 import com.RISE.sylla.service.orderService;
 
+import com.RISE.sylla.service.mapDocuOrderService;
+import com.RISE.sylla.model.mapDocuOrderModel;
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.service.orderService;
+import com.RISE.sylla.service.documentService;
+
+
 @RestController
 @RequestMapping("/order")
 public class orderController {
     @Autowired
     orderService orderService;
+    @Autowired
+    documentService documentService;
+    @Autowired
+    mapDocuOrderService mapDocuOrderService;
 
     @RequestMapping(value="/orders", method= RequestMethod.POST)
     public orderModel createOrder(@RequestBody orderModel order) {
@@ -37,6 +48,27 @@ public class orderController {
     @RequestMapping(value="/orders/{orderId}", method=RequestMethod.DELETE)
     public void deleteOrder(@PathVariable(value = "orderId") Long id) {
         orderService.deleteOrder(id);
+    }
+
+
+    @RequestMapping(value="/price/{orderId}", method=RequestMethod.GET)
+    public long getPrice(@PathVariable(value = "orderId") Long orderId) {
+    int totalPrice = 0;
+    //List<orderModel> order = orderService.getOrder();
+    List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMap();
+    List<documentModel> documentArray = documentService.getDocument();
+    for (mapDocuOrderModel element : mapDocuOrderArray) {
+        if (element.getFkOrder_DocOrder() == orderId) {
+            int fkDoc = element.getFkDocument_DocOrder();
+            for (documentModel element2 : documentArray) {
+                if (element2.getDocumentId() == fkDoc) {
+                    totalPrice += element2.getPrice();
+                }
+            }
+
+        }
+    }
+    return totalPrice;
     }
 
 }

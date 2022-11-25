@@ -23,7 +23,7 @@ public class documentModel {
     @Column(name="author")
     private String author;
 
-    @Column(name="publishdrate")
+    @Column(name="publishdate")
     private String publishDate;
 
     @Column(name="pages")
