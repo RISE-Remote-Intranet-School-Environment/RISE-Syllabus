@@ -13,13 +13,13 @@ public class mapDocuOrderModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idMapDocuOrder")
+    @Column(name="idmapdocuorder")
     private int idMapDocuOrder;
 
-    @Column(name="fkDocument_DocOrder")
+    @Column(name="fkdocument_Docorder")
     private int fkDocument_DocOrder;
 
-    @Column(name="fkOrder_DocOrder")
+    @Column(name="fkorder_Docorder")
     private int fkOrder_DocOrder;
 
     public int getIdMapDocuOrder() {

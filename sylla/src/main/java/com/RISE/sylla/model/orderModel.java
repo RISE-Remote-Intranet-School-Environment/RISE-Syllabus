@@ -14,7 +14,7 @@ public class orderModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="orderId")
+    @Column(name="orderid")
     private long orderId;
 
     @Column(name="student")

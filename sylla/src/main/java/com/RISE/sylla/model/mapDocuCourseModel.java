@@ -13,13 +13,13 @@ public class mapDocuCourseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idMapDocuCourse")
+    @Column(name="idmapdocucourse")
     private int idMapDocuCourse;
 
-    @Column(name="fkCourse_DocCourse")
+    @Column(name="fkcourse_Doccourse")
     private int fkCourse_DocCourse;
 
-    @Column(name="fkDocument_DocCourse")
+    @Column(name="fkdocument_Doccourse")
     private int fkDocument_DocCourse;
 
     public int getIdMapDocuCourse() {

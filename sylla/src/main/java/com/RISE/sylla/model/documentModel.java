@@ -14,7 +14,7 @@ public class documentModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="documentId")
+    @Column(name="documentid")
     private Long documentId;
 
     @Column(name="name")
@@ -23,7 +23,7 @@ public class documentModel {
     @Column(name="author")
     private String author;
 
-    @Column(name="publishDate")
+    @Column(name="publishdrate")
     private String publishDate;
 
     @Column(name="pages")

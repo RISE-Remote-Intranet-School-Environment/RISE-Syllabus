@@ -61,7 +61,7 @@ public class userModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="userId")
+    @Column(name="userid")
     private Long userId;
 
     @Column(name="firstname")
