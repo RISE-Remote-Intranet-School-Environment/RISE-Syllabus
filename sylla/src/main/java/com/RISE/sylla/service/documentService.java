@@ -5,6 +5,8 @@ import com.RISE.sylla.repository.userRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.repository.documentRepository;
 import java.util.List;
 
 @Service
@@ -14,7 +16,7 @@ public class documentService {
 
     // CREATE
     public documentModel createDocument(documentModel document) {
-        return decumentRepository.save(document);
+        return documentRepository.save(document);
     }
 
     // READ
