@@ -1,7 +1,10 @@
 package com.RISE.sylla.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import com.RISE.sylla.model.courseModel;
+import com.RISE.sylla.repository.courseRepository;
 import java.util.List;
 
 public class courseService {
