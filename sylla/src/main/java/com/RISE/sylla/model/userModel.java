@@ -10,11 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "users")
 public class userModel {
-
-    public Long getId() {
-        return id;
-    }
-
+    
     public String getFirstName() {
         return firstName;
     }
@@ -37,10 +33,6 @@ public class userModel {
 
     public String getTrigram() {
         return trigram;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public void setFirstName(String firstName) {
@@ -69,8 +61,8 @@ public class userModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private Long id;
+    @Column(name="userId")
+    private Long userId;
 
     @Column(name="firstname")
     private String firstName;
@@ -90,4 +82,11 @@ public class userModel {
     @Column(name="trigram")
     private String trigram;
 
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }
