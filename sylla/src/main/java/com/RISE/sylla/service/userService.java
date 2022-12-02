@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.repository.userRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class userService {
@@ -19,9 +20,12 @@ public class userService {
     }
 
     // READ
-    public List<userModel> getUser() {
+    public List<userModel> getUsers() {
         return userRepository.findAll();
     }
+
+    //READ by id
+    public Optional<userModel> getUserById(Long userId){return userRepository.findById(userId);}
 
     // DELETE
     public void deleteUser(Long userId) {

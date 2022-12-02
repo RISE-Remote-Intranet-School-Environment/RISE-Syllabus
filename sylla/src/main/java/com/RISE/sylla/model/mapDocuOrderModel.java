@@ -14,7 +14,7 @@ public class mapDocuOrderModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idmapdocuorder")
-    private int idMapDocuOrder;
+    private Long idMapDocuOrder;
 
     @Column(name="fkdocument_Docorder")
     private int fkDocument_DocOrder;
@@ -22,11 +22,11 @@ public class mapDocuOrderModel {
     @Column(name="fkorder_Docorder")
     private int fkOrder_DocOrder;
 
-    public int getIdMapDocuOrder() {
+    public Long getIdMapDocuOrder() {
         return idMapDocuOrder;
     }
 
-    public void setIdMapDocuOrder(int idMapDocuOrder) {
+    public void setIdMapDocuOrder(Long idMapDocuOrder) {
         this.idMapDocuOrder = idMapDocuOrder;
     }
 

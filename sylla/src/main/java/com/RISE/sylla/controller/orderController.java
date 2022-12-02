@@ -1,8 +1,10 @@
 package com.RISE.sylla.controller;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +18,6 @@ import com.RISE.sylla.service.orderService;
 import com.RISE.sylla.service.mapDocuOrderService;
 import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.service.orderService;
 import com.RISE.sylla.service.documentService;
 
 
@@ -35,9 +36,21 @@ public class orderController {
         return orderService.createOrder(order);
     }
 
+    @RequestMapping(value="/status", method= RequestMethod.POST)
+    public orderModel updateStatus(@RequestBody String status) {
+        String[] data = status.split(",");
+        return orderService.updateStatus(Long.parseLong(data[0]), data[1]);
+    }
+
+
     @RequestMapping(value="/orders", method=RequestMethod.GET)
     public List<orderModel> readOrders() {
-        return orderService.getOrder();
+        return orderService.getOrders();
+    }
+
+    @RequestMapping(value="/{orderId}", method=RequestMethod.GET)
+    public Optional<orderModel> readOrderById(@PathVariable(value = "orderId") Long id) {
+        return orderService.getOrderById(id);
     }
 
     @RequestMapping(value="/orders/{orderId}", method=RequestMethod.PUT)
@@ -55,8 +68,8 @@ public class orderController {
     public long getPrice(@PathVariable(value = "orderId") Long orderId) {
     int totalPrice = 0;
     //List<orderModel> order = orderService.getOrder();
-    List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMap();
-    List<documentModel> documentArray = documentService.getDocument();
+    List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
+    List<documentModel> documentArray = documentService.getDocuments();
     for (mapDocuOrderModel element : mapDocuOrderArray) {
         if (element.getFkOrder_DocOrder() == orderId) {
             int fkDoc = element.getFkDocument_DocOrder();

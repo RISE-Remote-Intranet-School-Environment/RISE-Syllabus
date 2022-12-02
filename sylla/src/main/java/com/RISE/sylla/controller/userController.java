@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,12 @@ public class userController {
 
     @RequestMapping(value="/users", method=RequestMethod.GET)
     public List<userModel> readUsers() {
-        return userService.getUser();
+        return userService.getUsers();
+    }
+
+    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
+    public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {
+        return userService.getUserById(id);
     }
 
     @RequestMapping(value="/users/{userId}", method=RequestMethod.PUT)

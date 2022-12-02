@@ -1,11 +1,13 @@
 package com.RISE.sylla.controller;
 
 import com.RISE.sylla.model.mapDocuCourseModel;
+import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.mapDocuCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,7 +34,12 @@ public class mapDocuCourseController {
 
     @RequestMapping(value="/mapDocuCourses", method=RequestMethod.GET)
     public List<mapDocuCourseModel> readMapDocuCourses() {
-        return mapDocuCourseService.getMapDocuCourse();
+        return mapDocuCourseService.getMapDocuCourses();
+    }
+
+    @RequestMapping(value="/{mapId}", method=RequestMethod.GET)
+    public Optional<mapDocuCourseModel> readMapById(@PathVariable(value = "mapId") Long id) {
+        return mapDocuCourseService.getMapById(id);
     }
 
     @RequestMapping(value="/mapDocuCourses/{mapDocuCourseId}", method=RequestMethod.PUT)

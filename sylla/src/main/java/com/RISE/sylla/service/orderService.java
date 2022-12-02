@@ -1,5 +1,6 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.RISE.sylla.model.orderModel;
@@ -7,34 +8,45 @@ import com.RISE.sylla.repository.orderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class orderService {
     @Autowired
-    orderRepository ordersRepository;
+    orderRepository orderRepository;
 
     // CREATE
     public orderModel createOrder(orderModel order) {
-        return ordersRepository.save(order);
+        return orderRepository.save(order);
     }
 
     // READ
-    public List<orderModel> getOrder() {
-        return ordersRepository.findAll();
+    public List<orderModel> getOrders() {
+        return orderRepository.findAll();
     }
+
+    //READ by id
+    public Optional<orderModel> getOrderById(Long orderId){return orderRepository.findById(orderId);}
 
     // DELETE
     public void deleteOrder(Long orderId) {
-        ordersRepository.deleteById(orderId);
+        orderRepository.deleteById(orderId);
     }
 
     // UPDATE
     public orderModel updateOrder(Long orderId, orderModel orderDetails) {
-        orderModel order = ordersRepository.findById(orderId).get();
+        orderModel order = orderRepository.findById(orderId).get();
         order.setStudent(orderDetails.getStudent());
         order.setDate(orderDetails.getDate());
         order.setPrice(orderDetails.getPrice());
         order.setState(orderDetails.getState());
-        return ordersRepository.save(order);
+        return orderRepository.save(order);
     }
+
+    public orderModel updateStatus(Long orderId, String status){
+        orderModel order = orderRepository.findById(orderId).get();
+        order.setState(status);
+        return orderRepository.save(order);
+    }
+
 }

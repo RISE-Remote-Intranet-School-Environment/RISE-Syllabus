@@ -14,7 +14,7 @@ public class mapDocuCourseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idmapdocucourse")
-    private int idMapDocuCourse;
+    private Long idMapDocuCourse;
 
     @Column(name="fkcourse_Doccourse")
     private int fkCourse_DocCourse;
@@ -22,11 +22,11 @@ public class mapDocuCourseModel {
     @Column(name="fkdocument_Doccourse")
     private int fkDocument_DocCourse;
 
-    public int getIdMapDocuCourse() {
+    public Long getIdMapDocuCourse() {
         return idMapDocuCourse;
     }
 
-    public void setIdMapDocuCourse(int idMapDocuCourse) {
+    public void setIdMapDocuCourse(Long idMapDocuCourse) {
         this.idMapDocuCourse = idMapDocuCourse;
     }
 

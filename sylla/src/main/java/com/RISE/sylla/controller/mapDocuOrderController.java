@@ -1,11 +1,13 @@
 package com.RISE.sylla.controller;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +32,14 @@ public class mapDocuOrderController {
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
+    @RequestMapping(value="/{mapId}", method=RequestMethod.GET)
+    public Optional<mapDocuOrderModel> readMapById(@PathVariable(value = "mapId") Long id) {
+        return mapDocuOrderService.getMapById(id);
+    }
+
     @RequestMapping(value="/mapDocuOrders", method=RequestMethod.GET)
     public List<mapDocuOrderModel> readmapDocuOrders() {
-        return mapDocuOrderService.getMap();
+        return mapDocuOrderService.getMaps();
     }
 
     @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.PUT)

@@ -1,11 +1,13 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.repository.documentRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class documentService {
@@ -18,9 +20,12 @@ public class documentService {
     }
 
     // READ
-    public List<documentModel> getDocument() {
+    public List<documentModel> getDocuments() {
         return documentRepository.findAll();
     }
+
+    //READ by id
+    public Optional<documentModel> getDocumentById(Long userId){return documentRepository.findById(userId);}
 
     // DELETE
     public void deleteDocument(Long documentId) {
