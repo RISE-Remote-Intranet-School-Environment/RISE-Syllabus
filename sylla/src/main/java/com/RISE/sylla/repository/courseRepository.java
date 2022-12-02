@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface courseRepository extends JpaRepository<courseModel, Long>{
-    Optional<courseModel> findByUE(String UE);
+    Optional<courseModel> findByue(String ue);
 }
 
 

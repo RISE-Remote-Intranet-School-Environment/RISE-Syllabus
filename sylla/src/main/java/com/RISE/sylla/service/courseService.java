@@ -44,6 +44,6 @@ public class courseService {
     }
 
     public Optional<courseModel> getCourseByUE(String ue) {
-        return courseRepository.findByUE(ue);
+        return courseRepository.findByue(ue);
     }
 }

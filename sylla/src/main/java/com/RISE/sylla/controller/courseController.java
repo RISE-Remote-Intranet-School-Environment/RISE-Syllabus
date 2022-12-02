@@ -50,7 +50,7 @@ public class courseController {
         courseService.deleteCourse(id);
     }
 
-    @RequestMapping(value="/courses/getByUE/{ue}", method=RequestMethod.GET)
+    @RequestMapping(value="/getByUE/{ue}", method=RequestMethod.GET)
     public Optional<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
         return courseService.getCourseByUE(ue);
     }
