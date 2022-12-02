@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.repository.mapDocuOrderRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class mapDocuOrderService {
@@ -18,9 +19,12 @@ public class mapDocuOrderService {
     //create
     public mapDocuOrderModel createMap(mapDocuOrderModel map){return mapDocuOrderRepository.save(map);}
 
-    public List<mapDocuOrderModel> getMap() {
+    public List<mapDocuOrderModel> getMaps() {
         return mapDocuOrderRepository.findAll();
     }
+
+    //READ by id
+    public Optional<mapDocuOrderModel> getMapById(Long mapId){return mapDocuOrderRepository.findById(mapId);}
 
     // DELETE
     public void deleteMap(Long mapId) {

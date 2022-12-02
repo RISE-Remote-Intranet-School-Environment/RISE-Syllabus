@@ -1,11 +1,13 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.courseModel;
 import com.RISE.sylla.repository.courseRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class courseService {
@@ -18,9 +20,12 @@ public class courseService {
     }
 
     // READ
-    public List<courseModel> getCourse() {
+    public List<courseModel> getCourses() {
         return courseRepository.findAll();
     }
+
+    //READ by id
+    public Optional<courseModel> getCourseById(Long courseId){return courseRepository.findById(courseId);}
 
     // DELETE
     public void deleteCourse(Long courseId) {

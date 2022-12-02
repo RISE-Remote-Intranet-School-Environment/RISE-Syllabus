@@ -1,11 +1,13 @@
 package com.RISE.sylla.controller;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,12 @@ public class documentController {
 
     @RequestMapping(value="/documents", method=RequestMethod.GET)
     public List<documentModel> readDocuments() {
-        return documentService.getDocument();
+        return documentService.getDocuments();
+    }
+
+    @RequestMapping(value="/{documentId}", method=RequestMethod.GET)
+    public Optional<documentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
+        return documentService.getDocumentById(id);
     }
 
     @RequestMapping(value="/documents/{documentId}", method=RequestMethod.PUT)

@@ -1,5 +1,6 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.RISE.sylla.model.orderModel;
@@ -7,6 +8,7 @@ import com.RISE.sylla.repository.orderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class orderService {
@@ -19,9 +21,12 @@ public class orderService {
     }
 
     // READ
-    public List<orderModel> getOrder() {
+    public List<orderModel> getOrders() {
         return orderRepository.findAll();
     }
+
+    //READ by id
+    public Optional<orderModel> getOrderById(Long orderId){return orderRepository.findById(orderId);}
 
     // DELETE
     public void deleteOrder(Long orderId) {
@@ -43,4 +48,5 @@ public class orderService {
         order.setState(status);
         return orderRepository.save(order);
     }
+
 }
