@@ -1,6 +1,5 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +42,7 @@ public class courseService {
         return courseRepository.save(course);
     }
 
-    public Optional<courseModel> getCourseByUE(String ue) {
-        return courseRepository.findByue(ue);
+    public List<courseModel> getCoursesByUE(String ue) {
+        return courseRepository.findAllByue(ue);
     }
 }

@@ -1,12 +1,8 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
-import java.util.List;
-import java.util.Optional;
 
 import java.util.Optional;
 
@@ -51,8 +47,8 @@ public class courseController {
     }
 
     @RequestMapping(value="/getByUE/{ue}", method=RequestMethod.GET)
-    public Optional<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
-        return courseService.getCourseByUE(ue);
+    public List<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
+        return courseService.getCoursesByUE(ue);
     }
 
 }
