@@ -1,12 +1,15 @@
 package com.RISE.sylla.service;
 
 
-import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.repository.documentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.repository.mapDocuOrderRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,6 +18,9 @@ public class mapDocuOrderService {
 
     @Autowired
     mapDocuOrderRepository mapDocuOrderRepository;
+
+    @Autowired
+    documentRepository documentRepository;
 
     //create
     public mapDocuOrderModel createMap(mapDocuOrderModel map){return mapDocuOrderRepository.save(map);}
@@ -34,10 +40,20 @@ public class mapDocuOrderService {
     // UPDATE
     public mapDocuOrderModel updateMap(Long mapId, mapDocuOrderModel mapDetails) {
         mapDocuOrderModel map = mapDocuOrderRepository.findById(mapId).get();
-        map.setFkOrder_DocOrder(mapDetails.getFkOrder_DocOrder());
-        map.setFkDocument_DocOrder(mapDetails.getFkDocument_DocOrder());
+        map.setFkorder(mapDetails.getFkorder());
+        map.setFkdocument(mapDetails.getFkdocument());
 
         return mapDocuOrderRepository.save(map);
+    }
+
+    //find documents by order id
+    public List<Optional<documentModel>> getDocByOrderId(Long id){
+        List<mapDocuOrderModel> list= mapDocuOrderRepository.findAllByfkorder(id);
+        List<Optional<documentModel>> docList = new ArrayList<Optional<documentModel>>();
+        for (mapDocuOrderModel map:list) {
+            docList.add(documentRepository.findById(map.getFkdocument()));
+        }
+        return docList;
     }
 
 }

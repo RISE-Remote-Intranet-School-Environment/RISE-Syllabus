@@ -1,6 +1,5 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +36,8 @@ public class mapDocuCourseService {
     public mapDocuCourseModel updateMapDocuCourse(Long mapDocuCourseId, mapDocuCourseModel mapDocuCourseDetails) {
         mapDocuCourseModel mapDocuCourse = mapDocuCourseRepository.findById(mapDocuCourseId).get();
         mapDocuCourse.setIdMapDocuCourse(mapDocuCourseDetails.getIdMapDocuCourse());
-        mapDocuCourse.setFkCourse_DocCourse(mapDocuCourseDetails.getFkCourse_DocCourse());
-        mapDocuCourse.setFkDocument_DocCourse(mapDocuCourseDetails.getFkDocument_DocCourse());
+        mapDocuCourse.setFkcourse(mapDocuCourseDetails.getFkcourse());
+        mapDocuCourse.setFkdocument(mapDocuCourseDetails.getFkdocument());
 
         return mapDocuCourseRepository.save(mapDocuCourse);
     }

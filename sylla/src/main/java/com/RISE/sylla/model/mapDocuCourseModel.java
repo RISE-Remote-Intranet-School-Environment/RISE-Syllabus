@@ -16,11 +16,11 @@ public class mapDocuCourseModel {
     @Column(name="idmapdocucourse")
     private Long idMapDocuCourse;
 
-    @Column(name="fkcourse_Doccourse")
-    private int fkCourse_DocCourse;
+    @Column(name="fkcourse")
+    private Long fkcourse;
 
-    @Column(name="fkdocument_Doccourse")
-    private int fkDocument_DocCourse;
+    @Column(name="fkdocument")
+    private Long fkdocument;
 
     public Long getIdMapDocuCourse() {
         return idMapDocuCourse;
@@ -30,19 +30,19 @@ public class mapDocuCourseModel {
         this.idMapDocuCourse = idMapDocuCourse;
     }
 
-    public int getFkCourse_DocCourse() {
-        return fkCourse_DocCourse;
+    public Long getFkcourse() {
+        return fkcourse;
     }
 
-    public void setFkCourse_DocCourse(int fkCourse_DocCourse) {
-        this.fkCourse_DocCourse = fkCourse_DocCourse;
+    public void setFkcourse(Long fkCourse_DocCourse) {
+        this.fkcourse = fkCourse_DocCourse;
     }
 
-    public int getFkDocument_DocCourse() {
-        return fkDocument_DocCourse;
+    public Long getFkdocument() {
+        return fkdocument;
     }
 
-    public void setFkDocument_DocCourse(int fkDocument_DocCourse) {
-        this.fkDocument_DocCourse = fkDocument_DocCourse;
+    public void setFkdocument(Long fkDocument_DocCourse) {
+        this.fkdocument = fkDocument_DocCourse;
     }
 }
