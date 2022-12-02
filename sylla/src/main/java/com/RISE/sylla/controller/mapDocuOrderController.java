@@ -1,5 +1,6 @@
 package com.RISE.sylla.controller;
 
+import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -50,6 +51,18 @@ public class mapDocuOrderController {
     @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.DELETE)
     public void deletemapDocuOrder(@PathVariable(value = "mapDocuOrderId") Long id) {
         mapDocuOrderService.deleteMap(id);
+    }
+
+
+    //get doc by order id
+    //@RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
+    //public List<Optional<documentModel>> readDocsByOrderId( (@PathVariable(value = "oderId") Long id) {
+    //    return mapDocuOrderService.getDocByOrderId(id);
+    //}
+
+    @RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
+    public List<Optional<documentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
+        return mapDocuOrderService.getDocByOrderId(id);
     }
 
 }

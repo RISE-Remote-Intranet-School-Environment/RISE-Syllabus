@@ -1,6 +1,5 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -71,8 +70,8 @@ public class orderController {
     List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
     List<documentModel> documentArray = documentService.getDocuments();
     for (mapDocuOrderModel element : mapDocuOrderArray) {
-        if (element.getFkOrder_DocOrder() == orderId) {
-            int fkDoc = element.getFkDocument_DocOrder();
+        if (element.getFkorder() == orderId) {
+            Long fkDoc = element.getFkdocument();
             for (documentModel element2 : documentArray) {
                 if (element2.getDocumentId() == fkDoc) {
                     totalPrice += element2.getPrice();
