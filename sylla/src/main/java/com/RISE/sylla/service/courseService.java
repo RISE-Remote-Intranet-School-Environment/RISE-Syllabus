@@ -42,4 +42,8 @@ public class courseService {
 
         return courseRepository.save(course);
     }
+
+    public Optional<courseModel> getCourseByUE(String ue) {
+        return courseRepository.findByUE(ue);
+    }
 }
