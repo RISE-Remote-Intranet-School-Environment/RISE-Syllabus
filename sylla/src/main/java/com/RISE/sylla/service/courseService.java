@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.RISE.sylla.model.courseModel;
 import com.RISE.sylla.repository.courseRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class courseService {
@@ -36,5 +37,9 @@ public class courseService {
         course.setYear(courseDetails.getYear());
 
         return courseRepository.save(course);
+    }
+
+    public Optional<courseModel> getCourseByUE(String ue) {
+        return courseRepository.findByUE(ue);
     }
 }

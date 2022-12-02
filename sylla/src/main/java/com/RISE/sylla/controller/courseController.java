@@ -1,14 +1,11 @@
 package com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,6 +39,11 @@ public class courseController {
     @RequestMapping(value="/courses/{courseId}", method=RequestMethod.DELETE)
     public void deleteCourse(@PathVariable(value = "courseId") Long id) {
         courseService.deleteCourse(id);
+    }
+
+    @RequestMapping(value="/courses/getByUE/{ue}", method=RequestMethod.GET)
+    public Optional<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
+        return courseService.getCourseByUE(ue);
     }
 
 }
