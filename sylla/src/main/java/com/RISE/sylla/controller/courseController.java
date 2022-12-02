@@ -51,4 +51,9 @@ public class courseController {
         return courseService.getCoursesByUE(ue);
     }
 
+    @RequestMapping(value="/getCoursesByAcademicYear/{year}", method=RequestMethod.GET)
+    public List<courseModel> getCoursesByAcademicYear(@PathVariable(value = "year") int year) {
+        return courseService.getCoursesByAcademicYear(year);
+    }
+
 }

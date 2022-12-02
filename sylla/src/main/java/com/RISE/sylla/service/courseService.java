@@ -45,4 +45,8 @@ public class courseService {
     public List<courseModel> getCoursesByUE(String ue) {
         return courseRepository.findAllByue(ue);
     }
+
+    public List<courseModel> getCoursesByAcademicYear(int year) {
+        return courseRepository.findAllByyear(year);
+    }
 }

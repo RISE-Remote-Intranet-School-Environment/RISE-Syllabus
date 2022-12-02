@@ -13,6 +13,8 @@ public interface courseRepository extends JpaRepository<courseModel, Long>{
     Optional<courseModel> findByue(String ue);
 
     List<courseModel> findAllByue(String ue);
+
+    List<courseModel> findAllByyear(int year);
 }
 
 
