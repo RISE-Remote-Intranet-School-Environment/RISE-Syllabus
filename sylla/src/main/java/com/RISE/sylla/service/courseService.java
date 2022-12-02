@@ -26,6 +26,8 @@ public class courseService {
     //READ by id
     public Optional<courseModel> getCourseById(Long courseId){return courseRepository.findById(courseId);}
 
+    // READ by teacher
+    public List<courseModel> getCourseByTeacherId(Long teacherId){return courseRepository.findAllByTeacher(teacherId);}
     // DELETE
     public void deleteCourse(Long courseId) {
         courseRepository.deleteById(courseId);
