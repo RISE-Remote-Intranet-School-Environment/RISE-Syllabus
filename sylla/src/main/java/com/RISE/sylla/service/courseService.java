@@ -1,6 +1,5 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +26,8 @@ public class courseService {
     //READ by id
     public Optional<courseModel> getCourseById(Long courseId){return courseRepository.findById(courseId);}
 
+    // READ by teacher
+    public List<courseModel> getCourseByTeacherId(Long teacherId){return courseRepository.findAllByTeacher(teacherId);}
     // DELETE
     public void deleteCourse(Long courseId) {
         courseRepository.deleteById(courseId);
