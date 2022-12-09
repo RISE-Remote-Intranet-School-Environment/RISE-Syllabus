@@ -83,4 +83,9 @@ public class orderController {
     return totalPrice;
     }
 
+    @RequestMapping(value="/getOrderByUserId/{userId}", method=RequestMethod.GET)
+    public List<orderModel> readOrderByUserId(@PathVariable(value = "userId") Long id) {
+        return orderService.getOrderByUserId(id);
+    }
+
 }

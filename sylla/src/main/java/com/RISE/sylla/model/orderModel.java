@@ -18,7 +18,7 @@ public class orderModel {
     private long orderId;
 
     @Column(name="student")
-    private int student;
+    private Long student;
 
     @Column(name="date")
     private String date;
@@ -37,11 +37,11 @@ public class orderModel {
         this.orderId = orderId;
     }
 
-    public int getStudent() {
+    public Long getStudent() {
         return student;
     }
 
-    public void setStudent(int student) {
+    public void setStudent(Long student) {
         this.student = student;
     }
 
