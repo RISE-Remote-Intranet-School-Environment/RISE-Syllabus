@@ -1,5 +1,6 @@
 package com.RISE.sylla.controller;
 
+import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.model.mapDocuCourseModel;
 import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.mapDocuCourseService;
@@ -50,6 +51,11 @@ public class mapDocuCourseController {
     @RequestMapping(value="/mapDocuCourses/{mapDocuCourseId}", method=RequestMethod.DELETE)
     public void deleteMapDocuCourse(@PathVariable(value = "mapDocuCourseId") Long id) {
         mapDocuCourseService.deleteMapDocuCourse(id);
+    }
+
+    @RequestMapping(value="/getDocsByCourseId/{courseId}", method=RequestMethod.GET)
+    public List<Optional<documentModel>> readDocsByCourseId(@PathVariable(value = "courseId") Long id) {
+        return mapDocuCourseService.getDocByCourseId(id);
     }
 
 }

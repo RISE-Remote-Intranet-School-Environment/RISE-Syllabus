@@ -1,10 +1,15 @@
 package com.RISE.sylla.service;
 
+import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.mapDocuOrderModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.mapDocuCourseModel;
 import com.RISE.sylla.repository.mapDocuCourseRepository;
+import com.RISE.sylla.repository.documentRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +18,9 @@ public class mapDocuCourseService {
 
     @Autowired
     mapDocuCourseRepository mapDocuCourseRepository;
+
+    @Autowired
+    documentRepository documentRepository;
 
     // CREATE
     public mapDocuCourseModel createMapDocuCourse(mapDocuCourseModel mapDocuCourse) {
@@ -40,5 +48,15 @@ public class mapDocuCourseService {
         mapDocuCourse.setFkdocument(mapDocuCourseDetails.getFkdocument());
 
         return mapDocuCourseRepository.save(mapDocuCourse);
+    }
+
+    //find documents by course id
+    public List<Optional<documentModel>> getDocByCourseId(Long id){
+        List<mapDocuCourseModel> list= mapDocuCourseRepository.findAllByfkcourse(id);
+        List<Optional<documentModel>> docList = new ArrayList<Optional<documentModel>>();
+        for (mapDocuCourseModel map:list) {
+            docList.add(documentRepository.findById(map.getFkdocument()));
+        }
+        return docList;
     }
 }
