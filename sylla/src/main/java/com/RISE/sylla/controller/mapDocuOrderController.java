@@ -28,6 +28,12 @@ public class mapDocuOrderController {
     @Autowired
     mapDocuOrderService mapDocuOrderService;
 
+    /**
+     * post NEW mapDocuOrder
+     *
+     * @param mapDocuOrder map to be posted
+     * @return the posted map
+     */
     @RequestMapping(value="/mapDocuOrders", method= RequestMethod.POST)
     public mapDocuOrderModel createmapDocuOrder(@RequestBody mapDocuOrderModel mapDocuOrder) {
         return mapDocuOrderService.createMap(mapDocuOrder);
