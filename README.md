@@ -3,7 +3,7 @@
 ## **Project participants 2022-2023:**
 
 - Kuijpers Nick 20324
-- Baudouin Loisseau 19593
+- Baudouin Losseau 19593
 - Quentin Jadoul 18155
 - Theo Engels 195367
 
