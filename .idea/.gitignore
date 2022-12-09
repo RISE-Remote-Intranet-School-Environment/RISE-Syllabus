@@ -7,6 +7,7 @@
 /dataSources/
 /dataSources.local.xml
 
+projetSoftwareArchitecture/.idea
 projetSoftwareArchitecture/.idea/.gitignore
 projetSoftwareArchitecture/.idea/misc.xml
 projetSoftwareArchitecture/.idea/vcs.xml
