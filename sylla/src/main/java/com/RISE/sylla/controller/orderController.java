@@ -77,7 +77,7 @@ public class orderController {
                     totalPrice += element2.getPrice();
                 }
             }
-
+            
         }
     }
     return totalPrice;
