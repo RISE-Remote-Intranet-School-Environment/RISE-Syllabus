@@ -9,9 +9,9 @@
 
 
 ## GETTING STARTED
-This is a springboot project.
-Use intellij in order to use java and maven.
-In MYSQL Workbench, import the dump folder located in /Assets/dumpsylla/ .
+This is a springboot project. \
+Use intellij in order to use java and maven. \
+In MYSQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  \
 
 When you have succesfully imported the db and cloned the repository, you simple have to run SyllaApplication located in src/main/java/com/RISE/sylla/SyllaApplication.java with inteliji.
 
