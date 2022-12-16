@@ -31,8 +31,8 @@ public class documentController {
      *
      * body needs to look like :    {
      *               "documentId":1,
-     *               "name":1,
-     *               "author":1,
+     *               "name":"mathematics",
+     *               "author":"arthur",
      *               "publishDate":1,
      *               "pages":1,
      *               "version":1,
