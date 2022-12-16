@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.RISE.sylla"},{"l":"com.RISE.sylla.controller"},{"l":"com.RISE.sylla.model"},{"l":"com.RISE.sylla.repository"},{"l":"com.RISE.sylla.service"}];updateSearchResults();
