@@ -100,7 +100,7 @@ public class orderController {
      * @return the updated order
      */
     @RequestMapping(value="/orders/{orderId}", method=RequestMethod.PUT)
-    public orderModel readOrders(@PathVariable(value = "orderId") Long id, @RequestBody orderModel orderDetails) {
+    public orderModel updateOrders(@PathVariable(value = "orderId") Long id, @RequestBody orderModel orderDetails) {
         return orderService.updateOrder(id, orderDetails);
     }
 

@@ -84,7 +84,7 @@ public class userController {
      * @return the user modified
      */
     @RequestMapping(value="/users/{userId}", method=RequestMethod.PUT)
-    public userModel readUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
+    public userModel updateUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
         return userService.updateUser(id, userDetails);
     }
 

@@ -44,10 +44,12 @@ public class courseService {
         return courseRepository.save(course);
     }
 
+    // read all courses linked to an ue
     public List<courseModel> getCoursesByUE(String ue) {
         return courseRepository.findAllByue(ue);
     }
 
+    //read all courses linked to an academic year
     public List<courseModel> getCoursesByAcademicYear(int year) {
         return courseRepository.findAllByyear(year);
     }

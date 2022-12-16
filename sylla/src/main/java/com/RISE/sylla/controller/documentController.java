@@ -85,7 +85,7 @@ public class documentController {
      * @return the updated document
      */
     @RequestMapping(value="/documents/{documentId}", method=RequestMethod.PUT)
-    public documentModel readDocuments(@PathVariable(value = "documentId") Long id, @RequestBody documentModel documentDetails) {
+    public documentModel updateDocuments(@PathVariable(value = "documentId") Long id, @RequestBody documentModel documentDetails) {
         return documentService.updateDocument(id, documentDetails);
     }
 
