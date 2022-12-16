@@ -20,8 +20,7 @@ import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 
 /**
- * Cette Classe controlleur redirige les routes après '/user' vers les méthodes définit dans le service controller
- * Afin de répondre avec les données correspondantes au differentes requetes
+ * This Class redirects '/user' to the apporpriate methods defined in the userService
  */
 
 @RestController
@@ -31,9 +30,18 @@ public class userController {
     userService userService;
 
     /**
-     * Cette méthode gère la requete POST '/user/users' en créant un utilisateur avec les params
-     * @param user prends les params d'un objet User : Voir documentation de la classe userModel
-     * @return un nouveau objet user
+     * POST method '/user/users' creating users with params
+     * body need to look like : {
+     *      userId: 1
+     *      firstname: test
+     *      lastname: test
+     *      email:test
+     *      role: test
+     *      matricule : 1
+     *      trigram : test
+     * }
+     * @param user param user object
+     * @return new posted user
      */
     @RequestMapping(value="/users", method= RequestMethod.POST)
     public userModel createUser(@RequestBody userModel user) {
@@ -41,8 +49,8 @@ public class userController {
     }
 
     /**
-     * Cette méthode gère la requete GET '/user/users' en retournant tous les users
-     * @return une liste d'objet user
+     * GET method '/user/users' returning users
+     * @return list of all users
      */
     @RequestMapping(value="/users", method=RequestMethod.GET)
     public List<userModel> readUsers() {
@@ -50,9 +58,9 @@ public class userController {
     }
 
     /**
-     * Cette méthode gère la requete GET '/users/{userId}' en retournant l'user correspondant a l'id en param
-     * @param id l'identifiant de l'user dans la base de données
-     * @return Si l'id existe un objet user
+     * GET method '/users/{userId}' returning user corresponding to id as param
+     * @param id of the user to be returned
+     * @return If it exist, the user
      */
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {
@@ -60,10 +68,20 @@ public class userController {
     }
 
     /**
-     * Cette méthode gère la requete PUT de '/user/users/{userId}' en updatant le user avec les params
-     * @param id l'identifiant du user à modifier
-     * @param userDetails les données à modifier dans le user ciblé
-     * @return un objet user
+     * PUT method '/user/users/{userId}' updating the user with the specified id
+     * body need to look like : {
+     *          userId: 1
+     *          firstname: test
+     *          lastname: test
+     *          email:test
+     *          role: test
+     *          matricule : 1
+     *          trigram : test
+     *    }
+     *
+     * @param id of the user to modify
+     * @param userDetails details to modify with variables
+     * @return the user modified
      */
     @RequestMapping(value="/users/{userId}", method=RequestMethod.PUT)
     public userModel readUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
@@ -71,8 +89,8 @@ public class userController {
     }
 
     /**
-     * Cette méthode gere la requete DELETE de 'user/users/{uderId}' en prenant l'id du user a effacé dans la bdd
-     * @param id l'identifiant du user
+     * DELETE method 'user/users/{uderId}' with specified id of the user
+     * @param id of the user to delete
      */
     @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
     public void deleteUser(@PathVariable(value = "userId") Long id) {
