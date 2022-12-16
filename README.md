@@ -13,7 +13,7 @@ This is a springboot project.
 Use intellij in order to use java and maven. 
 In MYSQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  
 
-When you have succesfully imported the db and cloned the repository, you simple have to run SyllaApplication located in src/main/java/com/RISE/sylla/SyllaApplication.java with inteliji.
+When you have succesfully imported the db and cloned the repository, you simply have to run SyllaApplication located in src/main/java/com/RISE/sylla/SyllaApplication.java with inteliji.
 
 You can test that the application is running properly by trying with postman. 
 For example, http://localhost:8081/user/users 
@@ -33,4 +33,4 @@ You can see there the goal of each function, the params they need and what they 
 
 ## GITHUB PROJECT
 
-We use github project in order to organise the taks to do. it's easy to 
+We used github project in order to organise the taks to do. It's easy to use and enable you to direcly create a branch from an issue. You recommend you to use it as well, and to read what has already been done.
