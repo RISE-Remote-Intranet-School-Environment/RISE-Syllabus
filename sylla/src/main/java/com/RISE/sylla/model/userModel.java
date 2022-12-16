@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Cette classe est le "template" de user et contient les get/set afin de modifier ses parametres
+ */
+
 @Entity
 @Table(name = "users")
 public class userModel {
