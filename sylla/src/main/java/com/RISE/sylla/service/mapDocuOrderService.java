@@ -25,6 +25,7 @@ public class mapDocuOrderService {
     //create
     public mapDocuOrderModel createMap(mapDocuOrderModel map){return mapDocuOrderRepository.save(map);}
 
+    //read all
     public List<mapDocuOrderModel> getMaps() {
         return mapDocuOrderRepository.findAll();
     }
@@ -39,6 +40,7 @@ public class mapDocuOrderService {
 
     // UPDATE
     public mapDocuOrderModel updateMap(Long mapId, mapDocuOrderModel mapDetails) {
+        System.out.println(mapDetails.getFkdocument());
         mapDocuOrderModel map = mapDocuOrderRepository.findById(mapId).get();
         map.setFkorder(mapDetails.getFkorder());
         map.setFkdocument(mapDetails.getFkdocument());

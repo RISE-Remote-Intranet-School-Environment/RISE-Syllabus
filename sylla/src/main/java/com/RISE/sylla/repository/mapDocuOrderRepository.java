@@ -16,6 +16,9 @@ import java.util.Optional;
 
 @Repository
 public interface mapDocuOrderRepository  extends JpaRepository<mapDocuOrderModel, Long>{
+
+    //function to find map by order id
     List<mapDocuOrderModel> findAllByfkorder(Long id);
 
 }
+

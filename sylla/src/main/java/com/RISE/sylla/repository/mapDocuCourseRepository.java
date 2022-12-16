@@ -12,5 +12,6 @@ import java.util.List;
 @Repository
 public interface mapDocuCourseRepository extends JpaRepository<mapDocuCourseModel, Long>{
 
+    //function to find map by course id
     List<mapDocuCourseModel> findAllByfkcourse(Long id);
 }
