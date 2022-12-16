@@ -39,33 +39,55 @@ public class mapDocuOrderController {
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
+    /**
+     * read a specific map by its id
+     *
+     * @param id id of the map to be returned
+     * @return the map which as the provided id
+     */
     @RequestMapping(value="/{mapId}", method=RequestMethod.GET)
     public Optional<mapDocuOrderModel> readMapById(@PathVariable(value = "mapId") Long id) {
         return mapDocuOrderService.getMapById(id);
     }
 
+    /**
+     * read all the maps stored in database
+     *
+     * @return all the map stored in database
+     */
     @RequestMapping(value="/mapDocuOrders", method=RequestMethod.GET)
     public List<mapDocuOrderModel> readmapDocuOrders() {
         return mapDocuOrderService.getMaps();
     }
-
+    /**
+     * update a map which already exists
+     *
+     * @param id id of the map to be updated
+     * @param mapDocuOrderDetails new map data
+     * @return the updated map
+     */
     @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.PUT)
-    public mapDocuOrderModel readmapDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody mapDocuOrderModel mapDocuOrderDetails) {
+    public mapDocuOrderModel updateDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody mapDocuOrderModel mapDocuOrderDetails) {
         return mapDocuOrderService.updateMap(id, mapDocuOrderDetails);
     }
 
+
+    /**
+     * delete a map
+     *
+     * @param id id of the map to be deleted
+     */
     @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.DELETE)
     public void deletemapDocuOrder(@PathVariable(value = "mapDocuOrderId") Long id) {
         mapDocuOrderService.deleteMap(id);
     }
 
-
-    //get doc by order id
-    //@RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
-    //public List<Optional<documentModel>> readDocsByOrderId( (@PathVariable(value = "oderId") Long id) {
-    //    return mapDocuOrderService.getDocByOrderId(id);
-    //}
-
+    /**
+     * read all the documents linked to an order
+     *
+     * @param id id of the order for which you wish to find the documents
+     * @return list of document
+     */
     @RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
     public List<Optional<documentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
         return mapDocuOrderService.getDocByOrderId(id);
