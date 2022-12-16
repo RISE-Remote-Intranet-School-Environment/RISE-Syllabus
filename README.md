@@ -32,6 +32,7 @@ To generate the documentation, follow these steps:
 
 -Open the project in IntelliJ IDEA. \
 -Click on the "Generate JavaDoc" button in the toolbar (as shown in the image you provided). \
+-Specify the output directory \
 -Click "OK" to generate the documentation. \
 -The documentation will be generated in HTML format, and can be viewed by opening the index.html file in a web browser. \
 
