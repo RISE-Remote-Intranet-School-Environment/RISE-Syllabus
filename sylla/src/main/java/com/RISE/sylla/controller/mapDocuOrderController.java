@@ -31,6 +31,12 @@ public class mapDocuOrderController {
     /**
      * post NEW mapDocuOrder
      *
+     * body needs to look like :    {
+     *               "idmapdocuorder":1,
+     *               "fkdocument":1,
+     *               "fkcourse":1
+     *          }
+     *
      * @param mapDocuOrder map to be posted
      * @return the posted map
      */
@@ -62,12 +68,20 @@ public class mapDocuOrderController {
     /**
      * update a map which already exists
      *
+     * body needs to look like :    {
+     *               "idmapdocuorder":1,
+     *               "fkdocument":1,
+     *               "fkorder":1
+     *           }
      * @param id id of the map to be updated
      * @param mapDocuOrderDetails new map data
      * @return the updated map
      */
-    @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.PUT)
+
+
+    @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.POST)
     public mapDocuOrderModel updateDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody mapDocuOrderModel mapDocuOrderDetails) {
+        System.out.println(mapDocuOrderDetails);
         return mapDocuOrderService.updateMap(id, mapDocuOrderDetails);
     }
 

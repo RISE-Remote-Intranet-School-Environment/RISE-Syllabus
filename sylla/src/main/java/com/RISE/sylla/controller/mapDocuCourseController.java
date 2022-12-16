@@ -32,6 +32,12 @@ public class mapDocuCourseController {
     /**
      * post NEW mapDocuCourse
      *
+     * body needs to look like :    {
+     *              "idmapdocuorder":1,
+     *              "fkdocument":1,
+     *              "fkorder":1
+     *          }
+     *
      * @param mapDocuCourse map to be posted
      * @return the posted map
      */
@@ -65,10 +71,17 @@ public class mapDocuCourseController {
     /**
      * update a map which already exists
      *
+     * body needs to look like :    {
+     *         "idmapdocuorder":1,
+     *         "fkdocument":1,
+     *         "fkorder":1
+     *     }
+     *
      * @param id id of the map to be updated
      * @param mapDocuCourseDetails new map data
      * @return the updated map
      */
+
     @RequestMapping(value="/mapDocuCourses/{mapDocuCourseId}", method=RequestMethod.PUT)
     public mapDocuCourseModel updateMapDocuCourses(@PathVariable(value = "mapDocuCourseId") Long id, @RequestBody mapDocuCourseModel mapDocuCourseDetails) {
         return mapDocuCourseService.updateMapDocuCourse(id, mapDocuCourseDetails);
