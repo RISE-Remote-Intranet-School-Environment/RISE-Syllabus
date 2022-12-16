@@ -40,6 +40,7 @@ You can generated this documentation in intellij \
 ![image](https://user-images.githubusercontent.com/67092457/206734346-17a032eb-96a4-48f8-8d07-697ed877d6ef.png) \
 We generate the documentation at the end of our project but you can do it by yourself 
 
+Download the repository and open one html file the open this documentation \
 
 ## GITHUB PROJECT
 
