@@ -62,7 +62,7 @@ public class userController {
      * @param id of the user to be returned
      * @return If it exist, the user
      */
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {
         return userService.getUserById(id);
     }
