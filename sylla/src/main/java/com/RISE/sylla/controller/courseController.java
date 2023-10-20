@@ -35,7 +35,7 @@ public class courseController {
      * @param course new course
      * @return the new course
      */
-    @RequestMapping(value="", method= RequestMethod.POST)
+    @RequestMapping(value="/", method= RequestMethod.POST)
     public courseModel createCourse(@RequestBody courseModel course) {
         return courseService.createCourse(course);
     }
@@ -47,7 +47,7 @@ public class courseController {
      *
      * @return all the courses
      */
-    @RequestMapping(value="", method=RequestMethod.GET)
+    @RequestMapping(value="/", method=RequestMethod.GET)
     public List<courseModel> readCourses() {
         return courseService.getCourses();
     }

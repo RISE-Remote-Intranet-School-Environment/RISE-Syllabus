@@ -19,7 +19,7 @@ public class userService {
     userRepository userRepository;
 
     /**
-     * Cette méthde crée un nouveau user
+     * Cette méthode crée un nouveau user
      * @param user voir les parametre de la classe userModel
      * @return un objet user
      */
