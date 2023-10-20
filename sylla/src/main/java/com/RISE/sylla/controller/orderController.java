@@ -21,7 +21,7 @@ import com.RISE.sylla.service.documentService;
 
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orders")
 public class orderController {
     @Autowired
     orderService orderService;
@@ -44,7 +44,7 @@ public class orderController {
      * @param order order to be posted
      * @return the posted order
      */
-    @RequestMapping(value="/orders", method= RequestMethod.POST)
+    @RequestMapping(value="", method=RequestMethod.POST)
     public orderModel createOrder(@RequestBody orderModel order) {
         return orderService.createOrder(order);
     }
@@ -58,7 +58,7 @@ public class orderController {
      * @param status new status of the order you want to update
      * @return the updated order
      */
-    @RequestMapping(value="/status", method= RequestMethod.POST)
+    @RequestMapping(value="/status", method=RequestMethod.POST)
     public orderModel updateStatus(@RequestBody String status) {
         String[] data = status.split(",");
         return orderService.updateStatus(Long.parseLong(data[0]), data[1]);
@@ -69,7 +69,7 @@ public class orderController {
      *
      * @return all the orders
      */
-    @RequestMapping(value="/orders", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public List<orderModel> readOrders() {
         return orderService.getOrders();
     }
@@ -99,7 +99,7 @@ public class orderController {
      * @param orderDetails new order data
      * @return the updated order
      */
-    @RequestMapping(value="/orders/{orderId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{orderId}", method=RequestMethod.PUT)
     public orderModel updateOrders(@PathVariable(value = "orderId") Long id, @RequestBody orderModel orderDetails) {
         return orderService.updateOrder(id, orderDetails);
     }
@@ -109,7 +109,7 @@ public class orderController {
      *
      * @param id id of the order to be deleted
      */
-    @RequestMapping(value="/orders/{orderId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{orderId}", method=RequestMethod.DELETE)
     public void deleteOrder(@PathVariable(value = "orderId") Long id) {
         orderService.deleteOrder(id);
     }

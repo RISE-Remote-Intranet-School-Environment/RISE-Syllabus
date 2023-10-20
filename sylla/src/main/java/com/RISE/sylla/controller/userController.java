@@ -24,13 +24,13 @@ import com.RISE.sylla.service.userService;
  */
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class userController {
     @Autowired
     userService userService;
 
     /**
-     * POST method '/user/users' creating users with params
+     * POST method '/users' creating users with params
      * body need to look like : {
      *      userId: 1
      *      firstname: test
@@ -43,7 +43,7 @@ public class userController {
      * @param user param user object
      * @return new posted user
      */
-    @RequestMapping(value="/users", method= RequestMethod.POST)
+    @RequestMapping(value="", method= RequestMethod.POST)
     public userModel createUser(@RequestBody userModel user) {
         return userService.createUser(user);
     }
@@ -52,7 +52,7 @@ public class userController {
      * GET method '/user/users' returning users
      * @return list of all users
      */
-    @RequestMapping(value="/users", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public List<userModel> readUsers() {
         return userService.getUsers();
     }
@@ -83,7 +83,7 @@ public class userController {
      * @param userDetails details to modify with variables
      * @return the user modified
      */
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{userId}", method=RequestMethod.PUT)
     public userModel updateUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
         return userService.updateUser(id, userDetails);
     }
@@ -92,7 +92,7 @@ public class userController {
      * DELETE method 'user/users/{uderId}' with specified id of the user
      * @param id of the user to delete
      */
-    @RequestMapping(value="/users/{userId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
     public void deleteUser(@PathVariable(value = "userId") Long id) {
         userService.deleteUser(id);
     }
