@@ -27,6 +27,7 @@
 The purpose of this project is to allow students to buy syllabus online using our API.
 
 ## :rocket: Getting started
+
 This is a springboot project. 
 Use intellij in order to use java and maven. 
 In MySQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  
