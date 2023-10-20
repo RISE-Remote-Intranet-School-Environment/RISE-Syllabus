@@ -22,12 +22,6 @@
 - Quentin Jadoul 18155
 - Mourad Mettioui 195019
 
-## **Project participants 2023-2024:**
-
-- Maillard Corentin
-- Mettioui Mourad
-- Van Olffen Victor
-
 ## :question: About the project
 
 The purpose of this project is to allow students to buy syllabus online using our API.
