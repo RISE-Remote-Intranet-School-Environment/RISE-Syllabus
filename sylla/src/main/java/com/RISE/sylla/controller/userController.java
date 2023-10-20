@@ -32,13 +32,12 @@ public class userController {
     /**
      * POST method '/users' creating users with params
      * body need to look like : {
-     *      userId: 1
-     *      firstname: test
-     *      lastname: test
-     *      email:test
-     *      role: test
-     *      matricule : 1
-     *      trigram : test
+     *      "firstname": "test",
+     *      "lastname": "test",
+     *      "email": "test",
+     *      "role": "test",
+     *      "matricule" : 12345,
+     *      "trigram" : "test"
      * }
      * @param user param user object
      * @return new posted user
@@ -49,7 +48,7 @@ public class userController {
     }
 
     /**
-     * GET method '/user/users' returning users
+     * GET method '/users' returning users
      * @return list of all users
      */
     @RequestMapping(value="", method=RequestMethod.GET)
@@ -58,7 +57,7 @@ public class userController {
     }
 
     /**
-     * GET method '/user/users/{userId}' returning user corresponding to id as param
+     * GET method '/users/{userId}' returning user corresponding to id as param
      * @param id of the user to be returned
      * @return If it exist, the user
      */
@@ -68,15 +67,15 @@ public class userController {
     }
 
     /**
-     * PUT method '/user/users/{userId}' updating the user with the specified id
+     * PUT method '/users/{userId}' updating the user with the specified id
      * body need to look like : {
-     *          userId: 1
-     *          firstname: test
-     *          lastname: test
-     *          email:test
-     *          role: test
-     *          matricule : 1
-     *          trigram : test
+     *          "userId": 1,
+     *          "firstName": "test",
+     *          "lastName": "test",
+     *          "emailId":"test",
+     *          "role": "test",
+     *          "matricule" : 1,
+     *          "trigram" : "test"
      *    }
      *
      * @param id of the user to modify
@@ -89,7 +88,7 @@ public class userController {
     }
 
     /**
-     * DELETE method 'user/users/{uderId}' with specified id of the user
+     * DELETE method '/users/{userId}' with specified id of the user
      * @param id of the user to delete
      */
     @RequestMapping(value="/{userId}", method=RequestMethod.DELETE)
