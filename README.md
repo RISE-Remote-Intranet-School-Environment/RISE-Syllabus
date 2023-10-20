@@ -20,7 +20,13 @@
 - Kuijpers Nick 20324
 - Baudouin Losseau 19593
 - Quentin Jadoul 18155
-- Theo Engels 195367
+- Mourad Mettioui 195019
+
+## **Project participants 2023-2024:**
+
+- Maillard Corentin
+- Mettioui Mourad
+- Van Olffen Victor
 
 ## :question: About the project
 
