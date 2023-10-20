@@ -16,7 +16,7 @@ import com.RISE.sylla.model.courseModel;
 import com.RISE.sylla.service.courseService;
 
 @RestController
-@RequestMapping("/course")
+@RequestMapping("/courses")
 public class courseController {
     @Autowired
     courseService courseService;
@@ -35,7 +35,7 @@ public class courseController {
      * @param course new course
      * @return the new course
      */
-    @RequestMapping(value="/courses", method= RequestMethod.POST)
+    @RequestMapping(value="", method= RequestMethod.POST)
     public courseModel createCourse(@RequestBody courseModel course) {
         return courseService.createCourse(course);
     }
@@ -47,7 +47,7 @@ public class courseController {
      *
      * @return all the courses
      */
-    @RequestMapping(value="/courses", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public List<courseModel> readCourses() {
         return courseService.getCourses();
     }
@@ -79,18 +79,17 @@ public class courseController {
      * @param courseDetails new course data
      * @return the updated course
      */
-    @RequestMapping(value="/courses/{courseId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{courseId}", method=RequestMethod.PUT)
     public courseModel updateCourses(@PathVariable(value = "courseId") Long id, @RequestBody courseModel courseDetails) {
         return courseService.updateCourse(id, courseDetails);
     }
-
 
     /**
      * delete a course
      *
      * @param id id of the course to be deleted
      */
-    @RequestMapping(value="/courses/{courseId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{courseId}", method=RequestMethod.DELETE)
     public void deleteCourse(@PathVariable(value = "courseId") Long id) {
         courseService.deleteCourse(id);
     }
@@ -101,7 +100,7 @@ public class courseController {
      * @param ue ue for which you wish to find the courses
      * @return list of courses linked to the provided ue
      */
-    @RequestMapping(value="/getByUE/{ue}", method=RequestMethod.GET)
+    @RequestMapping(value="/UE/{ue}", method=RequestMethod.GET)
     public List<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
         return courseService.getCoursesByUE(ue);
     }
@@ -112,7 +111,7 @@ public class courseController {
      * @param year academic year for which you wish to find the courses
      * @return list of courses linked to the provided year
      */
-    @RequestMapping(value="/getCoursesByAcademicYear/{year}", method=RequestMethod.GET)
+    @RequestMapping(value="/Year/{year}", method=RequestMethod.GET)
     public List<courseModel> getCoursesByAcademicYear(@PathVariable(value = "year") int year) {
         return courseService.getCoursesByAcademicYear(year);
     }
