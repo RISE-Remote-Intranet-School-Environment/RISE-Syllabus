@@ -1,17 +1,35 @@
 # RISE-Syllabus
 
-## **Project participants 2022-2023:**
+# Table of contents
+
+* [Project participants](#project-participants)
+* [About the project](#question-about-the-project)
+* [Getting started](#rocket-getting-started)
+* [API](#boom-api)
+
+## **Project participants**
+
+### 2023-24
+
+- Van Olffen Victor 20253
+- Maillard Corentin 21306
+- Mettioui Mourad 195019
+
+### 2022-23
 
 - Kuijpers Nick 20324
 - Baudouin Losseau 19593
 - Quentin Jadoul 18155
 - Theo Engels 195367
 
+## :question: About the project
 
-## GETTING STARTED
+The purpose of this project is to allow students to buy syllabus online using our API.
+
+## :rocket: Getting started
 This is a springboot project. 
 Use intellij in order to use java and maven. 
-In MYSQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  
+In MySQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  
 
 When you have succesfully imported the db and cloned the repository, you simply have to run SyllaApplication located in src/main/java/com/RISE/sylla/SyllaApplication.java with inteliji.
 
@@ -42,6 +60,5 @@ We generate the documentation at the end of our project but you can do it by you
 
 Download the repository and open one html file the open this documentation \
 
-## GITHUB PROJECT
+## :boom: API
 
-We used github project in order to organise the taks to do. It's easy to use and enable you to direcly create a branch from an issue. You recommend you to use it as well, and to read what has already been done.
