@@ -58,11 +58,11 @@ public class userController {
     }
 
     /**
-     * GET method '/users/{userId}' returning user corresponding to id as param
+     * GET method '/user/users/{userId}' returning user corresponding to id as param
      * @param id of the user to be returned
      * @return If it exist, the user
      */
-    @RequestMapping(value="/{userId}", method=RequestMethod.GET)
+    @RequestMapping(value="/users/{userId}", method=RequestMethod.GET)
     public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {
         return userService.getUserById(id);
     }
