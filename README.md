@@ -7,6 +7,12 @@
 - Quentin Jadoul 18155
 - Theo Engels 195367
 
+## **Project participants 2023-2024:**
+
+- Maillard Corentin
+- Mettioui Mourad
+- Van Olffen Victor
+
 
 ## GETTING STARTED
 This is a springboot project. 
