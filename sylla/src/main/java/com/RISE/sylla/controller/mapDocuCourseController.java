@@ -22,7 +22,7 @@ import com.RISE.sylla.service.mapDocuOrderService;
 
 
 @RestController
-@RequestMapping("mapDocuCourse")
+@RequestMapping("/mapDocuCourses")
 public class mapDocuCourseController {
 
     @Autowired
@@ -41,23 +41,23 @@ public class mapDocuCourseController {
      * @param mapDocuCourse map to be posted
      * @return the posted map
      */
-    @RequestMapping(value="/mapDocuCourses", method= RequestMethod.POST)
+    @RequestMapping(value="", method= RequestMethod.POST)
     public mapDocuCourseModel createMapDocuCourse(@RequestBody mapDocuCourseModel mapDocuCourse) {
         return mapDocuCourseService.createMapDocuCourse(mapDocuCourse);
     }
 
     /**
-     * read all the maps stored in database
+     * return all the maps stored in database
      *
      * @return all the map stored in database
      */
-    @RequestMapping(value="/mapDocuCourses", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public List<mapDocuCourseModel> readMapDocuCourses() {
         return mapDocuCourseService.getMapDocuCourses();
     }
 
     /**
-     * read a specific map by its id
+     * return a specific map by its id
      *
      * @param id id of the map to be returned
      * @return the map which as the provided id
@@ -82,7 +82,7 @@ public class mapDocuCourseController {
      * @return the updated map
      */
 
-    @RequestMapping(value="/mapDocuCourses/{mapDocuCourseId}", method=RequestMethod.PUT)
+    @RequestMapping(value="/{mapDocuCourseId}", method=RequestMethod.PUT)
     public mapDocuCourseModel updateMapDocuCourses(@PathVariable(value = "mapDocuCourseId") Long id, @RequestBody mapDocuCourseModel mapDocuCourseDetails) {
         return mapDocuCourseService.updateMapDocuCourse(id, mapDocuCourseDetails);
     }
@@ -92,13 +92,13 @@ public class mapDocuCourseController {
      *
      * @param id id of the map to be deleted
      */
-    @RequestMapping(value="/mapDocuCourses/{mapDocuCourseId}", method=RequestMethod.DELETE)
+    @RequestMapping(value="/{mapDocuCourseId}", method=RequestMethod.DELETE)
     public void deleteMapDocuCourse(@PathVariable(value = "mapDocuCourseId") Long id) {
         mapDocuCourseService.deleteMapDocuCourse(id);
     }
 
     /**
-     * read all the documents linked to a course
+     * return all the documents linked to a course
      *
      * @param id id of the course for which you wish to find the documents
      * @return list of document
