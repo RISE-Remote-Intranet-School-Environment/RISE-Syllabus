@@ -1,15 +1,11 @@
 package com.RISE.sylla.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +16,7 @@ import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 
 /**
- * This Class redirects '/user' to the apporpriate methods defined in the userService
+ * This Class redirects '/user' to the appropriate methods defined in the userService
  */
 
 @RestController
@@ -30,7 +26,7 @@ public class userController {
     userService userService;
 
     /**
-     * POST method '/users' creating users with params
+     * POST method '/users' creating user with params
      * body need to look like : {
      *      "firstname": "test",
      *      "lastname": "test",
@@ -59,7 +55,7 @@ public class userController {
     /**
      * GET method '/users/{userId}' returning user corresponding to id as param
      * @param id of the user to be returned
-     * @return If it exist, the user
+     * @return If it exists, the user
      */
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
     public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {

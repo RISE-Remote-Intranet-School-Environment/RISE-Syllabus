@@ -22,7 +22,7 @@ import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.service.mapDocuOrderService;
 
 @RestController
-@RequestMapping("/mapDocuOrder")
+@RequestMapping("/mapDocuOrders")
 public class mapDocuOrderController {
 
     @Autowired
@@ -40,13 +40,13 @@ public class mapDocuOrderController {
      * @param mapDocuOrder map to be posted
      * @return the posted map
      */
-    @RequestMapping(value="/mapDocuOrders", method= RequestMethod.POST)
+    @RequestMapping(value="", method= RequestMethod.POST)
     public mapDocuOrderModel createmapDocuOrder(@RequestBody mapDocuOrderModel mapDocuOrder) {
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
     /**
-     * read a specific map by its id
+     * return a specific map by its id
      *
      * @param id id of the map to be returned
      * @return the map which as the provided id
@@ -57,14 +57,15 @@ public class mapDocuOrderController {
     }
 
     /**
-     * read all the maps stored in database
+     * return all the maps stored in database
      *
      * @return all the map stored in database
      */
-    @RequestMapping(value="/mapDocuOrders", method=RequestMethod.GET)
+    @RequestMapping(value="", method=RequestMethod.GET)
     public List<mapDocuOrderModel> readmapDocuOrders() {
         return mapDocuOrderService.getMaps();
     }
+
     /**
      * update a map which already exists
      *
@@ -77,9 +78,7 @@ public class mapDocuOrderController {
      * @param mapDocuOrderDetails new map data
      * @return the updated map
      */
-
-
-    @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.POST)
+    @RequestMapping(value="/{mapDocuOrderId}", method=RequestMethod.POST)
     public mapDocuOrderModel updateDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody mapDocuOrderModel mapDocuOrderDetails) {
         System.out.println(mapDocuOrderDetails);
         return mapDocuOrderService.updateMap(id, mapDocuOrderDetails);
@@ -91,13 +90,13 @@ public class mapDocuOrderController {
      *
      * @param id id of the map to be deleted
      */
-    @RequestMapping(value="/mapDocuOrders/{mapDocuOrderId}", method=RequestMethod.DELETE)
-    public void deletemapDocuOrder(@PathVariable(value = "mapDocuOrderId") Long id) {
+    @RequestMapping(value="/{mapDocuOrderId}", method=RequestMethod.DELETE)
+    public void deleteMapDocuOrder(@PathVariable(value = "mapDocuOrderId") Long id) {
         mapDocuOrderService.deleteMap(id);
     }
 
     /**
-     * read all the documents linked to an order
+     * return all the documents linked to an order
      *
      * @param id id of the order for which you wish to find the documents
      * @return list of document

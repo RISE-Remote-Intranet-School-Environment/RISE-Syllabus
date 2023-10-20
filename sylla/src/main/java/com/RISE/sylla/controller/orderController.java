@@ -31,14 +31,12 @@ public class orderController {
     mapDocuOrderService mapDocuOrderService;
 
     /**
-     * post NEW order
-     *
+     * POST method '/orders' creating order with params
      * body needs to look like :    {
-     *               "orderId":1,
-     *               "student":"1999",
-     *               "date":"220307",
-     *               "price":10,
-     *               "state":1
+     *               "student": "21012",
+     *               "date": "01012023",
+     *               "price": 10,
+     *               "state": 1
      *          }
      *
      * @param order order to be posted
@@ -51,9 +49,8 @@ public class orderController {
 
     /**
      * update the status of an order
-     *
      * body needs to look like :    {
-     *               "state":1
+     *               "state": 1
      *           }
      * @param status new status of the order you want to update
      * @return the updated order
@@ -65,7 +62,7 @@ public class orderController {
     }
 
     /**
-     * read all the orders
+     * return all the orders
      *
      * @return all the orders
      */
@@ -75,7 +72,7 @@ public class orderController {
     }
 
     /**
-     * read a specific order by its id
+     * return a specific order by its id
      *
      * @param id id of the order to be returned
      * @return the order which has the provided id
