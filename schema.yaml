@@ -4,30 +4,68 @@ info:
   version: 1.0.0
 servers:
   - url: localhost://
-  - url: http://localhost:8081
 tags:
   - name: User
   - name: Order
   - name: Course
   - name: Document
-  - name: Document order TODO
-  - name: Document course TODO
+  - name: Document order
+  - name: Document course
 paths:
-  /081/users/2:
+  /081/users/{userId}:
     get:
       tags:
         - User
       summary: Get single user
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /081/users/7:
     delete:
       tags:
         - User
       summary: Delete user
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - User
+      summary: Update user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 7
+                firstName: Corentin
+                lastName: Maillard
+                emailId: corentin.gmail.com
+                role: student
+                matricule: 21026
+                trigram: COM
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -43,7 +81,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /users/:
     post:
       tags:
         - User
@@ -66,54 +103,73 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /users/12:
+  /081/orders/{orderId}:
+    get:
+      tags:
+        - Order
+      summary: Get single order
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Order
+      summary: Delete order
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
     put:
       tags:
-        - User
-      summary: Update user
+        - Order
+      summary: Update order
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                userId: 7
-                firstName: Corentin
-                lastName: Maillard
-                emailId: corentin.gmail.com
-                role: student
-                matricule: 21026
-                trigram: COM
+                student: '20105'
+                date: '220307'
+                price: 10
+                state: 1
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /081/orders/1:
-    get:
-      tags:
-        - Order
-      summary: Get single order
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /081/orders/6:
-    delete:
-      tags:
-        - Order
-      summary: Delete order
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /081/orders/price/1:
+  /081/orders/price/{orderId}:
     get:
       tags:
         - Order
       summary: Get order price
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -148,31 +204,17 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /081/orders/getOrderByUserId/1:
+  /081/orders/getOrderByUserId/{userId}:
     get:
       tags:
         - Order
       summary: Get user's orders
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /orders/2:
-    put:
-      tags:
-        - Order
-      summary: Update order
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                student: '20105'
-                date: '220307'
-                price: 10
-                state: 1
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -195,99 +237,20 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /courses:
+  /081/courses:
     get:
       tags:
         - Course
-      summary: get all courses
+      summary: Get courses
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 14:09:08 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-              example:
-                - courseId: 1
-                  name: aaa
-                  teacher: '123'
-                  ue: dsf
-                  year: 2
-                - courseId: 2
-                  name: ratio
-                  teacher: '2'
-                  ue: dsf
-                  year: 3
-                - courseId: 3
-                  name: ff
-                  teacher: '5'
-                  ue: ttt
-                  year: 4
-  /courses/1:
-    get:
-      tags:
-        - Course
-      summary: get one course
-      responses:
-        '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 14:09:40 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
-          content:
-            application/json:
-              schema:
-                type: object
-              example:
-                courseId: 1
-                name: aaa
-                teacher: '123'
-                ue: dsf
-                year: 2
-  /courses/:
+            application/json: {}
     post:
       tags:
         - Course
-      summary: add a course
+      summary: Add course
       requestBody:
         content:
           application/json:
@@ -301,69 +264,40 @@ paths:
                 year: '2'
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 15:02:19 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-              example:
-                courseId: 7
-                name: fluids dynamics
-                teacher: '2'
-                ue: ethics101
-                year: 1
-  /081/courses/3:
+            application/json: {}
+  /081/courses/{courseId}:
+    get:
+      tags:
+        - Course
+      summary: Get single course
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
     delete:
       tags:
         - Course
       summary: Delete course
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Length:
-              schema:
-                type: integer
-                example: '0'
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 14:34:30 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            text/plain:
-              schema:
-                type: string
-              example: null
-  /courses/7:
+            application/json: {}
     put:
       tags:
         - Course
@@ -379,149 +313,75 @@ paths:
                 teacher: 2
                 ue: Physical
                 year: 1
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 15:06:12 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-              example:
-                courseId: 1
-                name: Algebra
-                teacher: '1'
-                ue: Mathematic
-                year: 1
-  /courses/UE/Mathematic:
+            application/json: {}
+  /081/courses/UE/{ue}:
     get:
       tags:
         - Course
       summary: Get course by UE
+      parameters:
+        - name: ue
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 15:14:17 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-              examples:
-                example-0:
-                  summary: Get course by Ue
-                  value:
-                    - courseId: 5
-                      name: Oxydation
-                      teacher: '3'
-                      ue: Chemistry
-                      year: 1
-                    - courseId: 6
-                      name: Reduction
-                      teacher: '3'
-                      ue: Chemistry
-                      year: 1
-                example-1:
-                  summary: Get course by year
-                  value:
-                    - courseId: 8
-                      name: dynamics
-                      teacher: '4'
-                      ue: Dynamic
-                      year: 2
-                    - courseId: 9
-                      name: dynamics'lab
-                      teacher: '4'
-                      ue: Dynamic
-                      year: 2
-  /courses/Year/2:
+            application/json: {}
+  /081/courses/Year/{year}:
     get:
       tags:
         - Course
       summary: Get course by year
+      parameters:
+        - name: year
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
-          description: OK
-          headers:
-            Content-Type:
-              schema:
-                type: string
-                example: application/json
-            Transfer-Encoding:
-              schema:
-                type: string
-                example: chunked
-            Date:
-              schema:
-                type: string
-                example: Fri, 20 Oct 2023 15:18:29 GMT
-            Keep-Alive:
-              schema:
-                type: string
-                example: timeout=60
-            Connection:
-              schema:
-                type: string
-                example: keep-alive
+          description: Successful response
           content:
-            application/json:
-              schema:
-                type: object
-              example:
-                - courseId: 8
-                  name: dynamics
-                  teacher: '4'
-                  ue: Dynamic
-                  year: 2
-                - courseId: 9
-                  name: dynamics'lab
-                  teacher: '4'
-                  ue: Dynamic
-                  year: 2
-  /081/documents/1:
+            application/json: {}
+  /081/documents/{documentId}:
     get:
       tags:
         - Document
       summary: Get single document
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Document
+      summary: Delete document
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -543,16 +403,12 @@ paths:
                 pages: 105
                 version: 1
                 price: 10
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /081/documents/2:
-    delete:
-      tags:
-        - Document
-      summary: Delete document
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -568,7 +424,6 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /081/documents/:
     post:
       tags:
         - Document
@@ -590,19 +445,40 @@ paths:
           description: Successful response
           content:
             application/json: {}
-  /081/mapDocuOrders/1:
+  /081/mapDocuOrders/{mapDocuOrderId}:
     get:
       tags:
-        - Document order TODO
+        - Document order
       summary: Get single documents order
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-    put:
+    delete:
       tags:
-        - Document order TODO
+        - Document order
+      summary: Delete documents order
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Document order
       summary: Update documents order
       requestBody:
         content:
@@ -610,28 +486,30 @@ paths:
             schema:
               type: object
               example:
-                fkdocument: 12
-                fkorder: 5
+                fkdocument: 2
+                fkorder: 2
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
           content:
             application/json: {}
-  /081/getDocsByOrderId/1:
+  /081/getDocsByOrderId/{orderId}:
     get:
       tags:
-        - Document order TODO
+        - Document order
       summary: Get documents order by orderID
-      responses:
-        '200':
-          description: Successful response
-          content:
-            application/json: {}
-  /081/mapDocuOrders/2:
-    delete:
-      tags:
-        - Document order TODO
-      summary: Delete documents order
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -640,8 +518,18 @@ paths:
   /081/mapDocuOrders:
     get:
       tags:
-        - Document order TODO
+        - Document order
       summary: Get documents order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses:
+    get:
+      tags:
+        - Document course
+      summary: get all docu-course
       responses:
         '200':
           description: Successful response
@@ -649,16 +537,86 @@ paths:
             application/json: {}
     post:
       tags:
-        - Document order TODO
-      summary: Add documents order
+        - Document course
+      summary: add docu-course
       requestBody:
         content:
           application/json:
             schema:
               type: object
               example:
-                fkdocument: 12
-                fkorder: 5
+                fkdocument: 4
+                fkcourse: 3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses/{mapDocuCourseId}:
+    get:
+      tags:
+        - Document course
+      summary: get one docu-course
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Document course
+      summary: Delete docu-order
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Document course
+      summary: Update docu-course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 1
+                fkcourses: 2
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses/getDocsByCourseId/{courseId}:
+    get:
+      tags:
+        - Document course
+      summary: get docu-course by
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response

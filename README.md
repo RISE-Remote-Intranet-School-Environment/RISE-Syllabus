@@ -65,9 +65,9 @@ Download the repository and open one html file the open this documentation \
 ## :boom: API
 
 For our API, we did all our tests using Postman. Then, we exported the Postman Collection v2.1 as a JSON file.
-Finally, we converted the Postman Collection v2.1 to OpenAPI v3.0 following the documentation in this [repository](postman-to-openapi).
+Finally, we converted the Postman Collection v2.1 to OpenAPI v3.0 following the documentation in this [repository][postman-to-openapi].
 
-The resulting OpenAPI schema is in [schema.yaml](open-api-schema).
+The resulting OpenAPI schema is in [schema.yaml][open-api-schema].
 
 <!-- Internal file links -->
 [open-api-schema]: ./schema.yaml
