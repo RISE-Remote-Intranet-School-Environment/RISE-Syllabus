@@ -1,0 +1,666 @@
+openapi: 3.0.0
+info:
+  title: RISE-Syllabus
+  version: 1.0.0
+servers:
+  - url: localhost://
+  - url: http://localhost:8081
+tags:
+  - name: User
+  - name: Order
+  - name: Course
+  - name: Document
+  - name: Document order TODO
+  - name: Document course TODO
+paths:
+  /081/users/2:
+    get:
+      tags:
+        - User
+      summary: Get single user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/users/7:
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/users:
+    get:
+      tags:
+        - User
+      summary: Get users
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/:
+    post:
+      tags:
+        - User
+      summary: Add user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 7
+                firstName: Corentin
+                lastName: Maillard
+                emailId: corentin.gmail.com
+                role: student
+                matricule: 21026
+                trigram: COM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /users/12:
+    put:
+      tags:
+        - User
+      summary: Update user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 7
+                firstName: Corentin
+                lastName: Maillard
+                emailId: corentin.gmail.com
+                role: student
+                matricule: 21026
+                trigram: COM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/1:
+    get:
+      tags:
+        - Order
+      summary: Get single order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/6:
+    delete:
+      tags:
+        - Order
+      summary: Delete order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/price/1:
+    get:
+      tags:
+        - Order
+      summary: Get order price
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders:
+    get:
+      tags:
+        - Order
+      summary: Get orders
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Order
+      summary: Add order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                student: 21010
+                date: '201023'
+                price: 20
+                state: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/getOrderByUserId/1:
+    get:
+      tags:
+        - Order
+      summary: Get user's orders
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /orders/2:
+    put:
+      tags:
+        - Order
+      summary: Update order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                student: '20105'
+                date: '220307'
+                price: 10
+                state: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/status:
+    post:
+      tags:
+        - Order
+      summary: Update order status (Not working)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                state: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /courses:
+    get:
+      tags:
+        - Course
+      summary: get all courses
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 14:09:08 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - courseId: 1
+                  name: aaa
+                  teacher: '123'
+                  ue: dsf
+                  year: 2
+                - courseId: 2
+                  name: ratio
+                  teacher: '2'
+                  ue: dsf
+                  year: 3
+                - courseId: 3
+                  name: ff
+                  teacher: '5'
+                  ue: ttt
+                  year: 4
+  /courses/1:
+    get:
+      tags:
+        - Course
+      summary: get one course
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 14:09:40 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                courseId: 1
+                name: aaa
+                teacher: '123'
+                ue: dsf
+                year: 2
+  /courses/:
+    post:
+      tags:
+        - Course
+      summary: add a course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                courseId: 3
+                name: dynamics'lab
+                teacher: 4
+                ue: Dynamic
+                year: '2'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 15:02:19 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                courseId: 7
+                name: fluids dynamics
+                teacher: '2'
+                ue: ethics101
+                year: 1
+  /081/courses/3:
+    delete:
+      tags:
+        - Course
+      summary: Delete course
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Length:
+              schema:
+                type: integer
+                example: '0'
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 14:34:30 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            text/plain:
+              schema:
+                type: string
+              example: null
+  /courses/7:
+    put:
+      tags:
+        - Course
+      summary: Update course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                courseId: 2
+                name: Gravity
+                teacher: 2
+                ue: Physical
+                year: 1
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 15:06:12 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                courseId: 1
+                name: Algebra
+                teacher: '1'
+                ue: Mathematic
+                year: 1
+  /courses/UE/Mathematic:
+    get:
+      tags:
+        - Course
+      summary: Get course by UE
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 15:14:17 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example-0:
+                  summary: Get course by Ue
+                  value:
+                    - courseId: 5
+                      name: Oxydation
+                      teacher: '3'
+                      ue: Chemistry
+                      year: 1
+                    - courseId: 6
+                      name: Reduction
+                      teacher: '3'
+                      ue: Chemistry
+                      year: 1
+                example-1:
+                  summary: Get course by year
+                  value:
+                    - courseId: 8
+                      name: dynamics
+                      teacher: '4'
+                      ue: Dynamic
+                      year: 2
+                    - courseId: 9
+                      name: dynamics'lab
+                      teacher: '4'
+                      ue: Dynamic
+                      year: 2
+  /courses/Year/2:
+    get:
+      tags:
+        - Course
+      summary: Get course by year
+      responses:
+        '200':
+          description: OK
+          headers:
+            Content-Type:
+              schema:
+                type: string
+                example: application/json
+            Transfer-Encoding:
+              schema:
+                type: string
+                example: chunked
+            Date:
+              schema:
+                type: string
+                example: Fri, 20 Oct 2023 15:18:29 GMT
+            Keep-Alive:
+              schema:
+                type: string
+                example: timeout=60
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                - courseId: 8
+                  name: dynamics
+                  teacher: '4'
+                  ue: Dynamic
+                  year: 2
+                - courseId: 9
+                  name: dynamics'lab
+                  teacher: '4'
+                  ue: Dynamic
+                  year: 2
+  /081/documents/1:
+    get:
+      tags:
+        - Document
+      summary: Get single document
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Document
+      summary: Update document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Methematics
+                author: Walter
+                publishDate: 110923
+                pages: 105
+                version: 1
+                price: 10
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/documents/2:
+    delete:
+      tags:
+        - Document
+      summary: Delete document
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/documents:
+    get:
+      tags:
+        - Document
+      summary: Get documents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/documents/:
+    post:
+      tags:
+        - Document
+      summary: Add document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Methematics
+                author: Walter
+                publishDate: 110923
+                pages: 105
+                version: 1
+                price: 10
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuOrders/1:
+    get:
+      tags:
+        - Document order TODO
+      summary: Get single documents order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Document order TODO
+      summary: Update documents order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 12
+                fkorder: 5
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/getDocsByOrderId/1:
+    get:
+      tags:
+        - Document order TODO
+      summary: Get documents order by orderID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuOrders/2:
+    delete:
+      tags:
+        - Document order TODO
+      summary: Delete documents order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuOrders:
+    get:
+      tags:
+        - Document order TODO
+      summary: Get documents order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Document order TODO
+      summary: Add documents order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 12
+                fkorder: 5
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}

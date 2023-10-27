@@ -32,10 +32,10 @@ public class documentController {
      * body needs to look like :    {
      *               "name": "mathematics",
      *               "author": "arthur",
-     *               "publishDate": 1,
-     *               "pages": 1,
-     *               "version": 1,
-     *               "price": 1
+     *               "publishDate": 110923,
+     *               "pages": 50,
+     *               "version": 1.0,
+     *               "price": 10
      *          }
      *
      * @param document document to be posted

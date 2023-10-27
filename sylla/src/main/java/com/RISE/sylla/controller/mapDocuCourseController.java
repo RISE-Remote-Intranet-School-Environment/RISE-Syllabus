@@ -33,9 +33,8 @@ public class mapDocuCourseController {
      * post NEW mapDocuCourse
      *
      * body needs to look like :    {
-     *              "idmapdocuorder":1,
-     *              "fkdocument":1,
-     *              "fkorder":1
+     *              "fkcourse":1,
+     *              "fkdocument":1
      *          }
      *
      * @param mapDocuCourse map to be posted
