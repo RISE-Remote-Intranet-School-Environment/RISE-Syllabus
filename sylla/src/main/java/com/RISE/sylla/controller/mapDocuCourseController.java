@@ -28,9 +28,14 @@ public class mapDocuCourseController {
     /**
      * post NEW mapDocuCourse
      * body needs to look like :    {
+<<<<<<< HEAD
      *              "idmapdocucourse":1,
      *              "fkdocument":1,
      *              "fkcourse":1
+=======
+     *              "fkcourse":1,
+     *              "fkdocument":1
+>>>>>>> aa47c07484f54d63fa351d40b7a42d21bb5b19f8
      *          }
      * fkcourse and fkdocument need to exist in their respective tables to make a link between.
      * @param mapDocuCourse map to be posted

@@ -1,8 +1,9 @@
 package com.RISE.sylla;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -10,28 +11,27 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-
-
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class UserTest extends SyllaApplicationTests {
-
+public class GetCourseTest extends SyllaApplicationTests {
+    @Value("${server.port}")
+    private int port;
     @Autowired
     private WebApplicationContext webApplicationContext;
 
-    private MockMvc mockMvc;
+    private MockMvc mvc;
 
     @Before
     public void setup() {
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     }
 
     @Test
-    public void testGetUsers() throws Exception {
-        mockMvc.perform(get("/user/users")).andExpect(status().isOk());
+    public void unitTestGetCategories() throws Exception {
+        this.mvc.perform(get("http://localhost:" + port + "/courses/"))
+                .andExpect(status().isOk());
     }
-
 }

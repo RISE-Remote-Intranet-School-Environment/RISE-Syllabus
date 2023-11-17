@@ -5,6 +5,11 @@
 * [Project participants](#project-participants)
 * [About the project](#question-about-the-project)
 * [Getting started](#rocket-getting-started)
+    * [Frameworks](#zap-frameworks)
+    * [Prerequesites](#exclamation-prerequesites)
+* [Test](#test)
+* [Documentation](#documentation)
+* [Tree structure](#deciduoustree-tree-structure)
 * [API](#boom-api)
 
 ## **Project participants**
@@ -28,16 +33,30 @@ The purpose of this project is to allow students to buy syllabus online using ou
 
 ## :rocket: Getting started
 
+### :zap: Frameworks
 
-This is a springboot project. 
-Use intellij in order to use java and maven. 
-In MySQL Workbench, import the dump folder located in /Assets/dumpsylla/ .  
+The project is built using the **Java Programming Language** under the **Spring Boot** framework.
 
-When you have succesfully imported the db and cloned the repository, you simply have to run SyllaApplication located in src/main/java/com/RISE/sylla/SyllaApplication.java with inteliji.
+Spring Boot is a framework used to build stand-alone application and production ready spring applications. It facilitates the way to launch and deploy API REST based application without huge configurations.
 
-You can test that the application is running properly by trying with postman. 
-For example, http://localhost:8081/user/users 
+For more information about Spring Boot, view the [official documentation][spring-boot].
 
+### :exclamation: Prerequesites
+
+Before launch the application, you have to satisfy the following requirements.
+
+You need to use IntelliJ in order to use java and maven.
+
+[Git][git] must be installed and configured on your machine in order to clone the repository and pull the new updates.
+
+A [MySql][mysql] server must be installed on your machine so that the application can connect to the database. It is recommended to have a good knowledge of relational databases. Click here to download [MySql community server][mysql-download].
+
+In MySQL Workbench, import the SQL files located in /Assets/Sylla/ in a schema called "syllabus".
+
+When you have succesfully imported the database and cloned the repository, you have to run the file "SyllaApplication" located in "sylla/src/main/java/com/RISE/sylla/SyllaApplication.java".
+
+You can test that the application is running properly with postman. 
+For example, use a GET request with the link "http://localhost:8081/users" to return all the users from the database.
 
 ## TEST
 
@@ -62,5 +81,43 @@ We generate the documentation at the end of our project but you can do it by you
 
 Download the repository and open one html file the open this documentation \
 
+## :deciduous_tree: Tree Structure
+
+```bash
+sylla
+    ├───.mvn
+    │   └───wrapper
+    └───src
+        ├───main
+        │   ├───java
+        │   │   └───com
+        │   │       └───RISE
+        │   │           └───sylla
+        │   │               ├───controller
+        │   │               ├───model
+        │   │               ├───repository
+        │   │               └───service
+        │   └───resources
+        └───test
+            └───java
+                └───com
+                    └───RISE
+                        └───sylla
+```
+
 ## :boom: API
 
+For our API, we did all our tests using Postman. Then, we exported the Postman Collection v2.1 as a JSON file.
+Finally, we converted the Postman Collection v2.1 to OpenAPI v3.0 following the documentation in this [repository][postman-to-openapi].
+
+The resulting OpenAPI schema is in [schema.yaml][open-api-schema].
+
+<!-- Internal file links -->
+[open-api-schema]: ./schema.yaml
+
+<!-- Links -->
+[spring-boot]: https://spring.io/projects/spring-boot
+[git]: https://git-scm.com/
+[mysql]: https://www.mysql.com
+[mysql-download]: https://dev.mysql.com/downloads/mysql/
+[postman-to-openapi]: https://github.com/joolfe/postman-to-openapi

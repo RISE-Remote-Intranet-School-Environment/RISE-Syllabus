@@ -1,0 +1,624 @@
+openapi: 3.0.0
+info:
+  title: RISE-Syllabus
+  version: 1.0.0
+servers:
+  - url: localhost://
+tags:
+  - name: User
+  - name: Order
+  - name: Course
+  - name: Document
+  - name: Document order
+  - name: Document course
+paths:
+  /081/users/{userId}:
+    get:
+      tags:
+        - User
+      summary: Get single user
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - User
+      summary: Update user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 7
+                firstName: Corentin
+                lastName: Maillard
+                emailId: corentin.gmail.com
+                role: student
+                matricule: 21026
+                trigram: COM
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/users:
+    get:
+      tags:
+        - User
+      summary: Get users
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - User
+      summary: Add user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                userId: 7
+                firstName: Corentin
+                lastName: Maillard
+                emailId: corentin.gmail.com
+                role: student
+                matricule: 21026
+                trigram: COM
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/{orderId}:
+    get:
+      tags:
+        - Order
+      summary: Get single order
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Order
+      summary: Delete order
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Order
+      summary: Update order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                student: '20105'
+                date: '220307'
+                price: 10
+                state: 1
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/price/{orderId}:
+    get:
+      tags:
+        - Order
+      summary: Get order price
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders:
+    get:
+      tags:
+        - Order
+      summary: Get orders
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Order
+      summary: Add order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                student: 21010
+                date: '201023'
+                price: 20
+                state: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/getOrderByUserId/{userId}:
+    get:
+      tags:
+        - Order
+      summary: Get user's orders
+      parameters:
+        - name: userId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/orders/status:
+    post:
+      tags:
+        - Order
+      summary: Update order status (Not working)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                state: '1'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/courses:
+    get:
+      tags:
+        - Course
+      summary: Get courses
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Course
+      summary: Add course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                courseId: 3
+                name: dynamics'lab
+                teacher: 4
+                ue: Dynamic
+                year: '2'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/courses/{courseId}:
+    get:
+      tags:
+        - Course
+      summary: Get single course
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Course
+      summary: Delete course
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Course
+      summary: Update course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                courseId: 2
+                name: Gravity
+                teacher: 2
+                ue: Physical
+                year: 1
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/courses/UE/{ue}:
+    get:
+      tags:
+        - Course
+      summary: Get course by UE
+      parameters:
+        - name: ue
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/courses/Year/{year}:
+    get:
+      tags:
+        - Course
+      summary: Get course by year
+      parameters:
+        - name: year
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/documents/{documentId}:
+    get:
+      tags:
+        - Document
+      summary: Get single document
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Document
+      summary: Delete document
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Document
+      summary: Update document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Methematics
+                author: Walter
+                publishDate: 110923
+                pages: 105
+                version: 1
+                price: 10
+      parameters:
+        - name: documentId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/documents:
+    get:
+      tags:
+        - Document
+      summary: Get documents
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Document
+      summary: Add document
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                name: Methematics
+                author: Walter
+                publishDate: 110923
+                pages: 105
+                version: 1
+                price: 10
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuOrders/{mapDocuOrderId}:
+    get:
+      tags:
+        - Document order
+      summary: Get single documents order
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Document order
+      summary: Delete documents order
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Document order
+      summary: Update documents order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 2
+                fkorder: 2
+      parameters:
+        - name: mapDocuOrderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/getDocsByOrderId/{orderId}:
+    get:
+      tags:
+        - Document order
+      summary: Get documents order by orderID
+      parameters:
+        - name: orderId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuOrders:
+    get:
+      tags:
+        - Document order
+      summary: Get documents order
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses:
+    get:
+      tags:
+        - Document course
+      summary: get all docu-course
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    post:
+      tags:
+        - Document course
+      summary: add docu-course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 4
+                fkcourse: 3
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses/{mapDocuCourseId}:
+    get:
+      tags:
+        - Document course
+      summary: get one docu-course
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    delete:
+      tags:
+        - Document course
+      summary: Delete docu-order
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+    put:
+      tags:
+        - Document course
+      summary: Update docu-course
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                fkdocument: 1
+                fkcourses: 2
+      parameters:
+        - name: mapDocuCourseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+  /081/mapDocuCourses/getDocsByCourseId/{courseId}:
+    get:
+      tags:
+        - Document course
+      summary: get docu-course by
+      parameters:
+        - name: courseId
+          in: path
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
