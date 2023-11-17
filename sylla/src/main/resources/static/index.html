@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syllabus App</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <h1>Syllabus</h1>
+
+    <h2>Users</h2>
+    <ul id="userList"></ul>
+
+    <h2>Courses</h2>
+    <ul id="courseList"></ul>
+
+    <h2>Orders</h2>
+    <ul id="orderList"></ul>
+
+    <script>
+        $(document).ready(function () {
+            // Function to fetch and display data
+            function fetchData(endpoint, listId, property) {
+                $.ajax({
+                    url: 'http://localhost:8081/' + endpoint,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        var dataList = $('#' + listId);
+                        $.each(data, function (index, item) {
+                            dataList.append('<li>' + item[property] + '</li>');
+                        });
+                    },
+                    error: function () {
+                        alert('Erreur lors de la récupération des données pour ' + endpoint);
+                    }
+                });
+            }
+
+            // Fetch and display users
+            fetchData('users', 'userList', 'firstName');
+
+            // Fetch and display courses
+            fetchData('courses/', 'courseList', 'name');
+
+            // Fetch and display orders
+            fetchData('orders', 'orderList', 'student');
+        });
+    </script>
+</body>
+</html>

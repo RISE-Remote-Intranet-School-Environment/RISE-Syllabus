@@ -5,6 +5,11 @@
 * [Project participants](#project-participants)
 * [About the project](#question-about-the-project)
 * [Getting started](#rocket-getting-started)
+    * [Frameworks](#zap-frameworks)
+    * [Prerequesites](#exclamation-prerequesites)
+* [Test](#test)
+* [Documentation](#documentation)
+* [Tree structure](#deciduoustree-tree-structure)
 * [API](#boom-api)
 
 ## **Project participants**
@@ -75,6 +80,30 @@ You can generated this documentation in intellij \
 We generate the documentation at the end of our project but you can do it by yourself 
 
 Download the repository and open one html file the open this documentation \
+
+## :deciduous_tree: Tree Structure
+
+```bash
+sylla
+    ├───.mvn
+    │   └───wrapper
+    └───src
+        ├───main
+        │   ├───java
+        │   │   └───com
+        │   │       └───RISE
+        │   │           └───sylla
+        │   │               ├───controller
+        │   │               ├───model
+        │   │               ├───repository
+        │   │               └───service
+        │   └───resources
+        └───test
+            └───java
+                └───com
+                    └───RISE
+                        └───sylla
+```
 
 ## :boom: API
 
