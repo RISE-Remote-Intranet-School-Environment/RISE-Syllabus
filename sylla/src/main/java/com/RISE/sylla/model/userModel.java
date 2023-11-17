@@ -56,11 +56,16 @@ public class userModel {
     }
 
     public void setMatricule(int matricule) {
-        this.matricule = matricule;
+        if (this.getRole().equals("student")){
+            this.matricule = matricule;
+        }
     }
 
     public void setTrigram(String trigram) {
-        this.trigram = trigram;
+        if (this.getRole().equals("teacher")){
+            this.trigram = trigram;
+        }
+
     }
 
     @Id

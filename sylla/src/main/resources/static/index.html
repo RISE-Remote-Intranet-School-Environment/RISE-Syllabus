@@ -18,6 +18,9 @@
     <h2>Orders</h2>
     <ul id="orderList"></ul>
 
+    <h2>Documents</h2>
+    <ul id="docuList"></ul>
+
     <script>
         $(document).ready(function () {
             // Function to fetch and display data
@@ -46,6 +49,8 @@
 
             // Fetch and display orders
             fetchData('orders', 'orderList', 'student');
+
+            fetchData("documents","docuList","name");
         });
     </script>
 </body>

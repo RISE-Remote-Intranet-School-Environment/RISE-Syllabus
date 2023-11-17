@@ -3,6 +3,8 @@ package com.RISE.sylla.controller;
 import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
@@ -55,6 +57,8 @@ public class documentController {
     public List<documentModel> readDocuments() {
         return documentService.getDocuments();
     }
+
+
 
     /**
      * return a specific document by its id
