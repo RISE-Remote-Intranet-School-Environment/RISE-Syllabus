@@ -2,7 +2,6 @@ package com.RISE.sylla.controller;
 
 import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.model.mapDocuCourseModel;
-import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.mapDocuCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.mapDocuCourseModel;
-import com.RISE.sylla.service.mapDocuOrderService;
-
 
 @RestController
 @RequestMapping("/mapDocuCourses")
@@ -31,12 +27,17 @@ public class mapDocuCourseController {
 
     /**
      * post NEW mapDocuCourse
-     *
      * body needs to look like :    {
+<<<<<<< HEAD
+     *              "idmapdocucourse":1,
+     *              "fkdocument":1,
+     *              "fkcourse":1
+=======
      *              "fkcourse":1,
      *              "fkdocument":1
+>>>>>>> aa47c07484f54d63fa351d40b7a42d21bb5b19f8
      *          }
-     *
+     * fkcourse and fkdocument need to exist in their respective tables to make a link between.
      * @param mapDocuCourse map to be posted
      * @return the posted map
      */
@@ -61,15 +62,14 @@ public class mapDocuCourseController {
      * @param id id of the map to be returned
      * @return the map which as the provided id
      */
-    @RequestMapping(value="/{mapId}", method=RequestMethod.GET)
-    public Optional<mapDocuCourseModel> readMapById(@PathVariable(value = "mapId") Long id) {
+    @RequestMapping(value="/{mapDocuCourseId}", method=RequestMethod.GET)
+    public Optional<mapDocuCourseModel> readMapById(@PathVariable(value = "mapDocuCourseId") Long id) {
         return mapDocuCourseService.getMapById(id);
     }
 
 
     /**
      * update a map which already exists
-     *
      * body needs to look like :    {
      *         "idmapdocuorder":1,
      *         "fkdocument":1,
