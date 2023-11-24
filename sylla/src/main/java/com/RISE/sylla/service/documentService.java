@@ -25,7 +25,7 @@ public class documentService {
     }
 
     //READ by id
-    public Optional<documentModel> getDocumentById(Long userId){return documentRepository.findById(userId);}
+    public Optional<documentModel> getDocumentById(Long Id){return documentRepository.findById(Id);}
 
     // DELETE
     public void deleteDocument(Long documentId) {

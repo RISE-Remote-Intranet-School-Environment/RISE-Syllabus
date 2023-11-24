@@ -5,9 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,10 +24,14 @@ import com.RISE.sylla.service.documentService;
 @RequestMapping("/documents")
 public class documentController {
     @Autowired
+    documentService documentService;
     public List<documentModel> order;
     public float Totalprice;
-    documentService documentService;
 
+    public documentController(documentService documentService, List<documentModel> order) {
+        this.documentService = documentService;
+        this.order = order != null ? order : new ArrayList<>(); // Initialisation sécurisée
+    }
 
     /**
      * POST method '/documents' creating document with params
@@ -69,10 +75,14 @@ public class documentController {
     }
 
     @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
-    public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
-        documentModel document = readDocumentById(id).get();
-         order.add(document);
-         addtototalprice(document.getPrice());
+    public List<documentModel> addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
+        if (readDocumentById(id).isPresent()) {
+            documentModel document = readDocumentById(id).get();
+            order.add(document);
+            addtototalprice(document.getPrice());
+
+        }
+        return order;
     }
 
     public void addtototalprice(float price){
