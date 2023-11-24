@@ -22,8 +22,10 @@ import com.RISE.sylla.service.documentService;
 @RequestMapping("/documents")
 public class documentController {
     @Autowired
-    public List<Optional<documentModel>> order;
+    public List<documentModel> order;
+    public float Totalprice;
     documentService documentService;
+
 
     /**
      * POST method '/documents' creating document with params
@@ -68,8 +70,13 @@ public class documentController {
 
     @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
     public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
-         order.add(readDocumentById(id));
+        documentModel document = readDocumentById(id).get();
+         order.add(document);
+         addtototalprice(document.getPrice());
+    }
 
+    public void addtototalprice(float price){
+        Totalprice+= price;
     }
 
     /**
