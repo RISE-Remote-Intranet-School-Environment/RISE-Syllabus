@@ -1,37 +1,105 @@
 package com.RISE.sylla;
 
-import org.junit.Before;
-import org.junit.runner.RunWith;
+import com.RISE.sylla.controller.userController;
+import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.service.userService;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-@SpringBootTest
-@RunWith(SpringRunner.class)
-public class GetUserTest extends SyllaApplicationTests{
-    @Value("${server.port}")
-    private int port;
-    @Autowired
-    private WebApplicationContext webApplicationContext;
 
-    private MockMvc mvc;
+public class GetUserTest{
+    @Mock
+    private userService userService;
 
-    @Before
+    @InjectMocks
+    private userController userController;
+
+    private MockMvc mockMvc;
+
+    @BeforeEach
     public void setup() {
-        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        MockitoAnnotations.openMocks(this);
+        this.mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
+    }
+
+
+    @Test
+    public void testGetUserById() throws Exception {
+        // Mocking the service layer to return a specific user by ID
+        userModel user = new userModel();
+        user.setUserId(1L);
+        user.setFirstName("FirstName");
+        user.setLastName("LastName");
+        user.setEmailId("19555@ecam.be");
+        user.setRole("Role1");
+        user.setMatricule(19555);
+        user.setTrigram("TRI");
+        when(userService.getUserById(1L)).thenReturn(Optional.of(user));
+
+        // Perform the GET request and validate the response
+        mockMvc.perform(get("/users/1")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.userId").value(1))
+                .andExpect(jsonPath("$.firstName").value("FirstName"))
+                .andExpect(jsonPath("$.lastName").value("LastName"));
     }
 
     @Test
-    public void unitTestGetCategories() throws Exception {
-        this.mvc.perform(get("http://localhost:" + port + "/users/"))
-                .andExpect(status().isOk());
+    public void testGetAllCourses() throws Exception {
+        //Create 2 new courses
+        userModel user1 = new userModel();
+        user1.setUserId(1L);
+        user1.setFirstName("FirstName1");
+        user1.setLastName("LastName1");
+        user1.setEmailId("19555@ecam.be");
+        user1.setRole("Role1");
+        user1.setMatricule(19555);
+        user1.setTrigram("TRI");
+
+        userModel user2 = new userModel();
+        user2.setUserId(2L);
+        user2.setFirstName("FirstName2");
+        user2.setLastName("LastName2");
+        user2.setEmailId("19556@ecam.be");
+        user2.setRole("Role2");
+        user2.setMatricule(19556);
+        user2.setTrigram("TRJ");
+
+        // Mocking the service layer to return a list of users
+        List<userModel> users = Arrays.asList(
+                user1,
+                user2
+        );
+
+        when(userService.getUsers()).thenReturn(users);
+
+        // Perform the GET request and validate the response
+        mockMvc.perform(get("/users")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$[0].userId").value(1))
+                .andExpect(jsonPath("$[0].firstName").value("FirstName1"))
+                .andExpect(jsonPath("$[0].lastName").value("LastName1"))
+                .andExpect(jsonPath("$[1].userId").value(2))
+                .andExpect(jsonPath("$[1].firstName").value("FirstName2"))
+                .andExpect(jsonPath("$[1].lastName").value("LastName2"));
     }
 }

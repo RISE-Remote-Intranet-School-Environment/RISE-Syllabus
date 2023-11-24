@@ -56,6 +56,7 @@ public class GetCourseUnitTest {
 
     @Test
     public void testGetAllCourses() throws Exception {
+        //Create 2 new courses
         courseModel course1 = new courseModel();
         course1.setCourseId(1L);
         course1.setName("Course1");
@@ -69,6 +70,7 @@ public class GetCourseUnitTest {
         course2.setTeacher("Teacher2");
         course2.setUE("UE2");
         course2.setYear(2022);
+
         // Mocking the service layer to return a list of courses
         List<courseModel> courses = Arrays.asList(
                 course1,
