@@ -40,7 +40,7 @@ public class GetDocumentTest{
 
     @Test
     public void testGetDocumentById() throws Exception {
-        // Mocking the service layer to return a specific course by ID
+        // Mocking the service layer to return a specific document by ID
         documentModel document = new documentModel();
         document.setDocumentId(1L);
         document.setName("Document1");
@@ -81,7 +81,7 @@ public class GetDocumentTest{
         document2.setVersion("0.1");
         document2.setPrice(50);
 
-        // Mocking the service layer to return a list of courses
+        // Mocking the service layer to return a list of documents
         List<documentModel> documents = Arrays.asList(
                 document1,
                 document2
