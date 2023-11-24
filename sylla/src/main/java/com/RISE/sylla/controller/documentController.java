@@ -5,12 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import java.util.List;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,11 +22,12 @@ import com.RISE.sylla.service.documentService;
 @RequestMapping("/documents")
 public class documentController {
     @Autowired
+    public List<Optional<documentModel>> order;
     documentService documentService;
 
     /**
      * POST method '/documents' creating document with params
-     *
+
      * body needs to look like :    {
      *               "name": "mathematics",
      *               "author": "arthur",
@@ -49,8 +46,6 @@ public class documentController {
     }
 
     /**
-     * return all the documents
-     *
      * @return all the documents
      */
     @RequestMapping(value="", method=RequestMethod.GET)
@@ -69,6 +64,12 @@ public class documentController {
     @RequestMapping(value="/{documentId}", method=RequestMethod.GET)
     public Optional<documentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
         return documentService.getDocumentById(id);
+    }
+
+    @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
+    public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
+         order.add(readDocumentById(id));
+
     }
 
     /**
