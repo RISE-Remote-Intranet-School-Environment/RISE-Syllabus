@@ -45,7 +45,7 @@ For more information about Spring Boot, view the [official documentation][spring
 
 Before launch the application, you have to satisfy the following requirements.
 
-You need to use IntelliJ in order to use java and maven.
+You need to use IntelliJ in order to use Java and [Maven][maven].
 
 [Git][git] must be installed and configured on your machine in order to clone the repository and pull the new updates.
 
@@ -98,6 +98,7 @@ sylla
         │   │               ├───repository
         │   │               └───service
         │   └───resources
+        │       └───static
         └───test
             └───java
                 └───com
@@ -112,12 +113,17 @@ Finally, we converted the Postman Collection v2.1 to OpenAPI v3.0 following the 
 
 The resulting OpenAPI schema is in [schema.yaml][open-api-schema].
 
+With the schema generated from Swagger UI, we host our API documentation online using [Stoplight][stoplight]. The documentation is available at [API online documentation][api-documentation].
+
 <!-- Internal file links -->
 [open-api-schema]: ./schema.yaml
 
 <!-- Links -->
 [spring-boot]: https://spring.io/projects/spring-boot
+[maven]: https://www.jetbrains.com/help/idea/maven-support.html
 [git]: https://git-scm.com/
 [mysql]: https://www.mysql.com
 [mysql-download]: https://dev.mysql.com/downloads/mysql/
 [postman-to-openapi]: https://github.com/joolfe/postman-to-openapi
+[stoplight]: https://stoplight.io/
+[api-documentation]: https://rise-syllabus.stoplight.io/docs/rise-syllabus/y56oaj5r29p3c-rise-syllabus
