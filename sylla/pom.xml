@@ -65,6 +65,12 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<version>3.0.0</version>
+				<configuration>
+					<excludes>
+						<exclude>com.RISE.sylla.SyllaApplication</exclude>
+						<exclude>com.RISE.sylla.DeleteCourseTest</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
