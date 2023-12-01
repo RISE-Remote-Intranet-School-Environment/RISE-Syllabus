@@ -113,7 +113,7 @@ Finally, we converted the Postman Collection v2.1 to OpenAPI v3.0 following the 
 
 The resulting OpenAPI schema is in [schema.yaml][open-api-schema].
 
-With the schema generated from Swagger UI, we host our API documentation online using [Stoplight][stoplight]. The documentation is available at [API online documentation][api-documentation].
+With the schema generated, we host our API documentation online using [Stoplight][stoplight]. The documentation is available at [API online documentation][api-documentation].
 
 <!-- Internal file links -->
 [open-api-schema]: ./schema.yaml
