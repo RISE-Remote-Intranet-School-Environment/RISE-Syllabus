@@ -6,12 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.List;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -27,10 +25,17 @@ import com.RISE.sylla.service.documentService;
 public class documentController {
     @Autowired
     documentService documentService;
+    public List<documentModel> order;
+    public float Totalprice;
+
+    public documentController(documentService documentService, List<documentModel> order) {
+        this.documentService = documentService;
+        this.order = order != null ? order : new ArrayList<>(); // Initialisation sécurisée
+    }
 
     /**
      * POST method '/documents' creating document with params
-     *
+
      * body needs to look like :    {
      *               "name": "mathematics",
      *               "author": "arthur",
@@ -49,8 +54,6 @@ public class documentController {
     }
 
     /**
-     * return all the documents
-     *
      * @return all the documents
      */
     @RequestMapping(value="", method=RequestMethod.GET)
@@ -69,6 +72,25 @@ public class documentController {
     @RequestMapping(value="/{documentId}", method=RequestMethod.GET)
     public Optional<documentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
         return documentService.getDocumentById(id);
+    }
+
+    @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
+    public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
+        if (readDocumentById(id).isPresent()) {
+            documentModel document = readDocumentById(id).get();
+            order.add(document);
+            addtototalprice(document.getPrice());
+        }
+
+    }
+    @RequestMapping(value="/catalogue/orders", method=RequestMethod.GET)
+    public List<documentModel> seeorder() {
+        return order;
+    }
+
+
+    public void addtototalprice(float price){
+        Totalprice+= price;
     }
 
     /**
