@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.RISE</groupId>
-	<artifactId>sylla</artifactId>
+	<artifactId>RISE-Syllabus</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sylla</name>
-	<description>sylla</description>
+	<name>RISE-Syllabus</name>
+	<description>RISE-Syllabus</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
