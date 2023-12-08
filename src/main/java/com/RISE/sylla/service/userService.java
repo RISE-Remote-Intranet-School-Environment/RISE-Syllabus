@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.UserModel;
-import com.RISE.sylla.repository.userRepository;
+import com.RISE.sylla.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class userService {
 
     @Autowired
-    userRepository userRepository;
+    UserRepository userRepository;
 
     /**
      * Cette méthode crée un nouveau user

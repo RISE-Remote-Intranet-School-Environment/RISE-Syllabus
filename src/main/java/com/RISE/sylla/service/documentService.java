@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.DocumentModel;
-import com.RISE.sylla.repository.documentRepository;
+import com.RISE.sylla.repository.DocumentRepository;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class documentService {
     @Autowired
-    documentRepository documentRepository;
+    DocumentRepository documentRepository;
 
     // CREATE
     public DocumentModel createDocument(DocumentModel document) {

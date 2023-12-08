@@ -8,7 +8,7 @@ import com.RISE.sylla.model.OrderModel;
 import java.util.List;
 
 @Repository
-public interface orderRepository extends JpaRepository<OrderModel, Long>{
+public interface OrderRepository extends JpaRepository<OrderModel, Long>{
 
     List<OrderModel> findAllBystudent(Long id);
 }

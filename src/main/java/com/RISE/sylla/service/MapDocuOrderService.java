@@ -2,12 +2,12 @@ package com.RISE.sylla.service;
 
 
 import com.RISE.sylla.model.DocumentModel;
-import com.RISE.sylla.repository.documentRepository;
+import com.RISE.sylla.repository.DocumentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.MapDocuOrderModel;
-import com.RISE.sylla.repository.mapDocuOrderRepository;
+import com.RISE.sylla.repository.MapDocuOrderRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +17,10 @@ import java.util.Optional;
 public class MapDocuOrderService {
 
     @Autowired
-    mapDocuOrderRepository mapDocuOrderRepository;
+    MapDocuOrderRepository mapDocuOrderRepository;
 
     @Autowired
-    documentRepository documentRepository;
+    DocumentRepository documentRepository;
 
     //create
     public MapDocuOrderModel createMap(MapDocuOrderModel map){return mapDocuOrderRepository.save(map);}

@@ -4,7 +4,7 @@ import com.RISE.sylla.model.DocumentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.RISE.sylla.model.OrderModel;
-import com.RISE.sylla.repository.orderRepository;
+import com.RISE.sylla.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class orderService {
     @Autowired
-    orderRepository orderRepository;
+    OrderRepository orderRepository;
 
     @Autowired
     MapDocuOrderService mapDocuOrderService;

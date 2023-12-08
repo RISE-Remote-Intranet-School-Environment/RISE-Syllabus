@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.MapDocuCourseModel;
-import com.RISE.sylla.repository.mapDocuCourseRepository;
-import com.RISE.sylla.repository.documentRepository;
+import com.RISE.sylla.repository.MapDocuCourseRepository;
+import com.RISE.sylla.repository.DocumentRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ import java.util.Optional;
 public class mapDocuCourseService {
 
     @Autowired
-    mapDocuCourseRepository mapDocuCourseRepository;
+    MapDocuCourseRepository mapDocuCourseRepository;
 
     @Autowired
-    documentRepository documentRepository;
+    DocumentRepository documentRepository;
 
     // CREATE
     public MapDocuCourseModel createMapDocuCourse(MapDocuCourseModel mapDocuCourse) {

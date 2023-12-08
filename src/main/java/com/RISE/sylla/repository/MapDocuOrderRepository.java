@@ -8,7 +8,7 @@ import com.RISE.sylla.model.MapDocuOrderModel;
 import java.util.List;
 
 @Repository
-public interface mapDocuOrderRepository  extends JpaRepository<MapDocuOrderModel, Long>{
+public interface MapDocuOrderRepository extends JpaRepository<MapDocuOrderModel, Long>{
 
     //function to find map by order id
     List<MapDocuOrderModel> findAllByfkorder(Long id);

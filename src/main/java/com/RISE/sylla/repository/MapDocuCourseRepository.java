@@ -9,7 +9,7 @@ import com.RISE.sylla.model.MapDocuCourseModel;
 import java.util.List;
 
 @Repository
-public interface mapDocuCourseRepository extends JpaRepository<MapDocuCourseModel, Long>{
+public interface MapDocuCourseRepository extends JpaRepository<MapDocuCourseModel, Long>{
 
     //function to find map by course id
     List<MapDocuCourseModel> findAllByfkcourse(Long id);

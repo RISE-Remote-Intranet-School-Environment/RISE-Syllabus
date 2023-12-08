@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.RISE.sylla.model.CourseModel;
-import com.RISE.sylla.repository.courseRepository;
+import com.RISE.sylla.repository.CourseRepository;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class courseService {
     @Autowired
-    courseRepository courseRepository;
+    CourseRepository courseRepository;
 
     // CREATE
     public CourseModel createCourse(CourseModel course) {

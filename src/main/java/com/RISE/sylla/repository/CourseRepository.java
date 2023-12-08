@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface courseRepository extends JpaRepository<CourseModel, Long>{
+public interface CourseRepository extends JpaRepository<CourseModel, Long>{
 
     //function find a course by its ue
     Optional<CourseModel> findByue(String ue);
