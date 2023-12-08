@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.RISE.sylla.model.OrderModel;
-import com.RISE.sylla.service.orderService;
+import com.RISE.sylla.service.OrderService;
 
 import com.RISE.sylla.service.MapDocuOrderService;
 import com.RISE.sylla.model.MapDocuOrderModel;
 import com.RISE.sylla.model.DocumentModel;
-import com.RISE.sylla.service.documentService;
+import com.RISE.sylla.service.DocumentService;
 
 
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
     @Autowired
-    orderService orderService;
+    OrderService orderService;
     @Autowired
-    documentService documentService;
+    DocumentService documentService;
     @Autowired
     MapDocuOrderService mapDocuOrderService;
 

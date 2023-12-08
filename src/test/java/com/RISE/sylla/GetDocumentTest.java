@@ -2,7 +2,7 @@ package com.RISE.sylla;
 
 import com.RISE.sylla.controller.DocumentController;
 import com.RISE.sylla.model.DocumentModel;
-import com.RISE.sylla.service.documentService;
+import com.RISE.sylla.service.DocumentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class GetDocumentTest{
     @Mock
-    private documentService documentService;
+    private DocumentService documentService;
 
     @InjectMocks
     private DocumentController documentController;

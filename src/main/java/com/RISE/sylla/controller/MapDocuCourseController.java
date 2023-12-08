@@ -2,7 +2,7 @@ package com.RISE.sylla.controller;
 
 import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.model.MapDocuCourseModel;
-import com.RISE.sylla.service.mapDocuCourseService;
+import com.RISE.sylla.service.MapDocuCourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MapDocuCourseController {
 
     @Autowired
-    mapDocuCourseService mapDocuCourseService;
+    MapDocuCourseService mapDocuCourseService;
 
 
     /**

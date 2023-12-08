@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.RISE.sylla.model.UserModel;
-import com.RISE.sylla.service.userService;
+import com.RISE.sylla.service.UserService;
 
 /**
  * This Class redirects '/user' to the appropriate methods defined in the userService
@@ -23,7 +23,7 @@ import com.RISE.sylla.service.userService;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    userService userService;
+    UserService userService;
 
     /**
      * POST method '/users' creating user with params

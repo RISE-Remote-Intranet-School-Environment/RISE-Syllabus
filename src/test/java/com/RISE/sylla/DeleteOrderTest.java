@@ -2,7 +2,7 @@ package com.RISE.sylla;
 
 import com.RISE.sylla.controller.OrderController;
 import com.RISE.sylla.model.OrderModel;
-import com.RISE.sylla.service.orderService;
+import com.RISE.sylla.service.OrderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class DeleteOrderTest {
     @Mock
-    private orderService orderService;
+    private OrderService orderService;
 
     @InjectMocks
     private OrderController orderController;

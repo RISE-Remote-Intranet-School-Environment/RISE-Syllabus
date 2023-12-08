@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.RISE.sylla.model.DocumentModel;
-import com.RISE.sylla.service.documentService;
+import com.RISE.sylla.service.DocumentService;
 
 @RestController
 @RequestMapping("/documents")
 public class DocumentController {
     @Autowired
-    documentService documentService;
+    DocumentService documentService;
     public List<DocumentModel> order;
     public float Totalprice;
 
-    public DocumentController(documentService documentService, List<DocumentModel> order) {
+    public DocumentController(DocumentService documentService, List<DocumentModel> order) {
         this.documentService = documentService;
         this.order = order != null ? order : new ArrayList<>(); // Initialisation sécurisée
     }

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class mapDocuCourseService {
+public class MapDocuCourseService {
 
     @Autowired
     MapDocuCourseRepository mapDocuCourseRepository;

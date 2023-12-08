@@ -13,7 +13,7 @@ import java.util.Optional;
  */
 
 @Service
-public class userService {
+public class UserService {
 
     @Autowired
     UserRepository userRepository;

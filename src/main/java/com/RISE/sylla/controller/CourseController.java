@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.RISE.sylla.model.CourseModel;
-import com.RISE.sylla.service.courseService;
+import com.RISE.sylla.service.CourseService;
 
 @RestController
 @RequestMapping("/courses")
 public class CourseController {
     @Autowired
-    courseService courseService;
+    CourseService courseService;
 
     /**
      * add a new course to the database

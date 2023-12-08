@@ -2,7 +2,7 @@ package com.RISE.sylla;
 
 import com.RISE.sylla.controller.UserController;
 import com.RISE.sylla.model.UserModel;
-import com.RISE.sylla.service.userService;
+import com.RISE.sylla.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class GetUserTest{
     @Mock
-    private userService userService;
+    private UserService userService;
 
     @InjectMocks
     private UserController userController;
