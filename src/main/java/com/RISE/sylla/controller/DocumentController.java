@@ -1,34 +1,29 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.service.documentService;
+import com.RISE.sylla.model.DocumentModel;
+import com.RISE.sylla.service.DocumentService;
 
 @RestController
 @RequestMapping("/documents")
-public class documentController {
+public class DocumentController {
     @Autowired
-    documentService documentService;
-    public List<documentModel> order;
+    DocumentService documentService;
+    public List<DocumentModel> order;
     public float Totalprice;
 
-    public documentController(documentService documentService, List<documentModel> order) {
+    public DocumentController(DocumentService documentService, List<DocumentModel> order) {
         this.documentService = documentService;
         this.order = order != null ? order : new ArrayList<>(); // Initialisation sécurisée
     }
@@ -49,7 +44,7 @@ public class documentController {
      * @return the posted document
      */
     @RequestMapping(value="", method= RequestMethod.POST)
-    public documentModel createDocument(@RequestBody documentModel document) {
+    public DocumentModel createDocument(@RequestBody DocumentModel document) {
         return documentService.createDocument(document);
     }
 
@@ -57,7 +52,7 @@ public class documentController {
      * @return all the documents
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<documentModel> readDocuments() {
+    public List<DocumentModel> readDocuments() {
         return documentService.getDocuments();
     }
 
@@ -70,22 +65,8 @@ public class documentController {
      * @return the document which has the provided id
      */
     @RequestMapping(value="/{documentId}", method=RequestMethod.GET)
-    public Optional<documentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
+    public Optional<DocumentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
         return documentService.getDocumentById(id);
-    }
-
-    @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
-    public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
-        if (readDocumentById(id).isPresent()) {
-            documentModel document = readDocumentById(id).get();
-            order.add(document);
-            addtototalprice(document.getPrice());
-        }
-
-    }
-    @RequestMapping(value="/catalogue/orders", method=RequestMethod.GET)
-    public List<documentModel> seeorder() {
-        return order;
     }
 
 
@@ -110,7 +91,7 @@ public class documentController {
      * @return the updated document
      */
     @RequestMapping(value="/{documentId}", method=RequestMethod.PUT)
-    public documentModel updateDocuments(@PathVariable(value = "documentId") Long id, @RequestBody documentModel documentDetails) {
+    public DocumentModel updateDocuments(@PathVariable(value = "documentId") Long id, @RequestBody DocumentModel documentDetails) {
         return documentService.updateDocument(id, documentDetails);
     }
 

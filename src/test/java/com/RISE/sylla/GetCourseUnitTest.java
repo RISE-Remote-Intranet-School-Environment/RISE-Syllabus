@@ -1,6 +1,6 @@
-import com.RISE.sylla.model.courseModel;
-import com.RISE.sylla.service.courseService;
-import com.RISE.sylla.controller.courseController;
+import com.RISE.sylla.model.CourseModel;
+import com.RISE.sylla.service.CourseService;
+import com.RISE.sylla.controller.CourseController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -21,10 +21,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class GetCourseUnitTest {
 
     @Mock
-    private courseService courseService;
+    private CourseService courseService;
 
     @InjectMocks
-    private courseController courseController;
+    private CourseController courseController;
 
     private MockMvc mockMvc;
 
@@ -37,7 +37,7 @@ public class GetCourseUnitTest {
     @Test
     public void testGetCourseById() throws Exception {
         // Mocking the service layer to return a specific course by ID
-        courseModel course = new courseModel();
+        CourseModel course = new CourseModel();
         course.setCourseId(1L);
         course.setName("Course1");
         course.setTeacher("Teacher1");
@@ -57,14 +57,14 @@ public class GetCourseUnitTest {
     @Test
     public void testGetAllCourses() throws Exception {
         //Create 2 new courses
-        courseModel course1 = new courseModel();
+        CourseModel course1 = new CourseModel();
         course1.setCourseId(1L);
         course1.setName("Course1");
         course1.setTeacher("Teacher1");
         course1.setUE("UE1");
         course1.setYear(2022);
 
-        courseModel course2 = new courseModel();
+        CourseModel course2 = new CourseModel();
         course2.setCourseId(2L);
         course2.setName("Course2");
         course2.setTeacher("Teacher2");
@@ -72,7 +72,7 @@ public class GetCourseUnitTest {
         course2.setYear(2022);
 
         // Mocking the service layer to return a list of courses
-        List<courseModel> courses = Arrays.asList(
+        List<CourseModel> courses = Arrays.asList(
                 course1,
                 course2
         );

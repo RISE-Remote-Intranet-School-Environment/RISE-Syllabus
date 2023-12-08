@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.courseModel;
-import com.RISE.sylla.service.courseService;
+import com.RISE.sylla.model.CourseModel;
+import com.RISE.sylla.service.CourseService;
 
 @RestController
 @RequestMapping("/courses")
-public class courseController {
+public class CourseController {
     @Autowired
-    courseService courseService;
+    CourseService courseService;
 
     /**
      * add a new course to the database
@@ -36,7 +36,7 @@ public class courseController {
      * @return the new course
      */
     @RequestMapping(value="", method= RequestMethod.POST)
-    public courseModel createCourse(@RequestBody courseModel course) {
+    public CourseModel createCourse(@RequestBody CourseModel course) {
         return courseService.createCourse(course);
     }
 
@@ -48,7 +48,7 @@ public class courseController {
      * @return all the courses
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<courseModel> readCourses() {
+    public List<CourseModel> readCourses() {
         return courseService.getCourses();
     }
 
@@ -60,7 +60,7 @@ public class courseController {
      * @return the course linked to the provided id
      */
     @RequestMapping(value="/{courseId}", method=RequestMethod.GET)
-    public Optional<courseModel> readCourseById(@PathVariable(value = "courseId") Long id) {
+    public Optional<CourseModel> readCourseById(@PathVariable(value = "courseId") Long id) {
         return courseService.getCourseById(id);
     }
 
@@ -80,7 +80,7 @@ public class courseController {
      * @return the updated course
      */
     @RequestMapping(value="/{courseId}", method=RequestMethod.PUT)
-    public courseModel updateCourses(@PathVariable(value = "courseId") Long id, @RequestBody courseModel courseDetails) {
+    public CourseModel updateCourses(@PathVariable(value = "courseId") Long id, @RequestBody CourseModel courseDetails) {
         return courseService.updateCourse(id, courseDetails);
     }
 
@@ -101,7 +101,7 @@ public class courseController {
      * @return list of courses linked to the provided ue
      */
     @RequestMapping(value="/UE/{ue}", method=RequestMethod.GET)
-    public List<courseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
+    public List<CourseModel> getCoursesByUE(@PathVariable(value = "ue") String ue) {
         return courseService.getCoursesByUE(ue);
     }
 
@@ -112,7 +112,7 @@ public class courseController {
      * @return list of courses linked to the provided year
      */
     @RequestMapping(value="/Year/{year}", method=RequestMethod.GET)
-    public List<courseModel> getCoursesByAcademicYear(@PathVariable(value = "year") int year) {
+    public List<CourseModel> getCoursesByAcademicYear(@PathVariable(value = "year") int year) {
         return courseService.getCoursesByAcademicYear(year);
     }
 

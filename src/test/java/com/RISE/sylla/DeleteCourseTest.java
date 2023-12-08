@@ -1,8 +1,8 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.model.courseModel;
-import com.RISE.sylla.service.courseService;
-import com.RISE.sylla.controller.courseController;
+import com.RISE.sylla.model.CourseModel;
+import com.RISE.sylla.service.CourseService;
+import com.RISE.sylla.controller.CourseController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
@@ -25,10 +23,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class DeleteCourseTest{
     @Mock
-    private courseService courseService;
+    private CourseService courseService;
 
     @InjectMocks
-    private courseController courseController;
+    private CourseController courseController;
 
     private MockMvc mockMvc;
 
@@ -44,7 +42,7 @@ public class DeleteCourseTest{
 
     @Test
     public void deleteCourseTest() throws Exception {
-        courseModel course1 = new courseModel();
+        CourseModel course1 = new CourseModel();
         course1.setCourseId(1L);
         course1.setName("Course1");
         course1.setTeacher("Teacher1");
@@ -52,7 +50,7 @@ public class DeleteCourseTest{
         course1.setYear(2022);
         when(courseService.getCourseById(1L)).thenReturn(Optional.of(course1));
 
-        courseModel newCourse = new courseModel();
+        CourseModel newCourse = new CourseModel();
         newCourse.setCourseId(10L);
         newCourse.setName("nameTest");
         newCourse.setTeacher("teacherTest");

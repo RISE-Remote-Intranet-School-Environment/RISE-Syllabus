@@ -13,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
-public class userModel {
+public class UserModel {
     
     public String getFirstName() {
         return firstName;

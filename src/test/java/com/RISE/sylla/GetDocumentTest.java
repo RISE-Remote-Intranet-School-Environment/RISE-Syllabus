@@ -1,8 +1,8 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.documentController;
-import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.service.documentService;
+import com.RISE.sylla.controller.DocumentController;
+import com.RISE.sylla.model.DocumentModel;
+import com.RISE.sylla.service.DocumentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,10 +24,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class GetDocumentTest{
     @Mock
-    private documentService documentService;
+    private DocumentService documentService;
 
     @InjectMocks
-    private documentController documentController;
+    private DocumentController documentController;
 
     private MockMvc mockMvc;
 
@@ -41,7 +41,7 @@ public class GetDocumentTest{
     @Test
     public void testGetDocumentById() throws Exception {
         // Mocking the service layer to return a specific document by ID
-        documentModel document = new documentModel();
+        DocumentModel document = new DocumentModel();
         document.setDocumentId(1L);
         document.setName("Document1");
         document.setAuthor("Teacher1");
@@ -63,7 +63,7 @@ public class GetDocumentTest{
     @Test
     public void testGetAllCourses() throws Exception {
         //Create 2 new courses
-        documentModel document1 = new documentModel();
+        DocumentModel document1 = new DocumentModel();
         document1.setDocumentId(1L);
         document1.setName("Document1");
         document1.setAuthor("Teacher1");
@@ -72,7 +72,7 @@ public class GetDocumentTest{
         document1.setVersion("2022");
         document1.setPrice(22);
 
-        documentModel document2 = new documentModel();
+        DocumentModel document2 = new DocumentModel();
         document2.setDocumentId(2L);
         document2.setName("Document2");
         document2.setAuthor("Teacher2");
@@ -82,7 +82,7 @@ public class GetDocumentTest{
         document2.setPrice(50);
 
         // Mocking the service layer to return a list of documents
-        List<documentModel> documents = Arrays.asList(
+        List<DocumentModel> documents = Arrays.asList(
                 document1,
                 document2
         );

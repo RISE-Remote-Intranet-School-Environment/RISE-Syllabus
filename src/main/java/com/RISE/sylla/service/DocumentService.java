@@ -1,31 +1,30 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.repository.documentRepository;
+import com.RISE.sylla.model.DocumentModel;
+import com.RISE.sylla.repository.DocumentRepository;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class documentService {
+public class DocumentService {
     @Autowired
-    documentRepository documentRepository;
+    DocumentRepository documentRepository;
 
     // CREATE
-    public documentModel createDocument(documentModel document) {
+    public DocumentModel createDocument(DocumentModel document) {
         return documentRepository.save(document);
     }
 
     // READ
-    public List<documentModel> getDocuments() {
+    public List<DocumentModel> getDocuments() {
         return documentRepository.findAll();
     }
 
     //READ by id
-    public Optional<documentModel> getDocumentById(Long Id){return documentRepository.findById(Id);}
+    public Optional<DocumentModel> getDocumentById(Long Id){return documentRepository.findById(Id);}
 
     // DELETE
     public void deleteDocument(Long documentId) {
@@ -33,8 +32,8 @@ public class documentService {
     }
 
     // UPDATE
-    public documentModel updateDocument(Long documentId, documentModel documentDetails) {
-        documentModel document = documentRepository.findById(documentId).get();
+    public DocumentModel updateDocument(Long documentId, DocumentModel documentDetails) {
+        DocumentModel document = documentRepository.findById(documentId).get();
         document.setName(documentDetails.getName());
         document.setAuthor(documentDetails.getAuthor());
         document.setPublishDate(documentDetails.getPublishDate());

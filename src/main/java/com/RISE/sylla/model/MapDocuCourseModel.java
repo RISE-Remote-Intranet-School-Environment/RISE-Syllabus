@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="map_docu_course")
-public class mapDocuCourseModel {
+public class MapDocuCourseModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
