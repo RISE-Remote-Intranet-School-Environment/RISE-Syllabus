@@ -17,7 +17,7 @@
 ### 2023-24
 
 - Van Olffen Victor 20253
-- Maillard Corentin 21306 https://img.shields.io/github/contributors/corentinmaillard/https%3A%2F%2Fgithub.com%2FRISE-Remote-Intranet-School-Environment%2FRISE-Syllabus
+- Maillard Corentin 21306
 - Mettioui Mourad 195019
 
 ### 2022-23
