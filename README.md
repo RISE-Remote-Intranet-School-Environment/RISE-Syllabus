@@ -1,5 +1,9 @@
 # RISE-Syllabus
 
+[![Java CI with Maven](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/actions/workflows/maven.yml/badge.svg)](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/actions/workflows/maven.yml)
+![GitHub contributors](https://img.shields.io/github/contributors/RISE-Remote-Intranet-School-Environment/RISE-Syllabus?color=blue)
+![GitHub issues](https://img.shields.io/github/issues/RISE-Remote-Intranet-School-Environment/RISE-Syllabus?color=orange)
+
 # Table of contents
 
 * [Project participants](#project-participants)
