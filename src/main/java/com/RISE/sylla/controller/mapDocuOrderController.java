@@ -1,17 +1,12 @@
 package com.RISE.sylla.controller;
 
 import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.model.userModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.RISE.sylla.model.mapDocuOrderModel;
-import com.RISE.sylla.service.mapDocuOrderService;
+import com.RISE.sylla.service.MapDocuOrderService;
 
 @RestController
 @RequestMapping("/mapDocuOrders")
 public class mapDocuOrderController {
 
     @Autowired
-    mapDocuOrderService mapDocuOrderService;
+    MapDocuOrderService mapDocuOrderService;
 
     /**
      * post NEW mapDocuOrder

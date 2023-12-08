@@ -74,20 +74,6 @@ public class documentController {
         return documentService.getDocumentById(id);
     }
 
-    @RequestMapping(value="/catalogue/{documentId}", method=RequestMethod.GET)
-    public void addDocumenttoorder(@PathVariable(value = "documentId") Long id) {
-        if (readDocumentById(id).isPresent()) {
-            documentModel document = readDocumentById(id).get();
-            order.add(document);
-            addtototalprice(document.getPrice());
-        }
-
-    }
-    @RequestMapping(value="/catalogue/orders", method=RequestMethod.GET)
-    public List<documentModel> seeorder() {
-        return order;
-    }
-
 
     public void addtototalprice(float price){
         Totalprice+= price;

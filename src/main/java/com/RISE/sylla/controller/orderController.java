@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.RISE.sylla.model.orderModel;
 import com.RISE.sylla.service.orderService;
 
-import com.RISE.sylla.service.mapDocuOrderService;
+import com.RISE.sylla.service.MapDocuOrderService;
 import com.RISE.sylla.model.mapDocuOrderModel;
 import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.service.documentService;
@@ -28,7 +28,7 @@ public class orderController {
     @Autowired
     documentService documentService;
     @Autowired
-    mapDocuOrderService mapDocuOrderService;
+    MapDocuOrderService mapDocuOrderService;
 
     /**
      * POST method '/orders' creating order with params
@@ -82,6 +82,11 @@ public class orderController {
         return orderService.getOrderById(id);
     }
 
+    @RequestMapping(value="/{orderId}/content", method=RequestMethod.GET)
+    public List<Optional<documentModel>> readContentInOrder(@PathVariable(value = "orderId") Long id) {
+
+        return orderService.getdocumentsByOrder(id);
+    }
     /**
      * update an order which already exists
      *
