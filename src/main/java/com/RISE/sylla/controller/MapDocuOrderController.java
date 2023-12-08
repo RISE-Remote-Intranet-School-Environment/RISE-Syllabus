@@ -97,7 +97,7 @@ public class MapDocuOrderController {
      */
     @RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
     public List<Optional<DocumentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
-        return mapDocuOrderService.getDocByOrderId(id);
+        return mapDocuOrderService.getDocsByOrderId(id);
     }
 
 }

@@ -81,7 +81,12 @@ public class OrderController {
     public Optional<OrderModel> readOrderById(@PathVariable(value = "orderId") Long id) {
         return orderService.getOrderById(id);
     }
-
+    /**
+     * return all the documents linked to the specified order
+     *
+     * @param id of the order for which you wish to find the documents
+     * @return list of document
+     */
     @RequestMapping(value="/{orderId}/content", method=RequestMethod.GET)
     public List<Optional<DocumentModel>> readContentInOrder(@PathVariable(value = "orderId") Long id) {
 
@@ -122,7 +127,7 @@ public class OrderController {
      * @param orderId id of the order
      * @return the price of the order
      */
-    @RequestMapping(value="/price/{orderId}", method=RequestMethod.GET)
+    @RequestMapping(value="/{orderId}/price", method=RequestMethod.GET)
     public long getPrice(@PathVariable(value = "orderId") Long orderId) {
     int totalPrice = 0;
     //List<orderModel> order = orderService.getOrder();

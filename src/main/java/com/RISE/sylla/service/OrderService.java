@@ -31,9 +31,9 @@ public class OrderService {
     //READ by id
     public Optional<OrderModel> getOrderById(Long orderId){return orderRepository.findById(orderId);}
 
-    //READ content
+    //READ content of the order
     public List<Optional<DocumentModel>> getdocumentsByOrder(Long orderId) {
-        return mapDocuOrderService.getDocByOrderId(orderId);
+        return mapDocuOrderService.getDocsByOrderId(orderId);
     }
 
     // DELETE
