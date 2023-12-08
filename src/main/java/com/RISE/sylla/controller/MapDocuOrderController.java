@@ -1,6 +1,6 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.DocumentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.mapDocuOrderModel;
+import com.RISE.sylla.model.MapDocuOrderModel;
 import com.RISE.sylla.service.MapDocuOrderService;
 
 @RestController
@@ -35,7 +35,7 @@ public class MapDocuOrderController {
      * @return the posted map
      */
     @RequestMapping(value="", method= RequestMethod.POST)
-    public mapDocuOrderModel createmapDocuOrder(@RequestBody mapDocuOrderModel mapDocuOrder) {
+    public MapDocuOrderModel createmapDocuOrder(@RequestBody MapDocuOrderModel mapDocuOrder) {
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
@@ -46,7 +46,7 @@ public class MapDocuOrderController {
      * @return the map which as the provided id
      */
     @RequestMapping(value="/{mapId}", method=RequestMethod.GET)
-    public Optional<mapDocuOrderModel> readMapById(@PathVariable(value = "mapId") Long id) {
+    public Optional<MapDocuOrderModel> readMapById(@PathVariable(value = "mapId") Long id) {
         return mapDocuOrderService.getMapById(id);
     }
 
@@ -56,7 +56,7 @@ public class MapDocuOrderController {
      * @return all the map stored in database
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<mapDocuOrderModel> readmapDocuOrders() {
+    public List<MapDocuOrderModel> readmapDocuOrders() {
         return mapDocuOrderService.getMaps();
     }
 
@@ -73,7 +73,7 @@ public class MapDocuOrderController {
      * @return the updated map
      */
     @RequestMapping(value="/{mapDocuOrderId}", method=RequestMethod.POST)
-    public mapDocuOrderModel updateDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody mapDocuOrderModel mapDocuOrderDetails) {
+    public MapDocuOrderModel updateDocuOrders(@PathVariable(value = "mapDocuOrderId") Long id, @RequestBody MapDocuOrderModel mapDocuOrderDetails) {
         System.out.println(mapDocuOrderDetails);
         return mapDocuOrderService.updateMap(id, mapDocuOrderDetails);
     }
@@ -96,7 +96,7 @@ public class MapDocuOrderController {
      * @return list of document
      */
     @RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
-    public List<Optional<documentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
+    public List<Optional<DocumentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
         return mapDocuOrderService.getDocByOrderId(id);
     }
 

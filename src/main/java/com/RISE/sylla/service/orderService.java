@@ -1,9 +1,9 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.DocumentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.model.OrderModel;
 import com.RISE.sylla.repository.orderRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,20 +19,20 @@ public class orderService {
     MapDocuOrderService mapDocuOrderService;
 
     // CREATE
-    public orderModel createOrder(orderModel order) {
+    public OrderModel createOrder(OrderModel order) {
         return orderRepository.save(order);
     }
 
     // READ
-    public List<orderModel> getOrders() {
+    public List<OrderModel> getOrders() {
         return orderRepository.findAll();
     }
 
     //READ by id
-    public Optional<orderModel> getOrderById(Long orderId){return orderRepository.findById(orderId);}
+    public Optional<OrderModel> getOrderById(Long orderId){return orderRepository.findById(orderId);}
 
     //READ content
-    public List<Optional<documentModel>> getdocumentsByOrder(Long orderId) {
+    public List<Optional<DocumentModel>> getdocumentsByOrder(Long orderId) {
         return mapDocuOrderService.getDocByOrderId(orderId);
     }
 
@@ -42,8 +42,8 @@ public class orderService {
     }
 
     // UPDATE
-    public orderModel updateOrder(Long orderId, orderModel orderDetails) {
-        orderModel order = orderRepository.findById(orderId).get();
+    public OrderModel updateOrder(Long orderId, OrderModel orderDetails) {
+        OrderModel order = orderRepository.findById(orderId).get();
         order.setStudent(orderDetails.getStudent());
         order.setDate(orderDetails.getDate());
         order.setPrice(orderDetails.getPrice());
@@ -51,15 +51,15 @@ public class orderService {
         return orderRepository.save(order);
     }
 
-    public orderModel updateStatus(Long orderId, String status){
-        orderModel order = orderRepository.findById(orderId).get();
+    public OrderModel updateStatus(Long orderId, String status){
+        OrderModel order = orderRepository.findById(orderId).get();
         order.setState(status);
         return orderRepository.save(order);
     }
 
 
     //find order by user id
-    public List<orderModel> getOrderByUserId(Long id){
+    public List<OrderModel> getOrderByUserId(Long id){
         return orderRepository.findAllBystudent(id);
 
     }

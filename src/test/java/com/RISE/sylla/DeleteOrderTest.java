@@ -1,7 +1,7 @@
 package com.RISE.sylla;
 
 import com.RISE.sylla.controller.OrderController;
-import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.model.OrderModel;
 import com.RISE.sylla.service.orderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +41,7 @@ public class DeleteOrderTest {
     @Test
     public void deleteOrderTest() throws Exception {
         // Mocking the service layer to return a specific order by ID
-        orderModel order = new orderModel();
+        OrderModel order = new OrderModel();
         order.setOrderID(1L);
         order.setStudent(19555L);
         order.setDate("2020");
@@ -49,7 +49,7 @@ public class DeleteOrderTest {
         order.setState("pending");
         when(orderService.getOrderById(1L)).thenReturn(Optional.of(order));
 
-        orderModel newOrder = new orderModel();
+        OrderModel newOrder = new OrderModel();
         newOrder.setOrderID(10L);
         newOrder.setStudent(777L);
         newOrder.setDate("2222");

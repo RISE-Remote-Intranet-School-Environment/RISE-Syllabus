@@ -1,11 +1,10 @@
 package com.RISE.sylla.service;
 
-import com.RISE.sylla.model.documentModel;
-import com.RISE.sylla.model.mapDocuOrderModel;
+import com.RISE.sylla.model.DocumentModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.RISE.sylla.model.mapDocuCourseModel;
+import com.RISE.sylla.model.MapDocuCourseModel;
 import com.RISE.sylla.repository.mapDocuCourseRepository;
 import com.RISE.sylla.repository.documentRepository;
 
@@ -23,17 +22,17 @@ public class mapDocuCourseService {
     documentRepository documentRepository;
 
     // CREATE
-    public mapDocuCourseModel createMapDocuCourse(mapDocuCourseModel mapDocuCourse) {
+    public MapDocuCourseModel createMapDocuCourse(MapDocuCourseModel mapDocuCourse) {
         return mapDocuCourseRepository.save(mapDocuCourse);
     }
 
     // READ
-    public List<mapDocuCourseModel> getMapDocuCourses() {
+    public List<MapDocuCourseModel> getMapDocuCourses() {
         return mapDocuCourseRepository.findAll();
     }
 
     //READ by id
-    public Optional<mapDocuCourseModel> getMapById(Long mapId){return mapDocuCourseRepository.findById(mapId);}
+    public Optional<MapDocuCourseModel> getMapById(Long mapId){return mapDocuCourseRepository.findById(mapId);}
 
     // DELETE
     public void deleteMapDocuCourse(Long mapDocuCourseId) {
@@ -41,8 +40,8 @@ public class mapDocuCourseService {
     }
 
     // UPDATE
-    public mapDocuCourseModel updateMapDocuCourse(Long mapDocuCourseId, mapDocuCourseModel mapDocuCourseDetails) {
-        mapDocuCourseModel mapDocuCourse = mapDocuCourseRepository.findById(mapDocuCourseId).get();
+    public MapDocuCourseModel updateMapDocuCourse(Long mapDocuCourseId, MapDocuCourseModel mapDocuCourseDetails) {
+        MapDocuCourseModel mapDocuCourse = mapDocuCourseRepository.findById(mapDocuCourseId).get();
         mapDocuCourse.setIdMapDocuCourse(mapDocuCourseDetails.getIdMapDocuCourse());
         mapDocuCourse.setFkcourse(mapDocuCourseDetails.getFkcourse());
         mapDocuCourse.setFkdocument(mapDocuCourseDetails.getFkdocument());
@@ -51,10 +50,10 @@ public class mapDocuCourseService {
     }
 
     //find documents by course id
-    public List<Optional<documentModel>> getDocByCourseId(Long id){
-        List<mapDocuCourseModel> list= mapDocuCourseRepository.findAllByfkcourse(id);
-        List<Optional<documentModel>> docList = new ArrayList<Optional<documentModel>>();
-        for (mapDocuCourseModel map:list) {
+    public List<Optional<DocumentModel>> getDocByCourseId(Long id){
+        List<MapDocuCourseModel> list= mapDocuCourseRepository.findAllByfkcourse(id);
+        List<Optional<DocumentModel>> docList = new ArrayList<Optional<DocumentModel>>();
+        for (MapDocuCourseModel map:list) {
             docList.add(documentRepository.findById(map.getFkdocument()));
         }
         return docList;

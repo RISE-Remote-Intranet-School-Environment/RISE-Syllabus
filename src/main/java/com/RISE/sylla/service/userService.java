@@ -3,7 +3,7 @@ package com.RISE.sylla.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.model.UserModel;
 import com.RISE.sylla.repository.userRepository;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +23,7 @@ public class userService {
      * @param user voir les parametre de la classe userModel
      * @return un objet user
      */
-    public userModel createUser(userModel user) {
+    public UserModel createUser(UserModel user) {
         return userRepository.save(user);
     }
 
@@ -31,7 +31,7 @@ public class userService {
      * Cette methode retourne tous les users
      * @return une liste d'objet user
      */
-    public List<userModel> getUsers() {
+    public List<UserModel> getUsers() {
         return userRepository.findAll();
     }
 
@@ -40,7 +40,7 @@ public class userService {
      * @param userId l'identifiant unique du user
      * @return l'objet user identifiable par l'id
      */
-    public Optional<userModel> getUserById(Long userId){return userRepository.findById(userId);}
+    public Optional<UserModel> getUserById(Long userId){return userRepository.findById(userId);}
 
     /**
      * Cette méthode efface le user par son id
@@ -56,8 +56,8 @@ public class userService {
      * @param userDetails les parametre de l'objet user : voir userModel pour plus de détails
      * @return un objet user
      */
-    public userModel updateUser(Long userId, userModel userDetails) {
-        userModel user = userRepository.findById(userId).get();
+    public UserModel updateUser(Long userId, UserModel userDetails) {
+        UserModel user = userRepository.findById(userId).get();
         user.setFirstName(userDetails.getFirstName());
         user.setLastName(userDetails.getLastName());
         user.setEmailId(userDetails.getEmailId());

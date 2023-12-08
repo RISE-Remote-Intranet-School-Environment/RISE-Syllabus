@@ -1,7 +1,7 @@
 package com.RISE.sylla;
 
 import com.RISE.sylla.controller.UserController;
-import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.model.UserModel;
 import com.RISE.sylla.service.userService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,7 +41,7 @@ public class GetUserTest{
     @Test
     public void testGetUserById() throws Exception {
         // Mocking the service layer to return a specific user by ID
-        userModel user = new userModel();
+        UserModel user = new UserModel();
         user.setUserId(1L);
         user.setFirstName("FirstName");
         user.setLastName("LastName");
@@ -64,7 +64,7 @@ public class GetUserTest{
     @Test
     public void testGetAllCourses() throws Exception {
         //Create 2 new courses
-        userModel user1 = new userModel();
+        UserModel user1 = new UserModel();
         user1.setUserId(1L);
         user1.setFirstName("FirstName1");
         user1.setLastName("LastName1");
@@ -73,7 +73,7 @@ public class GetUserTest{
         user1.setMatricule(19555);
         user1.setTrigram("TRI");
 
-        userModel user2 = new userModel();
+        UserModel user2 = new UserModel();
         user2.setUserId(2L);
         user2.setFirstName("FirstName2");
         user2.setLastName("LastName2");
@@ -83,7 +83,7 @@ public class GetUserTest{
         user2.setTrigram("TRJ");
 
         // Mocking the service layer to return a list of users
-        List<userModel> users = Arrays.asList(
+        List<UserModel> users = Arrays.asList(
                 user1,
                 user2
         );

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.model.UserModel;
 import com.RISE.sylla.service.userService;
 
 /**
@@ -39,7 +39,7 @@ public class UserController {
      * @return new posted user
      */
     @RequestMapping(value="", method= RequestMethod.POST)
-    public userModel createUser(@RequestBody userModel user) {
+    public UserModel createUser(@RequestBody UserModel user) {
         return userService.createUser(user);
     }
 
@@ -48,7 +48,7 @@ public class UserController {
      * @return list of all users
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<userModel> readUsers() {
+    public List<UserModel> readUsers() {
         return userService.getUsers();
     }
 
@@ -58,7 +58,7 @@ public class UserController {
      * @return If it exists, the user
      */
     @RequestMapping(value="/{userId}", method=RequestMethod.GET)
-    public Optional<userModel> readUserById(@PathVariable(value = "userId") Long id) {
+    public Optional<UserModel> readUserById(@PathVariable(value = "userId") Long id) {
         return userService.getUserById(id);
     }
 
@@ -79,7 +79,7 @@ public class UserController {
      * @return the user modified
      */
     @RequestMapping(value="/{userId}", method=RequestMethod.PUT)
-    public userModel updateUsers(@PathVariable(value = "userId") Long id, @RequestBody userModel userDetails) {
+    public UserModel updateUsers(@PathVariable(value = "userId") Long id, @RequestBody UserModel userDetails) {
         return userService.updateUser(id, userDetails);
     }
 

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.service.documentService;
 
 @RestController
@@ -20,10 +20,10 @@ import com.RISE.sylla.service.documentService;
 public class DocumentController {
     @Autowired
     documentService documentService;
-    public List<documentModel> order;
+    public List<DocumentModel> order;
     public float Totalprice;
 
-    public DocumentController(documentService documentService, List<documentModel> order) {
+    public DocumentController(documentService documentService, List<DocumentModel> order) {
         this.documentService = documentService;
         this.order = order != null ? order : new ArrayList<>(); // Initialisation sécurisée
     }
@@ -44,7 +44,7 @@ public class DocumentController {
      * @return the posted document
      */
     @RequestMapping(value="", method= RequestMethod.POST)
-    public documentModel createDocument(@RequestBody documentModel document) {
+    public DocumentModel createDocument(@RequestBody DocumentModel document) {
         return documentService.createDocument(document);
     }
 
@@ -52,7 +52,7 @@ public class DocumentController {
      * @return all the documents
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<documentModel> readDocuments() {
+    public List<DocumentModel> readDocuments() {
         return documentService.getDocuments();
     }
 
@@ -65,7 +65,7 @@ public class DocumentController {
      * @return the document which has the provided id
      */
     @RequestMapping(value="/{documentId}", method=RequestMethod.GET)
-    public Optional<documentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
+    public Optional<DocumentModel> readDocumentById(@PathVariable(value = "documentId") Long id) {
         return documentService.getDocumentById(id);
     }
 
@@ -91,7 +91,7 @@ public class DocumentController {
      * @return the updated document
      */
     @RequestMapping(value="/{documentId}", method=RequestMethod.PUT)
-    public documentModel updateDocuments(@PathVariable(value = "documentId") Long id, @RequestBody documentModel documentDetails) {
+    public DocumentModel updateDocuments(@PathVariable(value = "documentId") Long id, @RequestBody DocumentModel documentDetails) {
         return documentService.updateDocument(id, documentDetails);
     }
 

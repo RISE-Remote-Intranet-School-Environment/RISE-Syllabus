@@ -1,12 +1,12 @@
 package com.RISE.sylla.service;
 
 
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.repository.documentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.RISE.sylla.model.mapDocuOrderModel;
+import com.RISE.sylla.model.MapDocuOrderModel;
 import com.RISE.sylla.repository.mapDocuOrderRepository;
 
 import java.util.ArrayList;
@@ -23,15 +23,15 @@ public class MapDocuOrderService {
     documentRepository documentRepository;
 
     //create
-    public mapDocuOrderModel createMap(mapDocuOrderModel map){return mapDocuOrderRepository.save(map);}
+    public MapDocuOrderModel createMap(MapDocuOrderModel map){return mapDocuOrderRepository.save(map);}
 
     //read all
-    public List<mapDocuOrderModel> getMaps() {
+    public List<MapDocuOrderModel> getMaps() {
         return mapDocuOrderRepository.findAll();
     }
 
     //READ by id
-    public Optional<mapDocuOrderModel> getMapById(Long mapId){return mapDocuOrderRepository.findById(mapId);}
+    public Optional<MapDocuOrderModel> getMapById(Long mapId){return mapDocuOrderRepository.findById(mapId);}
 
     // DELETE
     public void deleteMap(Long mapId) {
@@ -39,9 +39,9 @@ public class MapDocuOrderService {
     }
 
     // UPDATE
-    public mapDocuOrderModel updateMap(Long mapId, mapDocuOrderModel mapDetails) {
+    public MapDocuOrderModel updateMap(Long mapId, MapDocuOrderModel mapDetails) {
         System.out.println(mapDetails.getFkdocument());
-        mapDocuOrderModel map = mapDocuOrderRepository.findById(mapId).get();
+        MapDocuOrderModel map = mapDocuOrderRepository.findById(mapId).get();
         map.setFkorder(mapDetails.getFkorder());
         map.setFkdocument(mapDetails.getFkdocument());
 
@@ -49,10 +49,10 @@ public class MapDocuOrderService {
     }
 
     //find documents by order id
-    public List<Optional<documentModel>> getDocByOrderId(Long id){
-        List<mapDocuOrderModel> list= mapDocuOrderRepository.findAllByfkorder(id);
-        List<Optional<documentModel>> docList = new ArrayList<Optional<documentModel>>();
-        for (mapDocuOrderModel map:list) {
+    public List<Optional<DocumentModel>> getDocByOrderId(Long id){
+        List<MapDocuOrderModel> list= mapDocuOrderRepository.findAllByfkorder(id);
+        List<Optional<DocumentModel>> docList = new ArrayList<Optional<DocumentModel>>();
+        for (MapDocuOrderModel map:list) {
             docList.add(documentRepository.findById(map.getFkdocument()));
         }
         return docList;

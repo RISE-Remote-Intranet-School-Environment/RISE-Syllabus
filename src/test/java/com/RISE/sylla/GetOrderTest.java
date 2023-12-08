@@ -1,7 +1,7 @@
 package com.RISE.sylla;
 
 import com.RISE.sylla.controller.OrderController;
-import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.model.OrderModel;
 import com.RISE.sylla.service.orderService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -42,7 +42,7 @@ public class GetOrderTest{
     @Test
     public void testGetOrderById() throws Exception {
         // Mocking the service layer to return a specific order by ID
-        orderModel order = new orderModel();
+        OrderModel order = new OrderModel();
         order.setOrderID(1L);
         order.setStudent(19555L);
         order.setDate("2020");
@@ -62,14 +62,14 @@ public class GetOrderTest{
     @Test
     public void testGetAllOrders() throws Exception {
         //Create 2 new orders
-        orderModel order1 = new orderModel();
+        OrderModel order1 = new OrderModel();
         order1.setOrderID(1L);
         order1.setStudent(19555L);
         order1.setDate("2022");
         order1.setPrice(20);
         order1.setState("pending");
 
-        orderModel order2 = new orderModel();
+        OrderModel order2 = new OrderModel();
         order2.setOrderID(2L);
         order2.setStudent(19556L);
         order2.setDate("2022");
@@ -77,7 +77,7 @@ public class GetOrderTest{
         order2.setState("pending");
 
         // Mocking the service layer to return a list of orders
-        List<orderModel> orders = Arrays.asList(
+        List<OrderModel> orders = Arrays.asList(
                 order1,
                 order2
         );

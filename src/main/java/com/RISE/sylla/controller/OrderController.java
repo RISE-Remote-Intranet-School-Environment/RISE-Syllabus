@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.model.OrderModel;
 import com.RISE.sylla.service.orderService;
 
 import com.RISE.sylla.service.MapDocuOrderService;
-import com.RISE.sylla.model.mapDocuOrderModel;
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.MapDocuOrderModel;
+import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.service.documentService;
 
 
@@ -43,7 +43,7 @@ public class OrderController {
      * @return the posted order
      */
     @RequestMapping(value="", method=RequestMethod.POST)
-    public orderModel createOrder(@RequestBody orderModel order) {
+    public OrderModel createOrder(@RequestBody OrderModel order) {
         return orderService.createOrder(order);
     }
 
@@ -56,7 +56,7 @@ public class OrderController {
      * @return the updated order
      */
     @RequestMapping(value="/status", method=RequestMethod.POST)
-    public orderModel updateStatus(@RequestBody String status) {
+    public OrderModel updateStatus(@RequestBody String status) {
         String[] data = status.split(",");
         return orderService.updateStatus(Long.parseLong(data[0]), data[1]);
     }
@@ -67,7 +67,7 @@ public class OrderController {
      * @return all the orders
      */
     @RequestMapping(value="", method=RequestMethod.GET)
-    public List<orderModel> readOrders() {
+    public List<OrderModel> readOrders() {
         return orderService.getOrders();
     }
 
@@ -78,12 +78,12 @@ public class OrderController {
      * @return the order which has the provided id
      */
     @RequestMapping(value="/{orderId}", method=RequestMethod.GET)
-    public Optional<orderModel> readOrderById(@PathVariable(value = "orderId") Long id) {
+    public Optional<OrderModel> readOrderById(@PathVariable(value = "orderId") Long id) {
         return orderService.getOrderById(id);
     }
 
     @RequestMapping(value="/{orderId}/content", method=RequestMethod.GET)
-    public List<Optional<documentModel>> readContentInOrder(@PathVariable(value = "orderId") Long id) {
+    public List<Optional<DocumentModel>> readContentInOrder(@PathVariable(value = "orderId") Long id) {
 
         return orderService.getdocumentsByOrder(id);
     }
@@ -102,7 +102,7 @@ public class OrderController {
      * @return the updated order
      */
     @RequestMapping(value="/{orderId}", method=RequestMethod.PUT)
-    public orderModel updateOrders(@PathVariable(value = "orderId") Long id, @RequestBody orderModel orderDetails) {
+    public OrderModel updateOrders(@PathVariable(value = "orderId") Long id, @RequestBody OrderModel orderDetails) {
         return orderService.updateOrder(id, orderDetails);
     }
 
@@ -126,12 +126,12 @@ public class OrderController {
     public long getPrice(@PathVariable(value = "orderId") Long orderId) {
     int totalPrice = 0;
     //List<orderModel> order = orderService.getOrder();
-    List<mapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
-    List<documentModel> documentArray = documentService.getDocuments();
-    for (mapDocuOrderModel element : mapDocuOrderArray) {
+    List<MapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
+    List<DocumentModel> documentArray = documentService.getDocuments();
+    for (MapDocuOrderModel element : mapDocuOrderArray) {
         if (element.getFkorder() == orderId) {
             Long fkDoc = element.getFkdocument();
-            for (documentModel element2 : documentArray) {
+            for (DocumentModel element2 : documentArray) {
                 if (element2.getDocumentId() == fkDoc) {
                     totalPrice += element2.getPrice();
                 }
@@ -149,7 +149,7 @@ public class OrderController {
      * @return the order which has the provided user id
      */
     @RequestMapping(value="/getOrderByUserId/{userId}", method=RequestMethod.GET)
-    public List<orderModel> readOrderByUserId(@PathVariable(value = "userId") Long id) {
+    public List<OrderModel> readOrderByUserId(@PathVariable(value = "userId") Long id) {
         return orderService.getOrderByUserId(id);
     }
 

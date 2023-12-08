@@ -1,7 +1,7 @@
 package com.RISE.sylla;
 
 import com.RISE.sylla.controller.DocumentController;
-import com.RISE.sylla.model.documentModel;
+import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.service.documentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -42,7 +42,7 @@ public class DeleteDocumentTest {
     @Test
     public void deleteDocumentTest() throws Exception {
         // Mocking the service layer to return a specific document by ID
-        documentModel document1 = new documentModel();
+        DocumentModel document1 = new DocumentModel();
         document1.setDocumentId(1L);
         document1.setName("Document1");
         document1.setAuthor("Teacher1");
@@ -52,7 +52,7 @@ public class DeleteDocumentTest {
         document1.setPrice(22);
         when(documentService.getDocumentById(1L)).thenReturn(Optional.of(document1));
 
-        documentModel newDocument = new documentModel();
+        DocumentModel newDocument = new DocumentModel();
         newDocument.setDocumentId(10L);
         newDocument.setName("Document2");
         newDocument.setAuthor("Teacher2");

@@ -1,7 +1,7 @@
 package com.RISE.sylla;
 
 import com.RISE.sylla.controller.UserController;
-import com.RISE.sylla.model.userModel;
+import com.RISE.sylla.model.UserModel;
 import com.RISE.sylla.service.userService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,7 +41,7 @@ public class DeleteUserTest {
     @Test
     public void deleteUserTest() throws Exception {
         // Mocking the service layer to return a specific order by ID
-        userModel user = new userModel();
+        UserModel user = new UserModel();
         user.setUserId(1L);
         user.setFirstName("FirstName");
         user.setLastName("LastName");
@@ -51,7 +51,7 @@ public class DeleteUserTest {
         user.setTrigram("TRI");
         when(userService.getUserById(1L)).thenReturn(Optional.of(user));
 
-        userModel newUser = new userModel();
+        UserModel newUser = new UserModel();
         newUser.setUserId(10L);
         newUser.setFirstName("NEWFirstName");
         newUser.setLastName("NEWLastName");
