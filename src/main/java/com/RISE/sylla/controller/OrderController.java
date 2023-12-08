@@ -22,7 +22,7 @@ import com.RISE.sylla.service.documentService;
 
 @RestController
 @RequestMapping("/orders")
-public class orderController {
+public class OrderController {
     @Autowired
     orderService orderService;
     @Autowired

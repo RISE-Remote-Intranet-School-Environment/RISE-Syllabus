@@ -18,7 +18,7 @@ import com.RISE.sylla.service.MapDocuOrderService;
 
 @RestController
 @RequestMapping("/mapDocuOrders")
-public class mapDocuOrderController {
+public class MapDocuOrderController {
 
     @Autowired
     MapDocuOrderService mapDocuOrderService;

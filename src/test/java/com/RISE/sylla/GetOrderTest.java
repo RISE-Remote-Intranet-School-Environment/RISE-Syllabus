@@ -1,6 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.orderController;
+import com.RISE.sylla.controller.OrderController;
 import com.RISE.sylla.model.orderModel;
 import com.RISE.sylla.service.orderService;
 import org.junit.jupiter.api.BeforeEach;
@@ -28,7 +28,7 @@ public class GetOrderTest{
     private orderService orderService;
 
     @InjectMocks
-    private orderController orderController;
+    private OrderController orderController;
 
     private MockMvc mockMvc;
 

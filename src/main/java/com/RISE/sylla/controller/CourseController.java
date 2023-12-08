@@ -17,7 +17,7 @@ import com.RISE.sylla.service.courseService;
 
 @RestController
 @RequestMapping("/courses")
-public class courseController {
+public class CourseController {
     @Autowired
     courseService courseService;
 

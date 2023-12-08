@@ -1,6 +1,6 @@
 import com.RISE.sylla.model.courseModel;
 import com.RISE.sylla.service.courseService;
-import com.RISE.sylla.controller.courseController;
+import com.RISE.sylla.controller.CourseController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -24,7 +24,7 @@ public class GetCourseUnitTest {
     private courseService courseService;
 
     @InjectMocks
-    private courseController courseController;
+    private CourseController courseController;
 
     private MockMvc mockMvc;
 

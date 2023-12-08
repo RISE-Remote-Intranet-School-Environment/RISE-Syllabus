@@ -1,7 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.userController;
-import com.RISE.sylla.model.orderModel;
+import com.RISE.sylla.controller.UserController;
 import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,7 +25,7 @@ public class DeleteUserTest {
     private userService userService;
 
     @InjectMocks
-    private userController userController;
+    private UserController userController;
 
     private MockMvc mockMvc;
 

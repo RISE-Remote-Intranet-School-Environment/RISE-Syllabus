@@ -1,6 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.documentController;
+import com.RISE.sylla.controller.DocumentController;
 import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.service.documentService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +25,7 @@ public class DeleteDocumentTest {
     private documentService documentService;
 
     @InjectMocks
-    private documentController documentController;
+    private DocumentController documentController;
 
     private MockMvc mockMvc;
 

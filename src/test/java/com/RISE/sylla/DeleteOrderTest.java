@@ -1,6 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.orderController;
+import com.RISE.sylla.controller.OrderController;
 import com.RISE.sylla.model.orderModel;
 import com.RISE.sylla.service.orderService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +25,7 @@ public class DeleteOrderTest {
     private orderService orderService;
 
     @InjectMocks
-    private orderController orderController;
+    private OrderController orderController;
 
     private MockMvc mockMvc;
 

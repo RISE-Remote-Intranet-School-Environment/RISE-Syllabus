@@ -2,7 +2,7 @@ package com.RISE.sylla;
 
 import com.RISE.sylla.model.courseModel;
 import com.RISE.sylla.service.courseService;
-import com.RISE.sylla.controller.courseController;
+import com.RISE.sylla.controller.CourseController;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,8 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
@@ -28,7 +26,7 @@ public class DeleteCourseTest{
     private courseService courseService;
 
     @InjectMocks
-    private courseController courseController;
+    private CourseController courseController;
 
     private MockMvc mockMvc;
 

@@ -1,6 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.userController;
+import com.RISE.sylla.controller.UserController;
 import com.RISE.sylla.model.userModel;
 import com.RISE.sylla.service.userService;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +27,7 @@ public class GetUserTest{
     private userService userService;
 
     @InjectMocks
-    private userController userController;
+    private UserController userController;
 
     private MockMvc mockMvc;
 

@@ -1,6 +1,6 @@
 package com.RISE.sylla;
 
-import com.RISE.sylla.controller.documentController;
+import com.RISE.sylla.controller.DocumentController;
 import com.RISE.sylla.model.documentModel;
 import com.RISE.sylla.service.documentService;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,7 +27,7 @@ public class GetDocumentTest{
     private documentService documentService;
 
     @InjectMocks
-    private documentController documentController;
+    private DocumentController documentController;
 
     private MockMvc mockMvc;
 
