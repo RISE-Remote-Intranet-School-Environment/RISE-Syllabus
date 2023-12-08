@@ -1,61 +1,74 @@
 package com.RISE.sylla;
 
-import org.junit.Before;
+import com.RISE.sylla.model.courseModel;
+import com.RISE.sylla.service.courseService;
+import com.RISE.sylla.controller.courseController;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-@SpringBootTest
-@RunWith(SpringRunner.class)
-public class DeleteCourseTest extends SyllaApplicationTests {
-    @Value("${server.port}")
-    private int port;
-    @Autowired
-    private WebApplicationContext webApplicationContext;
-
-    private MockMvc mvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 
-    @Before
+public class DeleteCourseTest{
+    @Mock
+    private courseService courseService;
+
+    @InjectMocks
+    private courseController courseController;
+
+    private MockMvc mockMvc;
+
+    private ObjectMapper objectMapper;
+
+    @BeforeEach
     public void setup() {
-        mvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+        MockitoAnnotations.openMocks(this);
+        this.mockMvc = MockMvcBuilders.standaloneSetup(courseController).build();
+        this.objectMapper = new ObjectMapper();
     }
 
 
     @Test
     public void deleteCourseTest() throws Exception {
-        String json = "{\"courseId\":10,\"name\":\"nameTest\",\"teacher\":\"teacherTest\",\"ue\":\"ueTest\",\"year\":707}";
+        courseModel course1 = new courseModel();
+        course1.setCourseId(1L);
+        course1.setName("Course1");
+        course1.setTeacher("Teacher1");
+        course1.setUE("UE1");
+        course1.setYear(2022);
+        when(courseService.getCourseById(1L)).thenReturn(Optional.of(course1));
 
-        mvc.perform(post("http://localhost:" + port + "/courses")
-                        .content(json)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.courseId").value(10))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("nameTest"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.teacher").value("teacherTest"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ue").value("ueTest"))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.year").value(707));
+        courseModel newCourse = new courseModel();
+        newCourse.setCourseId(10L);
+        newCourse.setName("nameTest");
+        newCourse.setTeacher("teacherTest");
+        newCourse.setUE("ueTest");
+        newCourse.setYear(707);
 
-        mvc.perform(delete("http://localhost:" + port + "/courses/10")
-                        .content(json)
+        mockMvc.perform(post("/courses")
+                        .content(objectMapper.writeValueAsString(newCourse))
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+
+        // Perform delete request to delete the newly added course
+        mockMvc.perform(delete("/courses/10")
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
-
     }
 }
