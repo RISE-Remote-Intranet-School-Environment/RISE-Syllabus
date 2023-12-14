@@ -3,6 +3,7 @@ package com.RISE.sylla.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import com.RISE.sylla.service.DocumentService;
 public class OrderController {
     @Autowired
     OrderService orderService;
+    OrderModel order;
     @Autowired
     DocumentService documentService;
     @Autowired
@@ -78,8 +80,13 @@ public class OrderController {
      * @return the order which has the provided id
      */
     @RequestMapping(value="/{orderId}", method=RequestMethod.GET)
-    public Optional<OrderModel> readOrderById(@PathVariable(value = "orderId") Long id) {
-        return orderService.getOrderById(id);
+    public OrderModel readOrderById(@PathVariable(value = "orderId") Long id) {
+
+        if (orderService.getOrderById(id).isPresent()) {
+            // Utilisez la méthode get() pour obtenir la valeur
+            order = orderService.getOrderById(id).get();
+        }
+        return order;
     }
     /**
      * return all the documents linked to the specified order
@@ -129,19 +136,17 @@ public class OrderController {
      */
     @RequestMapping(value="/{orderId}/price", method=RequestMethod.GET)
     public long getPrice(@PathVariable(value = "orderId") Long orderId) {
-    int totalPrice = 0;
-    //List<orderModel> order = orderService.getOrder();
+    long totalPrice = 0;
     List<MapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
     List<DocumentModel> documentArray = documentService.getDocuments();
     for (MapDocuOrderModel element : mapDocuOrderArray) {
-        if (element.getFkorder() == orderId) {
+        if (Objects.equals(element.getFkorder(), orderId)) {
             Long fkDoc = element.getFkdocument();
             for (DocumentModel element2 : documentArray) {
-                if (element2.getDocumentId() == fkDoc) {
-                    totalPrice += element2.getPrice();
+                if (Objects.equals(element2.getDocumentId(), fkDoc)) {
+                    totalPrice += (long) element2.getPrice();
                 }
             }
-            
         }
     }
     return totalPrice;
