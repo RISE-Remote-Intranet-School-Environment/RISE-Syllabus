@@ -135,7 +135,7 @@ public class OrderController {
      * @return the price of the order
      */
     @RequestMapping(value="/{orderId}/price", method=RequestMethod.GET)
-    public long getPrice(@PathVariable(value = "orderId") Long orderId) {
+    public long getUpdatedPrice(@PathVariable(value = "orderId") Long orderId) {
     long totalPrice = 0;
     List<MapDocuOrderModel> mapDocuOrderArray = mapDocuOrderService.getMaps();
     List<DocumentModel> documentArray = documentService.getDocuments();

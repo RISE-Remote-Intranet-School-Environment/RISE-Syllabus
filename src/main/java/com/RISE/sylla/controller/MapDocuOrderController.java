@@ -1,6 +1,5 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.DocumentModel;
 import com.RISE.sylla.model.OrderModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -47,7 +46,7 @@ public class MapDocuOrderController {
 
     public void updatePricebyId(Long id){
         order = ordercontroller.readOrderById(id);
-        order.setPrice(ordercontroller.getPrice(id));
+        order.setPrice(ordercontroller.getUpdatedPrice(id));
     }
     /**
      * return a specific map by its id
