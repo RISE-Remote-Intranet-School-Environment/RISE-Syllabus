@@ -57,7 +57,7 @@ A [MySql][mysql] server must be installed on your machine so that the applicatio
 
 In MySQL Workbench, import the SQL files located in /Assets/Sylla/ in a schema called "syllabus".
 
-When you have succesfully imported the database and cloned the repository, you have to run the file "SyllaApplication" located in "sylla/src/main/java/com/RISE/sylla/SyllaApplication.java".
+When you have succesfully imported the database and cloned the repository, you have to run the file "SyllaApplication" located in "src/main/java/com/RISE/sylla/SyllaApplication.java".
 
 You can test that the application is running properly with postman.
 
