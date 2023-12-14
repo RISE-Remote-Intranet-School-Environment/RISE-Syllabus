@@ -41,11 +41,14 @@ public class MapDocuOrderController {
     @RequestMapping(value="", method= RequestMethod.POST)
     public MapDocuOrderModel createmapDocuOrder(@RequestBody MapDocuOrderModel mapDocuOrder) {
         mapDocuOrderService.createMap(mapDocuOrder);
-        order = ordercontroller.readOrderById(mapDocuOrder.getFkorder());
-        order.setPrice(ordercontroller.getPrice(mapDocuOrder.getFkorder()));
+        updatePricebyId(mapDocuOrder.getFkorder());
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
+    public void updatePricebyId(Long id){
+        order = ordercontroller.readOrderById(id);
+        order.setPrice(ordercontroller.getPrice(id));
+    }
     /**
      * return a specific map by its id
      *
