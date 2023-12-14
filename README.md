@@ -61,7 +61,7 @@ When you have succesfully imported the database and cloned the repository, you h
 
 You can test that the application is running properly with postman. 
 
-Here is the link of the project's collection : "https://bold-station-892205.postman.co/workspace/Victor-Mourad-Corentin-Workspac~b999265d-cf6c-4c99-864c-4717ac904571/collection/26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4?action=share&creator=26399586"
+Here is the link of the project's collection : 
 
 For example, use a GET request with the link "http://localhost:8081/users" to return all the users from the database.
 
