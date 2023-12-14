@@ -63,6 +63,10 @@ You can test that the application is running properly with postman.
 
 [<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4%26entityType%3Dcollection%26workspaceId%3Da100556f-1a58-406a-86b4-fb8e148963c0)
 
+To update the collection, you can create a fork so that you will have a copy in your workspace :
+
+![img.png](img.png)
+
 For example, use a GET request with the link "http://localhost:8081/users" to return all the users from the database.
 
 ## TEST
