@@ -64,7 +64,15 @@ For example, use a GET request with the link "http://localhost:8081/users" to re
 
 ## TEST
 
-The Unit-tests are made on src/test/java/com/RISE/sylla.java you can run this javaClass to verify the status of the test.
+If you have maven install, you can run the test with the command
+```bash
+mvn test
+```
+The test use a 'mock' that will simulate objects that mimic the behavior of real objects.
+Then we will use the 'when' and '.thenReturn' that will create a mock of the model created previously in the code.
+Lastly whe can verify that the HTTP request gives us the model contained in the mock, add a new model or even delete an existing one from the mock.
+
+What is important the remember is that we are NOT using the database directly but we are creating simulated objects.
 
 ## DOCUMENTATION
 
