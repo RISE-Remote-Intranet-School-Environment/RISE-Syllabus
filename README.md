@@ -75,6 +75,9 @@ If you have maven install, you can run the test with the command
 ```bash
 mvn test
 ```
+If you don't have maven install you can run them manually by right clicking on "com.RISE.sylla" and "Run 'Tests' in 'sylla'"
+![image](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/assets/33122169/63f040d6-9dd9-4831-8cec-df9983a79c4b)
+
 The test use a 'mock' that will simulate objects that mimic the behavior of real objects.
 
 Then we will use the 'when' and '.thenReturn' that will create a mock of the model created previously in the code.
@@ -86,7 +89,6 @@ Example annotations for [DeleteCourseTest](https://github.com/RISE-Remote-Intran
 - @InjectMocks : It injects the mocked "CourseService" into the "CourseController"
 - @BeforeEach : This method is annotated with @BeforeEach to set up the test environment before each test method is executed
 - @Test : Define the test that will be executed
-
 
 What is important the remember is that we are NOT using the database directly but we are creating simulated objects.
 
