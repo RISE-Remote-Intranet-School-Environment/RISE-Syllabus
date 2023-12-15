@@ -76,8 +76,17 @@ If you have maven install, you can run the test with the command
 mvn test
 ```
 The test use a 'mock' that will simulate objects that mimic the behavior of real objects.
+
 Then we will use the 'when' and '.thenReturn' that will create a mock of the model created previously in the code.
+
 Lastly whe can verify that the HTTP request gives us the model contained in the mock, add a new model or even delete an existing one from the mock.
+
+Exemple annotations for [DeleteCourseTest]([https://github.com/user/repo/blob/branch/other_file.md](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/blob/main/src/test/java/com/RISE/sylla/DeleteCourseTest.java)):
+- @Mock : It is used to mock the "CourseService" dependency
+- @InjectMocks : It injects the mocked "CourseService" into the "CourseController"
+- @BeforeEach : This method is annotated with @BeforeEach to set up the test environment before each test method is executed
+- @Test : Define the test that will be executed
+
 
 What is important the remember is that we are NOT using the database directly but we are creating simulated objects.
 
