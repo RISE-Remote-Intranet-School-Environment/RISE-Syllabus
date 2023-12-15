@@ -75,6 +75,10 @@ If you have maven install, you can run the test with the command
 ```bash
 mvn test
 ```
+If you don't have maven installed you can run them manually by right clicking on "com.RISE.sylla" and "Run 'Tests' in 'sylla'"
+
+![image](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/assets/33122169/63f040d6-9dd9-4831-8cec-df9983a79c4b)
+
 The test use a 'mock' that will simulate objects that mimic the behavior of real objects.
 
 Then we will use the 'when' and '.thenReturn' that will create a mock of the model created previously in the code.
@@ -87,7 +91,6 @@ Example annotations for [DeleteCourseTest](https://github.com/RISE-Remote-Intran
 - @BeforeEach : This method is annotated with @BeforeEach to set up the test environment before each test method is executed
 - @Test : Define the test that will be executed
 
-
 What is important the remember is that we are NOT using the database directly but we are creating simulated objects.
 
 ## DOCUMENTATION
@@ -97,17 +100,16 @@ You can see there the goal of each function, the params they need and what they 
 
 To generate the documentation, follow these steps:
 
--Open the project in IntelliJ IDEA. \
--Click on the "Generate JavaDoc" button in the toolbar (as shown in the image you provided). \
--Specify the output directory \
--Click "OK" to generate the documentation. \
--The documentation will be generated in HTML format, and can be viewed by opening the index.html file in a web browser. \
+- Open the project in IntelliJ IDEA.
+- Click on "Tools" in the toolbar, then "Generate javaDoc" (as shown in the image below).
+- Below "JavaDoc Scope", choose "Whole project"
+- Specify "...\RISE-Syllabus\Assets\javaDoc" as the output directory
+- Click "GENERATE" to generate the documentation
+- The documentation will be generated in HTML format, and can be viewed by opening the file "Assets/javaDoc/index.html" in a web browser
 
-You can generated this documentation in intellij \
-![image](https://user-images.githubusercontent.com/67092457/206734346-17a032eb-96a4-48f8-8d07-697ed877d6ef.png) \
-We generate the documentation at the end of our project but you can do it by yourself 
+![image](https://user-images.githubusercontent.com/67092457/206734346-17a032eb-96a4-48f8-8d07-697ed877d6ef.png)
 
-Download the repository and open one html file the open this documentation \
+Download the repository and open any html file located in "Assets/javaDoc" to open the documentation.
 
 ## :deciduous_tree: Tree Structure
 
