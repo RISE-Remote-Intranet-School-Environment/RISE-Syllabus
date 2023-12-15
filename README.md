@@ -81,7 +81,7 @@ Then we will use the 'when' and '.thenReturn' that will create a mock of the mod
 
 Lastly whe can verify that the HTTP request gives us the model contained in the mock, add a new model or even delete an existing one from the mock.
 
-Exemple annotations for [DeleteCourseTest](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/blob/main/src/test/java/com/RISE/sylla/DeleteCourseTest.java):
+Exemple annotations for [DeleteCourseTest](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/blob/main/src/test/java/com/RISE/sylla/DeleteCourseTest.java) :
 - @Mock : It is used to mock the "CourseService" dependency
 - @InjectMocks : It injects the mocked "CourseService" into the "CourseController"
 - @BeforeEach : This method is annotated with @BeforeEach to set up the test environment before each test method is executed
