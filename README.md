@@ -75,7 +75,7 @@ If you have maven install, you can run the test with the command
 ```bash
 mvn test
 ```
-If you don't have maven install you can run them manually by right clicking on "com.RISE.sylla" and "Run 'Tests' in 'sylla'"
+If you don't have maven installed you can run them manually by right clicking on "com.RISE.sylla" and "Run 'Tests' in 'sylla'"
 
 ![image](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/assets/33122169/63f040d6-9dd9-4831-8cec-df9983a79c4b)
 
