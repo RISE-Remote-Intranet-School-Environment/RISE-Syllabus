@@ -57,14 +57,38 @@ A [MySql][mysql] server must be installed on your machine so that the applicatio
 
 In MySQL Workbench, import the SQL files located in /Assets/Sylla/ in a schema called "syllabus".
 
-When you have succesfully imported the database and cloned the repository, you have to run the file "SyllaApplication" located in "sylla/src/main/java/com/RISE/sylla/SyllaApplication.java".
+When you have succesfully imported the database and cloned the repository, you have to run the file "SyllaApplication" located in "src/main/java/com/RISE/sylla/SyllaApplication.java".
 
-You can test that the application is running properly with postman. 
+You can test that the application is running properly with postman.
+
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4%26entityType%3Dcollection%26workspaceId%3Da100556f-1a58-406a-86b4-fb8e148963c0)
+
+To update the collection, you can create a fork so that you will have a copy in your workspace :
+
+![img.png](img.png)
+
 For example, use a GET request with the link "http://localhost:8081/users" to return all the users from the database.
 
 ## TEST
 
-The Unit-tests are made on src/test/java/com/RISE/sylla.java you can run this javaClass to verify the status of the test.
+If you have maven install, you can run the test with the command
+```bash
+mvn test
+```
+The test use a 'mock' that will simulate objects that mimic the behavior of real objects.
+
+Then we will use the 'when' and '.thenReturn' that will create a mock of the model created previously in the code.
+
+Lastly whe can verify that the HTTP request gives us the model contained in the mock, add a new model or even delete an existing one from the mock.
+
+Example annotations for [DeleteCourseTest](https://github.com/RISE-Remote-Intranet-School-Environment/RISE-Syllabus/blob/main/src/test/java/com/RISE/sylla/DeleteCourseTest.java) :
+- @Mock : It is used to mock the "CourseService" dependency
+- @InjectMocks : It injects the mocked "CourseService" into the "CourseController"
+- @BeforeEach : This method is annotated with @BeforeEach to set up the test environment before each test method is executed
+- @Test : Define the test that will be executed
+
+
+What is important the remember is that we are NOT using the database directly but we are creating simulated objects.
 
 ## DOCUMENTATION
 

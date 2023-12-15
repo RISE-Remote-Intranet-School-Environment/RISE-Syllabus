@@ -49,7 +49,7 @@ public class MapDocuOrderService {
     }
 
     //find documents by order id
-    public List<Optional<DocumentModel>> getDocByOrderId(Long id){
+    public List<Optional<DocumentModel>> getDocsByOrderId(Long id){
         List<MapDocuOrderModel> list= mapDocuOrderRepository.findAllByfkorder(id);
         List<Optional<DocumentModel>> docList = new ArrayList<Optional<DocumentModel>>();
         for (MapDocuOrderModel map:list) {

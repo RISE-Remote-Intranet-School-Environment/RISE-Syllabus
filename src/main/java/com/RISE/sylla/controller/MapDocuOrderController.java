@@ -1,6 +1,6 @@
 package com.RISE.sylla.controller;
 
-import com.RISE.sylla.model.DocumentModel;
+import com.RISE.sylla.model.OrderModel;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -21,8 +21,11 @@ import com.RISE.sylla.service.MapDocuOrderService;
 public class MapDocuOrderController {
 
     @Autowired
+    OrderController ordercontroller;
+    @Autowired
     MapDocuOrderService mapDocuOrderService;
 
+    OrderModel order;
     /**
      * post NEW mapDocuOrder
      *
@@ -36,9 +39,15 @@ public class MapDocuOrderController {
      */
     @RequestMapping(value="", method= RequestMethod.POST)
     public MapDocuOrderModel createmapDocuOrder(@RequestBody MapDocuOrderModel mapDocuOrder) {
+        mapDocuOrderService.createMap(mapDocuOrder);
+        updatePricebyId(mapDocuOrder.getFkorder());
         return mapDocuOrderService.createMap(mapDocuOrder);
     }
 
+    public void updatePricebyId(Long id){
+        order = ordercontroller.readOrderById(id);
+        order.setPrice(ordercontroller.getUpdatedPrice(id));
+    }
     /**
      * return a specific map by its id
      *
@@ -77,8 +86,6 @@ public class MapDocuOrderController {
         System.out.println(mapDocuOrderDetails);
         return mapDocuOrderService.updateMap(id, mapDocuOrderDetails);
     }
-
-
     /**
      * delete a map
      *
@@ -88,16 +95,4 @@ public class MapDocuOrderController {
     public void deleteMapDocuOrder(@PathVariable(value = "mapDocuOrderId") Long id) {
         mapDocuOrderService.deleteMap(id);
     }
-
-    /**
-     * return all the documents linked to an order
-     *
-     * @param id id of the order for which you wish to find the documents
-     * @return list of document
-     */
-    @RequestMapping(value="/getDocsByOrderId/{orderId}", method=RequestMethod.GET)
-    public List<Optional<DocumentModel>> readDocsByOrderId(@PathVariable(value = "orderId") Long id) {
-        return mapDocuOrderService.getDocByOrderId(id);
-    }
-
 }

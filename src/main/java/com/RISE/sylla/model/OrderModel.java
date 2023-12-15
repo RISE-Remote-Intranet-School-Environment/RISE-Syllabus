@@ -24,7 +24,7 @@ public class OrderModel {
     private String date;
 
     @Column(name="price")
-    private int price;
+    private long price;
 
     @Column(name="state")
     private String state;
@@ -53,11 +53,11 @@ public class OrderModel {
         this.date = date;
     }
 
-    public int getPrice() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(long price) {
         this.price = price;
     }
 
