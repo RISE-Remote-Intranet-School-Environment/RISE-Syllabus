@@ -61,7 +61,7 @@ When you have succesfully imported the database and cloned the repository, you h
 
 You can test that the application is running properly with postman.
 
-[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4%26entityType%3Dcollection%26workspaceId%3Da100556f-1a58-406a-86b4-fb8e148963c0)
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">][postman]
 
 To update the collection, you can create a fork so that you will have a copy in your workspace :
 
@@ -152,6 +152,7 @@ With the schema generated, we host our API documentation online using [Stoplight
 <!-- Links -->
 [spring-boot]: https://spring.io/projects/spring-boot
 [maven]: https://www.jetbrains.com/help/idea/maven-support.html
+[postman]: https://app.getpostman.com/run-collection/26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D26399586-f5f0bd29-b3d8-41a2-a0b5-32077e4372b4%26entityType%3Dcollection%26workspaceId%3Da100556f-1a58-406a-86b4-fb8e148963c0
 [git]: https://git-scm.com/
 [mysql]: https://www.mysql.com
 [mysql-download]: https://dev.mysql.com/downloads/mysql/
