@@ -73,17 +73,16 @@ You can see there the goal of each function, the params they need and what they 
 
 To generate the documentation, follow these steps:
 
--Open the project in IntelliJ IDEA. \
--Click on the "Generate JavaDoc" button in the toolbar (as shown in the image you provided). \
--Specify the output directory \
--Click "OK" to generate the documentation. \
--The documentation will be generated in HTML format, and can be viewed by opening the index.html file in a web browser. \
+- Open the project in IntelliJ IDEA.
+- Click on "Tools" in the toolbar, then "Generate javaDoc" (as shown in the image below).
+- Below "JavaDoc Scope", choose "Whole project"
+- Specify "...\RISE-Syllabus\Assets\javaDoc" as the output directory
+- Click "GENERATE" to generate the documentation
+- The documentation will be generated in HTML format, and can be viewed by opening the file "Assets/javaDoc/index.html" in a web browser
 
-You can generated this documentation in intellij \
-![image](https://user-images.githubusercontent.com/67092457/206734346-17a032eb-96a4-48f8-8d07-697ed877d6ef.png) \
-We generate the documentation at the end of our project but you can do it by yourself 
+![image](https://user-images.githubusercontent.com/67092457/206734346-17a032eb-96a4-48f8-8d07-697ed877d6ef.png)
 
-Download the repository and open one html file the open this documentation \
+Download the repository and open any html file located in "Assets/javaDoc" to open the documentation.
 
 ## :deciduous_tree: Tree Structure
 
